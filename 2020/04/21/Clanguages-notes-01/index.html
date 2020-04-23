@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | 学习笔记</title>
+  <title>C语言学习笔记01 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/04/20/hello-world/index.html">
+<meta property="og:title" content="C语言学习笔记01">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/Clanguages-notes-01/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-20T12:14:07.304Z">
-<meta property="article:modified_time" content="2020-04-20T12:14:07.304Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII-list.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-Operator-precedence.png">
+<meta property="article:published_time" content="2020-04-21T13:39:00.000Z">
+<meta property="article:modified_time" content="2020-04-21T14:50:20.760Z">
 <meta property="article:author" content="Kevin B">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -170,47 +177,80 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Clanguages-notes-01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      C语言学习笔记01
     </h1>
   
 
         
-        <a href="/2020/04/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:14:07.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+        <a href="/2020/04/21/Clanguages-notes-01/" class="archive-article-date">
+  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。</p>
+<a id="more"></a>
+<h2 id="C语言数据类型"><a href="#C语言数据类型" class="headerlink" title="C语言数据类型"></a><strong>C语言数据类型</strong></h2><p><img src="/assets/blogImg/C-notes01-datatype.png" alt=""></p>
+<h2 id="C语言常量定义"><a href="#C语言常量定义" class="headerlink" title="C语言常量定义"></a><strong>C语言常量定义</strong></h2><p>我们在用C编程时有时需要定义不变的变量，即常量，有两种方法。<br>1.使用#define，例如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> a 5</span></span><br></pre></td></tr></table></figure>
+<p>2.采用const定义，例如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p>C语言中’#”作用是作为预处理命令，在编译器进行编译之前对源代码做某些转换。使用#define是将a定义成一种符号，此时a只是5的别名，在编译期间用5去取代a的值；而使用const是将a定义成变量，但告诉编译器它的值是固定不变的，如果在程序中试图去修改它的值，在编译时会报错.</p>
+<h2 id="C语言字符与ASCII代码对照表"><a href="#C语言字符与ASCII代码对照表" class="headerlink" title="C语言字符与ASCII代码对照表"></a><strong>C语言字符与ASCII代码对照表</strong></h2><p><img src="/assets/blogImg/C-notes01-ASCII.png" alt=""><br>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”&quot;来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br><img src="/assets/blogImg/C-notes01-ASCII-list.png" alt=""></p>
+<h2 id="C语言参与运算的优先级和结合性"><a href="#C语言参与运算的优先级和结合性" class="headerlink" title="C语言参与运算的优先级和结合性"></a><strong>C语言参与运算的优先级和结合性</strong></h2><p><img src="/assets/blogImg/C-notes01-Operator-precedence.png" alt=""></p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -261,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/20/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/21/Clanguages-notes-01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +315,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/21/Clanguages-notes-01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/22/Clanguages-notes-02/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C语言学习笔记01
+          C语言学习笔记02
         
       </div>
     </a>
   
   
-    <a href="/2012/12/31/css3-animater/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">当我想用css3实现一个动作类库</div>
+    <a href="/2020/04/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   

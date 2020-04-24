@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>当我想用css3实现一个动作类库 | 学习笔记</title>
+  <title>C语言学习笔记05 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当我如是想的时候，事实上我已想了很久。后来被各种纠结的差事冲乱了生活和心绪，并且心里认为这是个妥当无比的借口。找到了借口后一拖再拖，果然认识到deadline才是第一生产力的真理。最近，却是被朋友的一句话逼急了，他跟我说：我们的业务用到了css4的新属性！ 这句话的意思，大体等同于说，我买到了一个iphone6，亲你怎么看？">
+  <meta name="description" content="C语言指针与函数C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。  指针作为函数的参数传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调">
 <meta property="og:type" content="article">
-<meta property="og:title" content="当我想用css3实现一个动作类库">
-<meta property="og:url" content="http://yoursite.com/2012/12/31/css3-animater/index.html">
+<meta property="og:title" content="C语言学习笔记05">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/Clanguage-notes-05/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="当我如是想的时候，事实上我已想了很久。后来被各种纠结的差事冲乱了生活和心绪，并且心里认为这是个妥当无比的借口。找到了借口后一拖再拖，果然认识到deadline才是第一生产力的真理。最近，却是被朋友的一句话逼急了，他跟我说：我们的业务用到了css4的新属性！ 这句话的意思，大体等同于说，我买到了一个iphone6，亲你怎么看？">
+<meta property="og:description" content="C语言指针与函数C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。  指针作为函数的参数传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/css3_anm.jpg">
-<meta property="article:published_time" content="2012-12-30T16:02:00.000Z">
-<meta property="article:modified_time" content="2017-07-28T18:51:08.000Z">
+<meta property="article:published_time" content="2020-04-24T02:30:00.000Z">
+<meta property="article:modified_time" content="2020-04-24T03:17:53.780Z">
 <meta property="article:author" content="Kevin B">
-<meta property="article:tag" content="css3">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/css3_anm.jpg">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -173,44 +173,62 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-css3-animater" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Clanguage-notes-05" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      当我想用css3实现一个动作类库
+      C语言学习笔记05
     </h1>
   
 
         
-        <a href="/2012/12/31/css3-animater/" class="archive-article-date">
-  	<time datetime="2012-12-30T16:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-12-31</time>
+        <a href="/2020/04/24/Clanguage-notes-05/" class="archive-article-date">
+  	<time datetime="2020-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当我如是想的时候，事实上我已想了很久。后来被各种纠结的差事冲乱了生活和心绪，并且心里认为这是个妥当无比的借口。找到了借口后一拖再拖，果然认识到deadline才是第一生产力的真理。最近，却是被朋友的一句话逼急了，他跟我说：我们的业务用到了css4的新属性！</p>
-<p>这句话的意思，大体等同于说，我买到了一个iphone6，亲你怎么看？</p>
+        <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
+<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。</p>
 <a id="more"></a>
-<p>它在我脑中纷乱起舞，那是plans vs zombies中一大波僵尸正在逼近的场景。是的，再不行动，就要被技术的狂潮给淹没了！日前，就我的浅薄见闻，当html5越来越多的功能被应用到业务主功能上，诸如本地存储，拖拽优化，postMessage通信…css3却是另一番光景。一方面，一个个绚丽效果的css3-demo在网上被围观与叫好，大家却又在为浏览器兼容性和差异性这座大山望而却步。css3技术在大家眼中更偏向于一种优化的体验，等于说，你不敢用它来实现网站的key point，即使是一个圆角，不问技术细节的产品经理也会想使用图片来代替的。</p>
-<p>因此，缘由可以归结为：我忍够了。要玩，就玩个大的。</p>
-<p>其实虽然我想了很久，但这个“想”，更偏向于单纯的幻想，而不是思考。暑假的时候，在腾讯大讲堂看到有哥们分享css3与js的动画效率比较的演示，就萌生了这个想法。现在，在正式尝试编写类库之前，我想先写2~3个实验demo，来看看技术的复杂度以及一些可以避免的暗礁，并做好一些记录。当然这些demo必须得使用最新的chrome，firefox，opera以及ie8，9才能正常运行。</p>
-<p>##<strong>第一个实验：人物sprite图动画实现，按键与位移的衔接</strong><br>请按键盘方向键控制人物运动：</p>
-<iframe id="demoIframe" src="/assets/demo/pre_css3_demo/demo.html" width="641" height="483" scrolling="no"></iframe>
-
-<p>##<strong>最深的体会</strong><br><strong>我的js代码需要怎样“辅助”css3？</strong><br>按照我的理解，如果是说一个dom元素的“动作”的话，完全可以用纯css3来实现，而且你可以将dom的动作串连起来。<br>例如：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@-webkit-keyframes</span> q-down &#123;</span><br><span class="line">     0%&#123;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(<span class="number">0deg</span>);</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     33%&#123;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">1.5</span>);</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">147px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     66%&#123;</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">50px</span>);</span><br><span class="line">     &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">         <span class="attribute">top</span>:<span class="number">147px</span>;</span><br><span class="line">         <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-animation</span>:q-down  ease;</span><br><span class="line">    <span class="attribute">-webkit-animation-duration</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="attribute">-webkit-animation-timing-function</span>: linear;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">147px</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>dom元素会在0%，33%，66%，100%这些时间点上做出相应的效果响应。<br><strong>这样的动作序列还会有什么问题吗？</strong><br>在demo当中，我设置了按一下“左”键，人物向左偏移一格，按一下“下”键，人物下移一格，于是我就遇到了这样的两种情况：<br>    1、用户按下“下”，人物向下偏移动作完成后，他仍不放手，此时同时按了“左”<br>    我认为此时用户在使用“双键”，这时人物会再向左下方向都偏移一格。<br>    2、用户“几乎”同时按下“下”和“左”，由于js每次只能检测单键的keycode<br>    程序会判断用户是先按下了某个键，再使用了双键。<br>    而用户之所以“几乎”同时按下，本是希望只执行“双键”的。</p>
-<p><img src="/assets/blogImg/css3_anm.jpg" alt="两种情况"><br>1与2的区别，其实就是双键产生时，两个按键的时间间隔的区别。时间间隔长，用户是需要1这种效果的，而时间间隔短，用户就是想只执行“双键”。但程序是固定的，无论时间间隔有多短，在它看来就是有先后，因此程序认为2和1是一样的。我在demo里，就用了时间戳的方式，而这种方式，其实是“投机取巧”的一种方式。</p>
-<p>回到上面那个问题来，这样的纯css3动作序列有什么问题？时间的问题更深入一点我可以得到结论：<br>    那就是无法侦听一个css3动作是否已经结束。<br>如果我能够侦听动作是否正在执行，那么一切就好办了，如果前动作已完成，我就像情况1一样“先单键再双键”去操作，如果前动作未完成，我就判断用户是想只执行“双键”。</p>
-<p>OK，js代码就是要像jquery的animate方法一样，构造一个动作的队列，存放用户积累下来的动作，并作好回调判断。</p>
+<p>用一个例子来说明：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>	<span class="comment">// 参数为普通的 int 变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap2</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span>	<span class="comment">// 参数为指针，接受调用函数传递过来的变量地址作为参数，对所指地址处的内容进行操作</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = *a;	<span class="comment">// 最终结果是，地址本身并没有改变，但是这一地址所对应的内存段中的内容发生了变化，即x,y的值发生了变化</span></span><br><span class="line">	*a = *b;</span><br><span class="line">	*b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line">	swap1(x, y);	<span class="comment">// 将 x,y 的值本身作为参数传递给了被调函数</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %5d\n"</span>, x, y);	<span class="comment">// 输出结果为：1     2</span></span><br><span class="line"></span><br><span class="line">	swap2(&amp;x, &amp;y);	<span class="comment">// 将 x,y 的地址作为参数传递给了被调函数，传递过去的也是一个值，与传值调用不冲突</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %5d\n"</span>, x, y);	<span class="comment">// 输出结果为：2     1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h3><p>在C语言中，函数本身不是变量，但是可以定义指向函数的指针，也称作函数指针，函数指针指向函数的入口地址。这种类型的指针可以被赋值、存放在数组中、传递给函数以及作为函数的返回值等等。 声明一个函数指针的方法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*p)(<span class="keyword">int</span> *, <span class="keyword">int</span> *); <span class="comment">//声明一个函数指针</span></span><br></pre></td></tr></table></figure>
+<p>上述代码声明了一个函数指针p，该指针指向一个函数，函数具有两个int*类型的参数，且返回值类型为int。下面的代码演示了函数指针的用法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"string.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个函数 str_comp，该函数有两个const char类型的指针，函数的返回值为int类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *m, <span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span>;	</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个函数comp ,注意该函数的第三个参数，是一个函数指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">comp</span><span class="params">(<span class="keyword">char</span> *a, <span class="keyword">char</span> *b, <span class="keyword">int</span>(*prr)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span>*))</span></span>;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *m, <span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 库函数strcmp用于比较两个字符串，其原型是： int strcmp(const char *s1,const char *s2);</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">strcmp</span>(m, n) == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函数comp接受一个函数指针作为它的第三个参数 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">comp</span><span class="params">(<span class="keyword">char</span> *a, <span class="keyword">char</span> *b, <span class="keyword">int</span>(*prr)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span>*))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((*prr)(a, b) == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"str1 = str2\n"</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"str1 != str2\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[<span class="number">20</span>];	<span class="comment">// 声明一个字符数组</span></span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">20</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 声明并初始化一个函数指针，该指针所指向的函数有两个const char类型的指针，且返回值为int类型</span></span><br><span class="line">	<span class="keyword">int</span>(*p)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span> *) = str_comp;	</span><br><span class="line">    </span><br><span class="line">	gets(str1);	<span class="comment">// 使用gets()函数从I/O读取一行字符串</span></span><br><span class="line">	gets(str2);</span><br><span class="line">	comp(str1, str2, p);	<span class="comment">// 函数指针p作为参数传给comp函数</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码的功能是从键盘读取两行字符串（长度不超过20），判断二者是否相等。<br>注意，声明一个函数指针时，()不能漏掉，否则：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">p</span><span class="params">(<span class="keyword">void</span> *, <span class="keyword">void</span> *)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>这表明p是一个函数，该函数返回一个指向 int 类型的指针。</p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -221,7 +239,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
         		</li>
       		
 		</ul>
@@ -277,7 +303,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2012/12/31/css3-animater/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/24/Clanguage-notes-05/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,15 +317,20 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/20/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/24/Clanguage-notes-06/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          C语言学习笔记05
         
       </div>
     </a>
   
+  
+    <a href="/2020/04/23/Clanguage-notes-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言学习笔记04</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -427,7 +458,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">指针</a>
               </li>
             
             <div class="clearfix"></div>

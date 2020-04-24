@@ -6,26 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>C语言学习笔记01 | 学习笔记</title>
+  <title>C语言学习笔记02 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
+  <meta name="description" content="getchar()getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言学习笔记01">
-<meta property="og:url" content="http://yoursite.com/2020/04/21/Clanguages-notes-01/index.html">
+<meta property="og:title" content="C语言学习笔记02">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/Clanguage-notes-02/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
+<meta property="og:description" content="getchar()getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII.png">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII-list.png">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-Operator-precedence.png">
-<meta property="article:published_time" content="2020-04-21T13:39:00.000Z">
-<meta property="article:modified_time" content="2020-04-21T14:50:20.760Z">
+<meta property="article:published_time" content="2020-04-22T06:34:00.000Z">
+<meta property="article:modified_time" content="2020-04-22T08:57:44.266Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -177,36 +172,35 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Clanguages-notes-01" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Clanguage-notes-02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C语言学习笔记01
+      C语言学习笔记02
     </h1>
   
 
         
-        <a href="/2020/04/21/Clanguages-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+        <a href="/2020/04/22/Clanguage-notes-02/" class="archive-article-date">
+  	<time datetime="2020-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。</p>
+        <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符</p>
 <a id="more"></a>
-<h2 id="C语言数据类型"><a href="#C语言数据类型" class="headerlink" title="C语言数据类型"></a><strong>C语言数据类型</strong></h2><p><img src="/assets/blogImg/C-notes01-datatype.png" alt=""></p>
-<h2 id="C语言常量定义"><a href="#C语言常量定义" class="headerlink" title="C语言常量定义"></a><strong>C语言常量定义</strong></h2><p>我们在用C编程时有时需要定义不变的变量，即常量，有两种方法。<br>1.使用#define，例如</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> a 5</span></span><br></pre></td></tr></table></figure>
-<p>2.采用const定义，例如</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<p>C语言中’#”作用是作为预处理命令，在编译器进行编译之前对源代码做某些转换。使用#define是将a定义成一种符号，此时a只是5的别名，在编译期间用5去取代a的值；而使用const是将a定义成变量，但告诉编译器它的值是固定不变的，如果在程序中试图去修改它的值，在编译时会报错.</p>
-<h2 id="C语言字符与ASCII代码对照表"><a href="#C语言字符与ASCII代码对照表" class="headerlink" title="C语言字符与ASCII代码对照表"></a><strong>C语言字符与ASCII代码对照表</strong></h2><p><img src="/assets/blogImg/C-notes01-ASCII.png" alt=""><br>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”&quot;来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br><img src="/assets/blogImg/C-notes01-ASCII-list.png" alt=""></p>
-<h2 id="C语言参与运算的优先级和结合性"><a href="#C语言参与运算的优先级和结合性" class="headerlink" title="C语言参与运算的优先级和结合性"></a><strong>C语言参与运算的优先级和结合性</strong></h2><p><img src="/assets/blogImg/C-notes01-Operator-precedence.png" alt=""></p>
+<p>例如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = getchar();</span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它的简单意思就是从键盘读入一个字符，然后输出到屏幕。理所当然，我们输入1，输出就是1，输入2，输出就是2。那么我们如果输出的是12呢？它的输出是1。因为当我们从键盘输入字符‘1’，‘2’，并按下回车后，我们的输入被放入了输入缓冲区，这个时候getchar()会从缓冲区中读取我们刚才的输入，一次只读一个字符，所以字符1就被拿出来了，赋值给了c，然后putchar()又将c放在了标准输出，也就是这里的屏幕，所以我们看见了最终的显示结果1。同时字符‘1’也被缓冲区释放了，而字符‘2’仍然被留在了缓冲区。而这样是很不安全的，有可能下次使用的时候，我们的缓冲区会读到一些垃圾，但是当程序结束的时候，它会自动刷新。<br>又例如下面的代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">while</span>((c = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">        <span class="built_in">putchar</span>(c);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这几行代码并不是从键盘输入一个字符就会输出一个字符直到遇见了换行符。getchar()会从输入缓冲区去读取内容，也就是说我们把所有的内容都输入完成并且按下了Enter键后，我们的输入才被送进去了输入缓冲区，这个时候，while循环才开始工作，每一次getchar()从输入缓冲区读取一个字符，然后如果不是换行符就输出。</p>
+<h2 id="天数判断"><a href="#天数判断" class="headerlink" title="天数判断"></a><strong>天数判断</strong></h2><p>输入某年某月某日，判断这一天是这一年的第几天</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> year, mouth, day, leap, num;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入年份："</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;year);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入月："</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mouth);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入天："</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;day);</span><br><span class="line">	<span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span>) \\判断是闰年还是平年</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (year % <span class="number">100</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">400</span> != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			leap = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			leap = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		leap = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt; mouth &lt;= <span class="number">8</span>) \\<span class="number">8</span>月前奇数<span class="number">31</span>天<span class="number">8</span>月后偶数<span class="number">31</span>天</span><br><span class="line">	&#123;</span><br><span class="line">		num = (<span class="number">30</span> * ((mouth - <span class="number">1</span>) / <span class="number">2</span>)) + <span class="number">31</span> * ((mouth - <span class="number">1</span>) - ((mouth - <span class="number">1</span>) / <span class="number">2</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">8</span> &lt; mouth &lt;= <span class="number">12</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		num = <span class="number">31</span> * <span class="number">5</span> + <span class="number">30</span> * <span class="number">3</span> + <span class="number">31</span> * ((mouth - <span class="number">9</span>) / <span class="number">2</span>) + <span class="number">30</span> * ((mouth - <span class="number">9</span>) - ((mouth - <span class="number">9</span>) / <span class="number">2</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"请输入正确年份"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (mouth &gt; <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (leap)</span><br><span class="line">		&#123;</span><br><span class="line">			num = num - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			num = num - <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"输入日期是这一年的第%d天\n"</span>, num + day);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -301,7 +295,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/21/Clanguages-notes-01/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/22/Clanguage-notes-02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +309,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/22/Clanguages-notes-02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/23/Clanguage-notes-03/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C语言学习笔记02
+          C语言学习笔记03
         
       </div>
     </a>
   
   
-    <a href="/2020/04/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/04/21/Clanguage-notes-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言学习笔记01</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -456,7 +450,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">指针</a>
               </li>
             
             <div class="clearfix"></div>

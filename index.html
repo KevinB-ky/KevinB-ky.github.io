@@ -170,30 +170,45 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Clanguages-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Clanguage-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/22/Clanguages-notes-02/">C语言学习笔记02</a>
+      <a class="article-title" href="/2020/04/24/Clanguage-notes-07/">C语言学习笔记07</a>
     </h1>
   
 
         
-        <a href="/2020/04/22/Clanguages-notes-02/" class="archive-article-date">
-  	<time datetime="2020-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+        <a href="/2020/04/24/Clanguage-notes-07/" class="archive-article-date">
+  	<time datetime="2020-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符</p>
-        
-          <a class="article-more-a" href="/2020/04/22/Clanguages-notes-02/#more">more >></a>
-        
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure>
+<p>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。</p>
+<h3 id="赋值指针可行，赋值数组出错的原因"><a href="#赋值指针可行，赋值数组出错的原因" class="headerlink" title="赋值指针可行，赋值数组出错的原因"></a>赋值指针可行，赋值数组出错的原因</h3><p>继续引用上面的例子，字符串可以直接赋值给指针变量而数组就不行了，比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a[<span class="number">10</span>] = <span class="string">"Hello!"</span>   <span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">char</span> b[<span class="number">10</span>];</span><br><span class="line">b = <span class="string">"Hello!"</span>    <span class="comment">// 程序报错</span></span><br></pre></td></tr></table></figure>
+<p>同样是数组，char a[10] = “hello”;这种是数组的初始化，和a[0] = ‘h’, a[1] = ‘e’是一个道理.但是换成char a[10]然后a = “hello”就不行了. “hello”赋值的值是一个地址，而a虽然也有地址，但是这与指针是不一样的，指针的值是地址，而数组的值虽然也是地址，但是在定义这个数组时就已经创建，是一个常量，所以不能给常量赋值。在使用运算符”=”时，运算符的左边应该是一个“左值”。所谓“左值”就是指在程序中占用内存空间、可以被修改的量,比如各种变量。<br>在使用指针的时候，指针可以自增，而数组不能自增。编译器给数组分配了空间，数组a的地址就是一个常量了，让常量自增这肯定是不行的。在指针自增的时候，编译器会自动识别类型，比如指针是指向int型的，想获取下一个的地址时，指针直接p++就行了，不要多此一举的p+4了。<br>特别需要注意的是，在void指针使用的时候，不能使用指针运算，应为void型编译器不能识别类型的长度（即指针所指对象的体积），p++这样就是不合法的，即不能进行数学运算，也不能使用*取值操作，想使用必须转换为其它的类型。</p>
+<h3 id="字符数组，字符指针，字符串常量"><a href="#字符数组，字符指针，字符串常量" class="headerlink" title="字符数组，字符指针，字符串常量"></a>字符数组，字符指针，字符串常量</h3><p>1.以字符串形式出现的，编译器都会为该字符串自动添加一个0作为结束符，如在代码中写”abc”,那么编译器帮你存储的是”abc\0”。</p>
+<p>2.”abc”是常量吗？答案是有时是，有时不是。<br>不是常量的情况：”abc”作为字符数组初始值的时候就不是，如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">"abc"</span></span><br></pre></td></tr></table></figure>
+<p>因为定义的是一个字符数组，所以就相当于定义了一些空间来存放”abc”，而又因为字符数组就是把字符一个一个地存放的，所以编译器把这个语句解析为char str[3] = {‘a’,’b’,’c’};又根据上面的总结1，所以char str[] = “abc”;的最终结果是char str[4] = {‘a’,’b’,’c’,’\0’};</p>
+<p> 是常量的情况：  把”abc”赋给一个字符指针变量时，如:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* ptr = <span class="string">"abc"</span>;</span><br></pre></td></tr></table></figure>
+<p>因为定义的是一个普通字符指针，并没有定义空间来存放”abc”，所以编译器得帮我们找地方来放”abc”，显然，把这里的”abc”当成常量并把它放到程序的常量区是编译器最合适的选择。所以尽管ptr的类型不是const char<em>，并且ptr[0] = ‘x’;也能编译通过，但是执行ptr[0] = ‘x’;就会发生运行时异常，因为这个语句试图去修改程序常量区中的东西。<br>记得哪本书中曾经说过char</em> ptr = “abc”;这种写法原来在c++标准中是不允许的，但是因为这种写法在c中实在是太多了，为了兼容c，不允许也得允许。虽然允许，但是建议的写法应该是const char* ptr = “abc”;这样如果后面写ptr[0] = ‘x’的话编译器就不会让它编译通过，也就避免了上面说的运行时异常。<br>如果char* ptr = “abc”;写在函数体内，那么虽然这里的”abc\0”被放在常量区中，但是ptr本身只是一个普通的指针变量，所以ptr是被放在栈上的，只不过是它所指向的东西被放在常量区罢了。</p>
+<p>3.数组的类型是由该数组所存放的东西的类型以及数组本身的大小决定的。<br>如char s1[3]和char s2[4]，s1的类型就是char[3]，s2的类型就是char[4]，也就是说尽管s1和s2都是字符数组，但两者的类型却是不同的。</p>
+<p>4.字符串常量的类型可以理解为相应字符常量数组的类型，如”abcdef”的类型就可以看成是const char[7]。</p>
+<p>5.sizeof是用来求类型的字节数的。如int a;那么无论sizeof(int)或者是sizeof(a)都是等于4，因为sizeof(a)其实就是sizeof(type of a)。</p>
+<p>6.对于函数参数列表中的以数组类型书写的形式参数，编译器把其解释为普通的指针类型，如对于void func(char sa[100],int ia[20],char <em>p)则sa的类型为char</em>，ia的类型为int<em>，p的类型为char</em>。</p>
+<p>7.根据上面的总结：<br>对于char str[] = “abcdef”;就有sizeof(str) == 7,因为str的类型是char[7]，也有sizeof(“abcdef”) == 7，因为”abcdef”的类型是const char[7]；<br>对于char <em>ptr = “abcdef”;就有sizeof(ptr) == 4，因为ptr的类型是char</em>；<br>对于char str2[10] = “abcdef”;就有sizeof(str2) == 10，因为str2的类型是char[10]；<br>对于void func(char sa[100],int ia[20],char <em>p)就有sizeof(sa) == sizeof(ia) == sizeof(p) == 4，因为sa的类型是char</em>， ia的类型是int<em>，p的类型是char</em>。</p>
+
       
 
       
@@ -212,6 +227,10 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -220,7 +239,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/22/Clanguages-notes-02/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/24/Clanguage-notes-07/">展开全文 >></a>
         </p>
       
 
@@ -250,29 +269,369 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Clanguages-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Clanguage-notes-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/21/Clanguages-notes-01/">C语言学习笔记01</a>
+      <a class="article-title" href="/2020/04/24/Clanguage-notes-06/">C语言学习笔记05</a>
     </h1>
   
 
         
-        <a href="/2020/04/21/Clanguages-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+        <a href="/2020/04/24/Clanguage-notes-06/" class="archive-article-date">
+  	<time datetime="2020-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。</p>
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<p>而对字符指针变量，可以采用下面方法赋值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2020/04/21/Clanguages-notes-01/#more">more >></a>
+          <a class="article-more-a" href="/2020/04/24/Clanguage-notes-06/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/24/Clanguage-notes-06/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Clanguage-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/24/Clanguage-notes-05/">C语言学习笔记05</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/24/Clanguage-notes-05/" class="archive-article-date">
+  	<time datetime="2020-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
+<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。</p>
+        
+          <a class="article-more-a" href="/2020/04/24/Clanguage-notes-05/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/24/Clanguage-notes-05/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Clanguage-notes-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/23/Clanguage-notes-04/">C语言学习笔记04</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/23/Clanguage-notes-04/" class="archive-article-date">
+  	<time datetime="2020-04-23T10:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针的运算"><a href="#指针的运算" class="headerlink" title="指针的运算"></a>指针的运算</h3><p>指针是一种变量，和普通变量一样，可以进行算术运算，包含两种形式。<br>1.指针 +/- 整数 ：<br>指针变量 p 进行 p++、p–、p + i 等操作，所得结果也是一个指针，只是指针所指向的内存地址相比于 p 所指的内存地址前进或者后退了 i 个操作数。那么指针运算的规则是什么呢？</p>
+        
+          <a class="article-more-a" href="/2020/04/23/Clanguage-notes-04/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/23/Clanguage-notes-04/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Clanguage-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/23/Clanguage-notes-03/">C语言学习笔记03</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/23/Clanguage-notes-03/" class="archive-article-date">
+  	<time datetime="2020-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h3><p>C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（即指针变量中存放的值）是地址（即指针）。<br>在C语言中*为取值操作符，&amp;为取址操作符。</p>
+        
+          <a class="article-more-a" href="/2020/04/23/Clanguage-notes-03/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/23/Clanguage-notes-03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Clanguage-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/22/Clanguage-notes-02/">C语言学习笔记02</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/22/Clanguage-notes-02/" class="archive-article-date">
+  	<time datetime="2020-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符</p>
+        
+          <a class="article-more-a" href="/2020/04/22/Clanguage-notes-02/#more">more >></a>
         
       
 
@@ -300,7 +659,87 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/21/Clanguages-notes-01/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/22/Clanguage-notes-02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Clanguage-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/21/Clanguage-notes-01/">C语言学习笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/21/Clanguage-notes-01/" class="archive-article-date">
+  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。</p>
+        
+          <a class="article-more-a" href="/2020/04/21/Clanguage-notes-01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/21/Clanguage-notes-01/">展开全文 >></a>
         </p>
       
 
@@ -376,83 +815,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/20/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-css3-animater" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/31/css3-animater/">当我想用css3实现一个动作类库</a>
-    </h1>
-  
-
-        
-        <a href="/2012/12/31/css3-animater/" class="archive-article-date">
-  	<time datetime="2012-12-30T16:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-12-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我如是想的时候，事实上我已想了很久。后来被各种纠结的差事冲乱了生活和心绪，并且心里认为这是个妥当无比的借口。找到了借口后一拖再拖，果然认识到deadline才是第一生产力的真理。最近，却是被朋友的一句话逼急了，他跟我说：我们的业务用到了css4的新属性！</p>
-<p>这句话的意思，大体等同于说，我买到了一个iphone6，亲你怎么看？</p>
-        
-          <a class="article-more-a" href="/2012/12/31/css3-animater/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2012/12/31/css3-animater/">展开全文 >></a>
         </p>
       
 
@@ -579,7 +941,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">指针</a>
               </li>
             
             <div class="clearfix"></div>

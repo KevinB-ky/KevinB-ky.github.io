@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | 学习笔记</title>
+  <title>C语言学习笔记05 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="C语言指针字符指针变量和字符数组的区别1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。 12char str[20]str &#x3D; &quot;abcdefg&quot;; 而对字符指针变量，可以采用下面方法赋值： 12char *a;a &#x3D; &quot;abcde">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/04/20/hello-world/index.html">
+<meta property="og:title" content="C语言学习笔记05">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/Clanguage-notes-06/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="C语言指针字符指针变量和字符数组的区别1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。 12char str[20]str &#x3D; &quot;abcdefg&quot;; 而对字符指针变量，可以采用下面方法赋值： 12char *a;a &#x3D; &quot;abcde">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-20T12:14:07.304Z">
-<meta property="article:modified_time" content="2020-04-20T12:14:07.304Z">
+<meta property="article:published_time" content="2020-04-24T13:03:00.000Z">
+<meta property="article:modified_time" content="2020-04-24T14:08:26.545Z">
 <meta property="article:author" content="Kevin B">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -170,47 +173,113 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Clanguage-notes-06" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      C语言学习笔记05
     </h1>
   
 
         
-        <a href="/2020/04/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:14:07.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+        <a href="/2020/04/24/Clanguage-notes-06/" class="archive-article-date">
+  	<time datetime="2020-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<p>而对字符指针变量，可以采用下面方法赋值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>3.对字符指针变量赋值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<p>而对数组初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>] = &#123;<span class="string">"abcdefg"</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>不等价于：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">str[] = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure>
+<p>4.如果定义了一个字符数组，在编译时为它分配内存单元，它有确定的地址。而定义一个字符指针变量时，给指针变量分配内存单元，在其中可以放一个字符变量的地址也就是说，该指针变量可以指向一个字符型数据，但如果未对它赋予一个地址值，则它并未具体指向一个确定的字符数据。<br>5.指针变量的值是可以改变的。另外需要说明的是，若定义了一个指针变量，并使它指向一个字符串，就可以用下标形式引用指针变量所指的字符串中的字符。</p>
+<h3 id="指针与结构"><a href="#指针与结构" class="headerlink" title="指针与结构"></a>指针与结构</h3><p>结构是一个或多个变量的集合，这些变量可能为不同的类型，为了处理的方便而将这些变量组织在一个名字之下。由于结构将一组相关的变量看做一个单元而不是各自独立的实体，因此结构有助于组织复杂的数据，特别是在大型的程序中。声明一个结构的方式如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">message</span>&#123;</span>     <span class="comment">// 声明一个结构message</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">10</span>];  <span class="comment">// 成员</span></span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">message</span> <span class="title">s_message</span>    // 类型定义符<span class="title">typedef</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">s_message</span> <span class="title">mess</span> = &#123;</span><span class="string">"kevin"</span>, <span class="number">26</span>, <span class="number">99</span>&#125;  <span class="comment">// 声明一个struct message类型的变量mess，并对其进行初始化</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------------------</span><br><span class="line"><span class="comment">/* 另一种更简便的声明方法 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">&#125;message;</span><br></pre></td></tr></table></figure>
+<p>可以使用结构名.成员的方式来访问结构中的成员，如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, mess.name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, mess.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构指针是指向结构的指针，以上面的结构为例，可以这样定义一个结构指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_message *p;   <span class="comment">// 声明一个结构指针p，该指针指向一个s_message类型的结构</span></span><br><span class="line">p = &amp;mess;     <span class="comment">// 对结构指针的初始化与普通指针一样，也是使用取地址符&amp;</span></span><br></pre></td></tr></table></figure>
+<p>C语言中使用 -&gt; 操作符来访问结构指针的成员，举个例子：</p>
+<pre><code class="C"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>{</span>
+    <span class="keyword">char</span> name[<span class="number">10</span>];
+    <span class="keyword">int</span> age;
+    <span class="keyword">int</span> score;  
+}message;
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>{
+    message mess = {<span class="string">"tongye"</span>,<span class="number">23</span>,<span class="number">83</span>};
+    message *p = &amp;mess;
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,p-&gt;name);　　　　　　<span class="comment">// 输出结果为：tongye</span>
+    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,p-&gt;score);         <span class="comment">// 输出结果为：83</span>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+}
+
+</code></pre>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -261,7 +330,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/20/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/24/Clanguage-notes-06/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,15 +344,20 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/21/Clanguage-notes-01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/24/Clanguage-notes-07/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C语言学习笔记01
+          C语言学习笔记07
         
       </div>
     </a>
   
+  
+    <a href="/2020/04/24/Clanguage-notes-05/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言学习笔记05</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

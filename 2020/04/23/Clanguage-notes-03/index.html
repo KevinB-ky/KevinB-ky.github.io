@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: css3 | 学习笔记</title>
+  <title>C语言学习笔记03 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编程小白">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/tags/css3/index.html">
+  <meta name="description" content="C语言指针指针和指针变量C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习笔记03">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/Clanguage-notes-03/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="编程小白">
+<meta property="og:description" content="C语言指针指针和指针变量C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-23T09:56:00.000Z">
+<meta property="article:modified_time" content="2020-04-23T10:48:12.161Z">
 <meta property="article:author" content="Kevin B">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -168,60 +173,198 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Clanguage-notes-03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/12/31/css3-animater/" class="archive-article-date">
-  	<time datetime="2012-12-30T16:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-12-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/12/31/css3-animater/">当我想用css3实现一个动作类库</a>
+    <h1 class="article-title" itemprop="name">
+      C语言学习笔记03
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/23/Clanguage-notes-03/" class="archive-article-date">
+  	<time datetime="2020-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h3><p>C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（即指针变量中存放的值）是地址（即指针）。<br>在C语言中*为取值操作符，&amp;为取址操作符。</p>
+<a id="more"></a>
+<h3 id="为什么使用指针"><a href="#为什么使用指针" class="headerlink" title="为什么使用指针"></a>为什么使用指针</h3><p>在C语言中，指针的使用非常广泛，因为使用指针往往可以生成更高效、更紧凑的代码。总的来说，使用指针有如下好处：<br>1.指针的使用使得不同区域的代码可以轻易的共享内存数据，这样可以使程序更为快速高效；<br>2.C语言中一些复杂的数据结构往往需要使用指针来构建，如链表、二叉树等；<br>3.C语言是传值调用，而有些操作传值调用是无法完成的，如通过被调函数修改调用函数的对象，但是这种操作可以由指针来完成，而且并不违背传值调用。</p>
+<h3 id="指针的初始化"><a href="#指针的初始化" class="headerlink" title="指针的初始化"></a>指针的初始化</h3><p>如果一个指针没有被初始化，那么程序就不知道它指向哪里。它可能指向一个非法地址，这时，程序会报错，提醒我们段违例或内存错误。它也可能指向一个合法地址，实际上，这种情况更严重，你的程序或许能正常运行，但是这个没有被初始化的指针所指向的那个位置的值将会被修改，而你并无意去修改它。<br>那么如何给一个指针变量初始化。即怎样使一个指针变量指向另一个变量。<br>比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, *j;</span><br><span class="line">j = &amp;i;</span><br></pre></td></tr></table></figure>
+<p>这样就将变量 i 的地址放到了指针变量 j 中，通过 i 的地址，j 就能找到 i 中的数据，所以 j 就“指向”了变量 i。其中 &amp; 是“取地址运算符”，与 scanf 中的 &amp; 是一样的概念；* 为“指针运算符”，功能是取其内部所存变量地址所指向变量中的内容。因为 j 是定义成指针型变量，所以 j 中只能存放变量的地址，所以变量i前一定要加 &amp;。需要注意的是，指针变量中只能存放地址，不要将一个整数或任何其他非地址类型的数据赋给一个指针变量。<br>此外，还有两点需要注意：<br>1.j 不是 i，i 也不是 j。修改j的值不会影响i的值，修改 i 的值也不会影响 j 的值。j 是变量 i 的地址，而     i 是变量 i 里面的数据。一个是“内存单元的地址”，另一个是“内存单元的内容”。<br>2.定义指针变量时的“<em>j”和程序中用到的“</em>j”含义不同。定义指针变量时的“<em>j”只是一个声明，此时的“</em>”仅表示该   变量是一个指针变量，并没有其他含义。而且此时该指针变量并未指向任何一个变量，至于具体指向哪个变量要在程序   中指定，即给指针变量初始化。而当指定 j 指向变量 i 之后，<em>j 就完全等同于 i 了，可以相互替换，可以通过修改</em>j的值来修改i的值。<br>比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, *j; <span class="comment">//*j表示定义了一个指针变量j</span></span><br><span class="line">    i = <span class="number">1</span>;</span><br><span class="line">    j = &amp;i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*j = %d\n"</span>, *j); <span class="comment">//此时*j完全等同于i</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"j = %d\n"</span>, j); <span class="comment">//j里面存储的是变量i的地址</span></span><br><span class="line">    i = <span class="number">2</span>; <span class="comment">//改变变量i的值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*j = %d\n"</span>, *j);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"j = %d\n"</span>, j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*j &#x3D; 1</span><br><span class="line">j &#x3D; 15726476</span><br><span class="line">*j &#x3D; 2</span><br><span class="line">j &#x3D; 15726476</span><br></pre></td></tr></table></figure>
+<p>说明将i的地址放入指针变量j中，改变i的值不改变指针变量j中存放的指针。</p>
+<p>那么指针变量和指针变量之间可不可以相互赋值呢？我们看看下面这个程序：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *i, *j;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">3</span>;</span><br><span class="line">    i = &amp;k;</span><br><span class="line">    j = i;  <span class="comment">//直接指针变量名之间进行赋值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*j = %d\n"</span>, *j);  <span class="comment">//此时*j完全等同于k</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"j = %d\n"</span>, j);    <span class="comment">// j里面存储的是变量k的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*j &#x3D; 3</span><br><span class="line">j &#x3D; 11532060</span><br></pre></td></tr></table></figure>
+<p>可见，可以直接将一个指针变量赋给另一个指针变量，只要将指针变量名赋给另一个指针变量名即可。但是需要注意的是：<br>1.这两个指针变量的基类型一定要相同。<br>2.在赋值之前，赋值运算符“=”右边的指针变量必须是已经初始化过的。也就是说，切忌将一个没有初始化的指针变量赋给另一个指针变量。这是非常严重的语法错误。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/23/Clanguage-notes-03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/23/Clanguage-notes-04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C语言学习笔记04
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/04/22/Clanguage-notes-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言学习笔记02</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,9 +387,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -318,7 +461,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">指针</a>
               </li>
             
             <div class="clearfix"></div>

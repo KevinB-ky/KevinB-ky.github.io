@@ -6,22 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>C语言学习笔记05 | 学习笔记</title>
+  <title>C语言学习笔记01 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C语言指针与函数C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。  指针作为函数的参数传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调">
+  <meta name="description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言学习笔记05">
-<meta property="og:url" content="http://yoursite.com/2020/04/24/Clanguage-notes-05/index.html">
+<meta property="og:title" content="C语言学习笔记01">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/C%20language-notes-01/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="C语言指针与函数C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。  指针作为函数的参数传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调">
+<meta property="og:description" content="面向过程“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-24T02:30:00.000Z">
-<meta property="article:modified_time" content="2020-04-25T15:02:58.284Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-ASCII-list.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/C-notes01-Operator-precedence.png">
+<meta property="article:published_time" content="2020-04-21T13:39:00.000Z">
+<meta property="article:modified_time" content="2020-04-25T15:03:12.810Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/C-notes01-datatype.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -75,6 +79,8 @@ var _hmt = _hmt || [];
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+	        
+				<li><a href="/categories/%E6%91%98%E8%A6%81">摘要</a></li>
 	        
 			</ul>
 		</nav>
@@ -134,6 +140,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -153,12 +161,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/%E6%91%98%E8%A6%81">摘要</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,29 +183,31 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Clanguage-notes-05" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C language-notes-01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C语言学习笔记05
+      C语言学习笔记01
     </h1>
   
 
         
-        <a href="/2020/04/24/Clanguage-notes-05/" class="archive-article-date">
-  	<time datetime="2020-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/04/21/C%20language-notes-01/" class="archive-article-date">
+  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
-<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。<br><a id="more"></a><br>用一个例子来说明：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>	<span class="comment">// 参数为普通的 int 变量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap2</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span>	<span class="comment">// 参数为指针，接受调用函数传递过来的变量地址作为参数，对所指地址处的内容进行操作</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = *a;	<span class="comment">// 最终结果是，地址本身并没有改变，但是这一地址所对应的内存段中的内容发生了变化，即x,y的值发生了变化</span></span><br><span class="line">	*a = *b;</span><br><span class="line">	*b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line">	swap1(x, y);	<span class="comment">// 将 x,y 的值本身作为参数传递给了被调函数</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %5d\n"</span>, x, y);	<span class="comment">// 输出结果为：1     2</span></span><br><span class="line"></span><br><span class="line">	swap2(&amp;x, &amp;y);	<span class="comment">// 将 x,y 的地址作为参数传递给了被调函数，传递过去的也是一个值，与传值调用不冲突</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %5d\n"</span>, x, y);	<span class="comment">// 输出结果为：2     1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h3><p>在C语言中，函数本身不是变量，但是可以定义指向函数的指针，也称作函数指针，函数指针指向函数的入口地址。这种类型的指针可以被赋值、存放在数组中、传递给函数以及作为函数的返回值等等。 声明一个函数指针的方法如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*p)(<span class="keyword">int</span> *, <span class="keyword">int</span> *); <span class="comment">//声明一个函数指针</span></span><br></pre></td></tr></table></figure><br>上述代码声明了一个函数指针p，该指针指向一个函数，函数具有两个int*类型的参数，且返回值类型为int。下面的代码演示了函数指针的用法：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"string.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个函数 str_comp，该函数有两个const char类型的指针，函数的返回值为int类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *m, <span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span>;	</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明一个函数comp ,注意该函数的第三个参数，是一个函数指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">comp</span><span class="params">(<span class="keyword">char</span> *a, <span class="keyword">char</span> *b, <span class="keyword">int</span>(*prr)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span>*))</span></span>;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *m, <span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// 库函数strcmp用于比较两个字符串，其原型是： int strcmp(const char *s1,const char *s2);</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">strcmp</span>(m, n) == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函数comp接受一个函数指针作为它的第三个参数 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">comp</span><span class="params">(<span class="keyword">char</span> *a, <span class="keyword">char</span> *b, <span class="keyword">int</span>(*prr)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span>*))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((*prr)(a, b) == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"str1 = str2\n"</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"str1 != str2\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[<span class="number">20</span>];	<span class="comment">// 声明一个字符数组</span></span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">20</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 声明并初始化一个函数指针，该指针所指向的函数有两个const char类型的指针，且返回值为int类型</span></span><br><span class="line">	<span class="keyword">int</span>(*p)(<span class="keyword">const</span> <span class="keyword">char</span> *, <span class="keyword">const</span> <span class="keyword">char</span> *) = str_comp;	</span><br><span class="line">    </span><br><span class="line">	gets(str1);	<span class="comment">// 使用gets()函数从I/O读取一行字符串</span></span><br><span class="line">	gets(str2);</span><br><span class="line">	comp(str1, str2, p);	<span class="comment">// 函数指针p作为参数传给comp函数</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这段代码的功能是从键盘读取两行字符串（长度不超过20），判断二者是否相等。<br>注意，声明一个函数指针时，()不能漏掉，否则：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">p</span><span class="params">(<span class="keyword">void</span> *, <span class="keyword">void</span> *)</span></span>;</span><br></pre></td></tr></table></figure><br>这表明p是一个函数，该函数返回一个指向 int 类型的指针。</p>
+        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。<br><a id="more"></a></p>
+<h2 id="C语言数据类型"><a href="#C语言数据类型" class="headerlink" title="C语言数据类型"></a><strong>C语言数据类型</strong></h2><p><img src="/assets/blogImg/C-notes01-datatype.png" alt=""></p>
+<h2 id="C语言常量定义"><a href="#C语言常量定义" class="headerlink" title="C语言常量定义"></a><strong>C语言常量定义</strong></h2><p>我们在用C编程时有时需要定义不变的变量，即常量，有两种方法。<br>1.使用#define，例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> a 5</span></span><br></pre></td></tr></table></figure><br>2.采用const定义，例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure><br>C语言中’#”作用是作为预处理命令，在编译器进行编译之前对源代码做某些转换。使用#define是将a定义成一种符号，此时a只是5的别名，在编译期间用5去取代a的值；而使用const是将a定义成变量，但告诉编译器它的值是固定不变的，如果在程序中试图去修改它的值，在编译时会报错.</p>
+<h2 id="C语言字符与ASCII代码对照表"><a href="#C语言字符与ASCII代码对照表" class="headerlink" title="C语言字符与ASCII代码对照表"></a><strong>C语言字符与ASCII代码对照表</strong></h2><p><img src="/assets/blogImg/C-notes01-ASCII.png" alt=""><br>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br><img src="/assets/blogImg/C-notes01-ASCII-list.png" alt=""></p>
+<h2 id="C语言参与运算的优先级和结合性"><a href="#C语言参与运算的优先级和结合性" class="headerlink" title="C语言参与运算的优先级和结合性"></a><strong>C语言参与运算的优先级和结合性</strong></h2><p><img src="/assets/blogImg/C-notes01-Operator-precedence.png" alt=""></p>
 
       
 
@@ -235,10 +247,6 @@ var _hmt = _hmt || [];
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
         		</li>
       		
 		</ul>
@@ -305,7 +313,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/24/Clanguage-notes-05/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/21/C%20language-notes-01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +327,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/24/Clanguage-notes-06/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/22/C%20language-notes-02/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C语言学习笔记06
+          C语言学习笔记02
         
       </div>
     </a>
   
   
-    <a href="/2020/04/23/Clanguage-notes-04/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C语言学习笔记04</div>
+    <a href="/2020/04/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,11 +472,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">效率</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">摘要</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>

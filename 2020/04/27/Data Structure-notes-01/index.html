@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>C语言学习笔记07 | 学习笔记</title>
+  <title>数据结构学习笔记01 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C语言指针C语言中，字符串可以赋值给字符指针变量的原因在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：123char *p a &#x3D; &#39;1&#39;;p &#x3D; &amp;a;     &#x2F;&#x2F;将字符a的地址赋值给指针变量p &#x3D; &quot;abcd&quot;  &#x2F;&#x2F;将字符串直接赋值给指针变量能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：1.申请了空间（在常量区），存放字">
+  <meta name="description" content="数据结构数据结构：相互之间存在一种或多种特定关系的数据元素的集合，包括逻辑结构和物理结构。通常有4类基本结构：    集合： 结构中的数据元素之间除“同属一个集合”的关系外，别无其它关系； 线性结构： 结构中的数据元素之间存在一个对一个的关系； 树形结构： 结构中的数据元素之间存在一个对多个的关系； 图状结构或网状结构： 结构中的数据元素之间存在多个对多个的关系。  数据类型数据类型： 是一个值的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言学习笔记07">
-<meta property="og:url" content="http://yoursite.com/2020/04/24/Clanguage-notes-07/index.html">
+<meta property="og:title" content="数据结构学习笔记01">
+<meta property="og:url" content="http://yoursite.com/2020/04/27/Data%20Structure-notes-01/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="C语言指针C语言中，字符串可以赋值给字符指针变量的原因在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：123char *p a &#x3D; &#39;1&#39;;p &#x3D; &amp;a;     &#x2F;&#x2F;将字符a的地址赋值给指针变量p &#x3D; &quot;abcd&quot;  &#x2F;&#x2F;将字符串直接赋值给指针变量能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：1.申请了空间（在常量区），存放字">
+<meta property="og:description" content="数据结构数据结构：相互之间存在一种或多种特定关系的数据元素的集合，包括逻辑结构和物理结构。通常有4类基本结构：    集合： 结构中的数据元素之间除“同属一个集合”的关系外，别无其它关系； 线性结构： 结构中的数据元素之间存在一个对一个的关系； 树形结构： 结构中的数据元素之间存在一个对多个的关系； 图状结构或网状结构： 结构中的数据元素之间存在多个对多个的关系。  数据类型数据类型： 是一个值的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-24T14:10:00.000Z">
-<meta property="article:modified_time" content="2020-04-25T15:02:50.942Z">
+<meta property="article:published_time" content="2020-04-27T10:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-28T10:06:21.771Z">
 <meta property="article:author" content="Kevin B">
-<meta property="article:tag" content="C语言">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="指针">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -75,6 +75,8 @@ var _hmt = _hmt || [];
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+	        
+				<li><a href="/categories/%E6%91%98%E8%A6%81">摘要</a></li>
 	        
 			</ul>
 		</nav>
@@ -134,6 +136,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -153,12 +157,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E7%AC%94%E8%AE%B0">笔记</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/%E6%91%98%E8%A6%81">摘要</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,37 +179,69 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Clanguage-notes-07" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Data Structure-notes-01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C语言学习笔记07
+      数据结构学习笔记01
     </h1>
   
 
         
-        <a href="/2020/04/24/Clanguage-notes-07/" class="archive-article-date">
-  	<time datetime="2020-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/04/27/Data%20Structure-notes-01/" class="archive-article-date">
+  	<time datetime="2020-04-27T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure><br>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。<br><a id="more"></a></p>
-<h3 id="赋值指针可行，赋值数组出错的原因"><a href="#赋值指针可行，赋值数组出错的原因" class="headerlink" title="赋值指针可行，赋值数组出错的原因"></a>赋值指针可行，赋值数组出错的原因</h3><p>继续引用上面的例子，字符串可以直接赋值给指针变量而数组就不行了，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a[<span class="number">10</span>] = <span class="string">"Hello!"</span>   <span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">char</span> b[<span class="number">10</span>];</span><br><span class="line">b = <span class="string">"Hello!"</span>    <span class="comment">// 程序报错</span></span><br></pre></td></tr></table></figure><br>同样是数组，char a[10] = “hello”;这种是数组的初始化，和a[0] = ‘h’, a[1] = ‘e’是一个道理.但是换成char a[10]然后a = “hello”就不行了. “hello”赋值的值是一个地址，而a虽然也有地址，但是这与指针是不一样的，指针的值是地址，而数组的值虽然也是地址，但是在定义这个数组时就已经创建，是一个常量，所以不能给常量赋值。在使用运算符”=”时，运算符的左边应该是一个“左值”。所谓“左值”就是指在程序中占用内存空间、可以被修改的量,比如各种变量。<br>在使用指针的时候，指针可以自增，而数组不能自增。编译器给数组分配了空间，数组a的地址就是一个常量了，让常量自增这肯定是不行的。在指针自增的时候，编译器会自动识别类型，比如指针是指向int型的，想获取下一个的地址时，指针直接p++就行了，不要多此一举的p+4了。<br>特别需要注意的是，在void指针使用的时候，不能使用指针运算，应为void型编译器不能识别类型的长度（即指针所指对象的体积），p++这样就是不合法的，即不能进行数学运算，也不能使用*取值操作，想使用必须转换为其它的类型。</p>
-<h3 id="字符数组，字符指针，字符串常量"><a href="#字符数组，字符指针，字符串常量" class="headerlink" title="字符数组，字符指针，字符串常量"></a>字符数组，字符指针，字符串常量</h3><p>1.以字符串形式出现的，编译器都会为该字符串自动添加一个0作为结束符，如在代码中写”abc”,那么编译器帮你存储的是”abc\0”。</p>
-<p>2.”abc”是常量吗？答案是有时是，有时不是。<br>不是常量的情况：”abc”作为字符数组初始值的时候就不是，如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">"abc"</span></span><br></pre></td></tr></table></figure><br>因为定义的是一个字符数组，所以就相当于定义了一些空间来存放”abc”，而又因为字符数组就是把字符一个一个地存放的，所以编译器把这个语句解析为char str[3] = {‘a’,’b’,’c’};又根据上面的总结1，所以char str[] = “abc”;的最终结果是char str[4] = {‘a’,’b’,’c’,’\0’};</p>
-<p> 是常量的情况：  把”abc”赋给一个字符指针变量时，如:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* ptr = <span class="string">"abc"</span>;</span><br></pre></td></tr></table></figure><br>因为定义的是一个普通字符指针，并没有定义空间来存放”abc”，所以编译器得帮我们找地方来放”abc”，显然，把这里的”abc”当成常量并把它放到程序的常量区是编译器最合适的选择。所以尽管ptr的类型不是const char<em>，并且ptr[0] = ‘x’;也能编译通过，但是执行ptr[0] = ‘x’;就会发生运行时异常，因为这个语句试图去修改程序常量区中的东西。<br>记得哪本书中曾经说过char</em> ptr = “abc”;这种写法原来在c++标准中是不允许的，但是因为这种写法在c中实在是太多了，为了兼容c，不允许也得允许。虽然允许，但是建议的写法应该是const char<em> ptr = “abc”;这样如果后面写ptr[0] = ‘x’的话编译器就不会让它编译通过，也就避免了上面说的运行时异常。<br>如果char</em> ptr = “abc”;写在函数体内，那么虽然这里的”abc\0”被放在常量区中，但是ptr本身只是一个普通的指针变量，所以ptr是被放在栈上的，只不过是它所指向的东西被放在常量区罢了。</p>
-<p>3.数组的类型是由该数组所存放的东西的类型以及数组本身的大小决定的。<br>如char s1[3]和char s2[4]，s1的类型就是char[3]，s2的类型就是char[4]，也就是说尽管s1和s2都是字符数组，但两者的类型却是不同的。</p>
-<p>4.字符串常量的类型可以理解为相应字符常量数组的类型，如”abcdef”的类型就可以看成是const char[7]。</p>
-<p>5.sizeof是用来求类型的字节数的。如int a;那么无论sizeof(int)或者是sizeof(a)都是等于4，因为sizeof(a)其实就是sizeof(type of a)。</p>
-<p>6.对于函数参数列表中的以数组类型书写的形式参数，编译器把其解释为普通的指针类型，如对于void func(char sa[100],int ia[20],char <em>p)则sa的类型为char</em>，ia的类型为int<em>，p的类型为char</em>。</p>
-<p>7.根据上面的总结：<br>对于char str[] = “abcdef”;就有sizeof(str) == 7,因为str的类型是char[7]，也有sizeof(“abcdef”) == 7，因为”abcdef”的类型是const char[7]；<br>对于char <em>ptr = “abcdef”;就有sizeof(ptr) == 4，因为ptr的类型是char</em>；<br>对于char str2[10] = “abcdef”;就有sizeof(str2) == 10，因为str2的类型是char[10]；<br>对于void func(char sa[100],int ia[20],char <em>p)就有sizeof(sa) == sizeof(ia) == sizeof(p) == 4，因为sa的类型是char</em>， ia的类型是int<em>，p的类型是char</em>。</p>
-<h3 id="指针测试"><a href="#指针测试" class="headerlink" title="指针测试"></a>指针测试</h3><p>运行如下程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> day[<span class="number">15</span>] = <span class="string">"abcdefghijklmn"</span>;</span><br><span class="line">	<span class="keyword">char</span>* strTmp = <span class="string">"opqrstuvwxyz"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;day is %x\n"</span>, &amp;day);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;day[0] is %x\n"</span>, &amp;day[<span class="number">0</span>]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"day is %x\n"</span>, day);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n&amp;strTmp is %x\n"</span>, &amp;strTmp);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;strTmp[0] is %x\n"</span>, &amp;strTmp[<span class="number">0</span>]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"strTmp is %x\n"</span>, strTmp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&amp;day is 9efe90</span><br><span class="line">&amp;day[0] is 9efe90</span><br><span class="line">day is 9efe90</span><br><span class="line"></span><br><span class="line">&amp;strTmp is 9efe84</span><br><span class="line">&amp;strTmp[0] is eb6b44</span><br><span class="line">strTmp is eb6b44</span><br></pre></td></tr></table></figure><br>前三个输出也就是关于变量day的，在 char day[15] = “abcdefghijklmn”; 这个语句执行的时候，系统就分配了一段长15的内存，并把这段内存起名为day,里面的值为”abcdefghijklmn”.其中，第一个输出&amp;day，&amp;号是地址运算符，也就是day这个变量的内存地址，很明显，在最前面，也就是a字符所在字节的地址；对于第二个输出&amp;day[0],就是day数组中第一个变量（也就是a）的地址，因此他们两个是一样的；第三个输出是day，对于数组变量，可以使用变量名来索引变量中的内容，其实这里的day可以理解成数组变量退化的指针，并且指向数组的开头，既然把它理解成指针，那么它的值肯定是地址了，所以他的值和上面两个也一样。<br>对于后面三个输出，字符串指针strTmp，在执行char<em> strTmp = “opqrstuvwxyz”;后，内存分配了两段内存，一个名为strTmp，类型是一个字符指针，另外一段是一个字符串常量，且strTmp里面存放着字符常量的首地址，注意这里无法通过strTmp修改这段字符串，因为是常量； &amp;strTmp：strTmp这个字符指针的地址；&amp;strTmp[0]：strTmp所指字符常量第一个字符的地址；strTmp：strTmp这个字符指针的值，即字符常量的首地址，因此，最后两个的值是一样的。<br>指针可以这样理解，指针这种类型，和int,char,double等等是一样的，只是它用来保存地址值的，而int变量保存整数，char变量保存字符，仅此而已，就char型指针或者int指针，本质是一样的，都是存放的地址，只不过那个地址所里面的变量类型不同而已，还有一种void型指针，就是可以放任何类型变量的地址。<br>下面是一段便于理解指针的程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span>* strTmp = <span class="string">"abcd"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将字符串常量"abcd"的地址所隐含的内容转换成“string类型”</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"strTmp is %s\n"</span>, strTmp);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将字符串常量"abcd"的地址转换成int类型,这里不同的机子不同的时间的运行结果可能会不一样，因为地址可能会发生变化</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"strTmp is %d\n"</span>, strTmp);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将字符串常量"abcd"的地址转换成字符型,这里不同的机子不同的时间的运行结果可能会不一样，因为地址可能会发生变化</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"strTmp is %c\n"</span>, strTmp);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将字符串常量"abcd"的地址所隐含的内容转换成字符型</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*strTmp is %c\n"</span>, *strTmp);</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//printf("*strTmp is %s\n",*strTmp);//这句会抛出异常可知，这里并无截取字符串，*strTmp长度本身就是1不能将字符转换成字符串型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strTmp is abcd</span><br><span class="line">strTmp is 16280368</span><br><span class="line">strTmp is 0</span><br><span class="line">*strTmp is a</span><br></pre></td></tr></table></figure><br>C语言中没有字符串类型，只有用字符数组来表示。这和c++中string是有区别的，C++中string是可以直接赋值如string s;s=”Hello world”;但是C语言中的字符数组却不能这样。所以，这里的strTmp可以理解为字符数组的首地址，也可以用它代表整个字符数组，所以能输出所有字符数组中的内容。<br>c语言中字符串就是字符数组或者是指针。 内存实现都一样的。 数组名字就是一个指针。<br>字符串定义其实很简单在c/c++语言中定义一个字符串可以使用如下的语法：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *s1=“string1”；<span class="comment">//定义字符串常量，指针形式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s2[]=“string2”；<span class="comment">//定义字符串常量，数组形式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> *s3=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">10</span>]；<span class="comment">//定义字符串变量并分配内存 指针形式(c++)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">strcpy</span>(s3,<span class="string">"string3"</span>);<span class="comment">//为s3赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s4[<span class="number">10</span>]；<span class="comment">//定义字符串变量，数组形式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">strcpy</span>(s4,<span class="string">"string4"</span>);<span class="comment">//为s4赋值</span></span><br></pre></td></tr></table></figure><br>C语言中字符串赋值方法strcpy(char</em>d,char<em>s)其中s代表是源字符串，d代表目标字符串，也就是你要赋值的字符串。<br>c语言中的字符串跟java或c++中的字符串不同。如char </em>p；其中p是一个指针，p中存储一个内存缓冲区的首地址。所谓的内存缓冲区就是一段连续的内存地址，里面存放了一系列的字符。那系统又是如何判断在哪里结束呢。那就是根据符号‘\0’。这个字符占一个字节，8位，每位的值都是0。</p>
+        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p><strong><em>数据结构</em></strong>：相互之间存在一种或多种特定关系的数据元素的集合，包括逻辑结构和物理结构。通常有4类基本结构：  </p>
+<ol>
+<li><strong>集合</strong>： 结构中的数据元素之间除“同属一个集合”的关系外，别无其它关系；</li>
+<li><strong>线性结构</strong>： 结构中的数据元素之间存在一个对一个的关系；</li>
+<li><strong>树形结构</strong>： 结构中的数据元素之间存在一个对多个的关系；</li>
+<li><strong>图状结构</strong>或<strong>网状结构</strong>： 结构中的数据元素之间存在多个对多个的关系。</li>
+</ol>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong><em>数据类型</em></strong>： 是一个<em>值</em>的集合和定义在这个值集上的一组<em>操作</em>的总称。<br>按照“值”的不同特性，高级程序语言中的数据类型可分为两类：</p>
+<ol>
+<li>非结构的<strong>原子类型</strong>。原子类型的值是不可分解的，例如C语言中的基本类型（整型、实型、字符型和枚举类型）；</li>
+<li><strong>结构类型</strong>。结构类型的值是由若干成分按某种结构组成的，因此是可分解的，并且它的成分可以是非结构的，也可以是结构的。结构类型可以看成有一种<em>数据结构</em>和定义在其上的一组<em>操作</em>组成。</li>
+</ol>
+<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><p><strong><em>抽象数据类型</em></strong>：是指一个数学模型以及定义在该模型上的一组操作。<br>抽象数据类型的定义仅取决于它的一组逻辑特性，而与其在计算机内部如何表示和实现无关，即无论其内部结构如何变化，只要它的数学特性不变，都不影响其外部的使用。”抽象“的意义在于数据类型的数学抽象特性。数据类型和抽象数据类型的相同点在于它们具有相同的逻辑特性，不同点在于数据类型即关系数据集的逻辑特性又关系其物理特性，而抽象数据类型只关心数据集的抽象特性。<br>数据类型是计算机发展出来的一种重要思想，它将程序设计一分为二：实现基本数据类型和使用抽象数据类型。实现基本数据类型是指在物理层面实现数据类型的逻辑特性；使用抽象数据类型是指仅仅关注数据类型的逻辑特性，而不关注硬件实现。<br><a id="more"></a></p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><strong><em>算法</em></strong>： 是对特定问题求解步骤的一种描述，它是指令的有限序列，其中每一条指令表示一个或多个操作。一个算法具有5个重要特性：</p>
+<ol>
+<li><strong>有穷性</strong>： 一个算法必须总是（对任何合法的输入值）在执行有穷步之后结束，且每一步都可在有穷时间内完成。</li>
+<li><strong>确定性</strong>： 算法中每一条指令必须有确切的含义，并且，在任何条件下，算法只有唯一的一条执行路径，即对于相同的输入只能得出相同的输出。</li>
+<li><strong>可行性</strong>： 一个算法是能行的，即算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现。</li>
+<li><strong>输入</strong>： 一个算法有一个或多个的输入，这些输入取自于某个特定的对象的集合。</li>
+<li><strong>输出</strong>： 一个算法有一个或多个的输出，这些输出是同输入有着某些特定关系的量。</li>
+</ol>
+<h1 id="算法设计的要求"><a href="#算法设计的要求" class="headerlink" title="算法设计的要求"></a>算法设计的要求</h1><p>通常设计一个“好”的算法应考虑达到以下目标：</p>
+<ol>
+<li><strong>正确性(correctness)</strong>: 算法应当满足具体问题需求；</li>
+<li><strong>可读性(readability)</strong>: 算法主要为了人的阅读和交流，其次才是机器执行。可读性好有助于人对算法的理解，晦涩难懂的程序易于隐藏较多错误，难以调试和修改；</li>
+<li><strong>健壮性(robustness)</strong>: 算法应能识别非法输入，而不会产生莫名其妙的输出结果；</li>
+<li><strong>效率与低存储量需求</strong>： 通俗的说，效率指的是算法执行的时间，存储量需求指算法执行过程中所需要的最大存储空间。效率与低存储量需求都与问题的规模有关。</li>
+</ol>
+<p><strong>Algorithms + Data Structure = Programs</strong><br><strong>(Algorithms + Data Structure) * Efficiency = Computation</strong></p>
+<h1 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h1><p>算法的时间度量记作：T(n) = O(f(n))，表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同，称作算法的<strong>渐进时间复杂度(asymptotic time complexity)</strong>，简称<strong>时间复杂度</strong>。</p>
+<p><strong>“O”</strong>的形式定义为：若f(n)是正整数n的一个函数，则X<sub>n</sub>=O(f(n))表示存在一个正的常熟M，使得当n&gt;=n<sub>0</sub>时都满足|x<sub>n</sub>|&lt;=M|f(n)|。</p>
+<p>算法的<strong>空间复杂度(space complexity)</strong>作为算法所需存储控件的度量，记作：S(n)=O(f(n))。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p><strong>主要有两个任务</strong>： 正确性(不变性 × 单调性) ＋ 复杂度</p>
+<p><strong>算法复杂度分析的主要方法</strong>：</p>
+<ol>
+<li>迭代：级数求和；</li>
+<li>递归：递归跟踪 + 递归方程；</li>
+<li>猜测 + 验证。</li>
+</ol>
+<p><strong>起泡排序</strong>分析：<br><strong>不变性</strong>：经K轮扫描交换后，最大的K个元素必然就位；<br><strong>单调性</strong>：经K轮扫描交换后，问题规模缩减至n-K；<br><strong>正确性</strong>：经至多n趟扫描后，算法必然终止，且能给出正确答案。</p>
+<p><strong>级数</strong>：<br><strong>算数</strong>级数：与<strong>末项平方</strong>同阶；<br>T(n) = 1 + 2 + 3 + 4 + … + n = n(n + 1) / 2 = O(n<sup>2</sup>)<br><strong>幂方</strong>级数：比幂次高出一阶；<br>T<sub>a</sub>(n) = 1<sup>a</sup> + 2<sup>a</sup> + 3<sup>a</sup> + … + n<sup>a</sup> = O(n<sup>a + 1</sup>)<br><strong>几何</strong>级数：与末项同阶；<br>T<sub>a</sub>(n) = a<sup>0</sup> + a<sup>1</sup> + a<sup>2</sup> + … + a<sup>n</sup> = (a<sup>n + 1</sup> - 1) / (a - 1) = O(a<sup>n</sup>)</p>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p><strong>Decrease-and-conquer(减而治之)</strong>：为求解一个大规模的问题，可以将其划分为两个子问题，一个<mark>平凡</mark>，另一规模<mark>缩减</mark>，分别求解子问题，由子问题的解得到原问题的解。</p>
+<p><strong>Divide-and-conquer(分而治之)</strong>：为求解一个大规模的问题，可以将其划分为若干个（通常两个）子问题，规模大体<mark>相当</mark>，分别求解子问题，由子问题的解得到原问题的解。</p>
 
       
 
@@ -238,15 +276,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -313,7 +351,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/24/Clanguage-notes-07/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/27/Data%20Structure-notes-01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +365,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/04/25/Github-notes%20-01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Github笔记01
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/24/Clanguage-notes-06/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C语言学习笔记06</div>
+    <a href="/2020/04/26/Learning%20how%20to%20learn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Learning How To Learn</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -472,11 +501,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">效率</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">摘要</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>

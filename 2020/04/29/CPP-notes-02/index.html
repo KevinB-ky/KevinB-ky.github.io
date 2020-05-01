@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>C语言学习笔记06 | 学习笔记</title>
+  <title>C++学习笔记02 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C语言指针字符指针变量和字符数组的区别1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。12char str[20]str &#x3D; &quot;abcdefg&quot;;而对字符指针变量，可以采用下面方法赋值：12char *a;a &#x3D; &quot;abcdefg&quot;">
+  <meta name="description" content="指针语法：数据类型  指针变量名。使用：通过解引用的方式来找到指针指向的内存。（指针前加代表解引用，找到指针指向的内存中的数据）。所占空间：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。 空指针：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。野指针： 指针变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言学习笔记06">
-<meta property="og:url" content="http://yoursite.com/2020/04/24/C%20language-notes-06/index.html">
+<meta property="og:title" content="C++学习笔记02">
+<meta property="og:url" content="http://yoursite.com/2020/04/29/CPP-notes-02/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="C语言指针字符指针变量和字符数组的区别1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。12char str[20]str &#x3D; &quot;abcdefg&quot;;而对字符指针变量，可以采用下面方法赋值：12char *a;a &#x3D; &quot;abcdefg&quot;">
+<meta property="og:description" content="指针语法：数据类型  指针变量名。使用：通过解引用的方式来找到指针指向的内存。（指针前加代表解引用，找到指针指向的内存中的数据）。所占空间：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。 空指针：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。野指针： 指针变">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-24T13:03:00.000Z">
-<meta property="article:modified_time" content="2020-04-25T15:02:54.680Z">
+<meta property="article:published_time" content="2020-04-29T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-30T05:39:08.971Z">
 <meta property="article:author" content="Kevin B">
-<meta property="article:tag" content="C语言">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="指针">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -185,33 +185,56 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C language-notes-06" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CPP-notes-02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C语言学习笔记06
+      C++学习笔记02
     </h1>
   
 
         
-        <a href="/2020/04/24/C%20language-notes-06/" class="archive-article-date">
-  	<time datetime="2020-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/04/29/CPP-notes-02/" class="archive-article-date">
+  	<time datetime="2020-04-29T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>而对字符指针变量，可以采用下面方法赋值：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>3.对字符指针变量赋值<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>等价于：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>而对数组初始化：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>] = &#123;<span class="string">"abcdefg"</span>&#125;;</span><br></pre></td></tr></table></figure><br>不等价于：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">str[] = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>4.如果定义了一个字符数组，在编译时为它分配内存单元，它有确定的地址。而定义一个字符指针变量时，给指针变量分配内存单元，在其中可以放一个字符变量的地址也就是说，该指针变量可以指向一个字符型数据，但如果未对它赋予一个地址值，则它并未具体指向一个确定的字符数据。<br>5.指针变量的值是可以改变的。另外需要说明的是，若定义了一个指针变量，并使它指向一个字符串，就可以用下标形式引用指针变量所指的字符串中的字符。</p>
-<h3 id="指针与结构"><a href="#指针与结构" class="headerlink" title="指针与结构"></a>指针与结构</h3><p>结构是一个或多个变量的集合，这些变量可能为不同的类型，为了处理的方便而将这些变量组织在一个名字之下。由于结构将一组相关的变量看做一个单元而不是各自独立的实体，因此结构有助于组织复杂的数据，特别是在大型的程序中。声明一个结构的方式如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">message</span>&#123;</span>     <span class="comment">// 声明一个结构message</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">10</span>];  <span class="comment">// 成员</span></span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">message</span> <span class="title">s_message</span>    // 类型定义符<span class="title">typedef</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">s_message</span> <span class="title">mess</span> = &#123;</span><span class="string">"kevin"</span>, <span class="number">26</span>, <span class="number">99</span>&#125;  <span class="comment">// 声明一个struct message类型的变量mess，并对其进行初始化</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------------------</span><br><span class="line"><span class="comment">/* 另一种更简便的声明方法 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">&#125;message;</span><br></pre></td></tr></table></figure><br>可以使用结构名.成员的方式来访问结构中的成员，如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, mess.name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, mess.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>结构指针是指向结构的指针，以上面的结构为例，可以这样定义一个结构指针<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_message *p;   <span class="comment">// 声明一个结构指针p，该指针指向一个s_message类型的结构</span></span><br><span class="line">p = &amp;mess;     <span class="comment">// 对结构指针的初始化与普通指针一样，也是使用取地址符&amp;</span></span><br></pre></td></tr></table></figure><br>C语言中使用 -&gt; 操作符来访问结构指针的成员，举个例子：<br>```C</p>
-<h1 id="include-“stdio-h”"><a href="#include-“stdio-h”" class="headerlink" title="include “stdio.h”"></a>include “stdio.h”</h1><p>typedef struct{<br>    char name[10];<br>    int age;<br>    int score;<br>}message;</p>
-<p>void main(){<br>    message mess = {“tongye”,23,83};<br>    message *p = &mess;</p>
-<pre><code>printf(&quot;%s\n&quot;,p-&gt;name);　　　　　　// 输出结果为：tongye
-printf(&quot;%d\n&quot;,p-&gt;score);         // 输出结果为：83
-</code></pre><p>}</p>
+        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><strong>语法</strong>：数据类型 <em> 指针变量名。<br><strong>使用</strong>：通过解引用的方式来找到指针指向的内存。（指针前加</em>代表解引用，找到指针指向的内存中的数据）。<br><strong>所占空间</strong>：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。</p>
+<p><strong>空指针</strong>：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。<br><strong>野指针</strong>： 指针变量指向非法的内存空间。<br>空指针和野指针都不是我们申请的空间，因此不要访问。</p>
+<p><strong>const修饰指针</strong>有三种情况：</p>
+<ol>
+<li>const修饰指针 —-常量指针：<code>const int * p = &amp;a</code> 指针的指向可以修改，但是指针指向的值不可以修改；</li>
+<li>const修饰常量 —-指针常量：<code>int * const p = &amp;a</code> 指针的指向不可以改，但是指针指向的值可以修改；</li>
+<li>const即修饰指针，又修饰常量： <code>const int * const p = &amp;a</code> 指针的指向和指针指向的值都不可以改；</li>
+</ol>
+<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><p>利用指针访问数组中的元素。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p = arr <span class="comment">//arr就是数组首地址</span></span><br><span class="line"></span><br><span class="line">p++ <span class="comment">//让指针向后偏移4个字节</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><p>利用指针作为函数参数，可以修改实参的值。形参是无法改变实参的值，但使用指针就可以修改。<br><a id="more"></a></p>
+<h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><p>结构体属于用户自定义的数据类型，允许用户存储不同的数据类型</p>
+<p><strong>定义</strong>：<code>struct 结构体名{ 结构体成员列表 }</code></p>
+<p>通过结构体创建变量的方式有三种（关键字struct可以省略）：</p>
+<blockquote>
+<p>struct 结构体名 变量名<br>struct 结构体名 变量名 = { 成员1值， 成员2值…}<br>定义结构体时顺便创建变量</p>
+</blockquote>
+<h2 id="结构体数组"><a href="#结构体数组" class="headerlink" title="结构体数组"></a>结构体数组</h2><p>将自定义的结构体放入到数组中方便维护<br>语法：<code>struct 结构体名 数组名[元素个数] = { {}, {}, {}, ..., {}}</code></p>
+<h2 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h2><p>通过指针访问结构体中的成员</p>
+<blockquote>
+<p>利用操作符<code>-&gt;</code>可以通过结构体指针访问结构体属性。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义学生结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;    <span class="comment">//姓名</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">int</span> score;  <span class="comment">//分数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//1、创建学生结构体变量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">s</span> = &#123;</span> <span class="string">"张三"</span>, <span class="number">18</span>, <span class="number">100</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2、通过指针指向结构体变量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> * <span class="title">p</span> = &amp;<span class="title">s</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//3、通过指针访问结构体变量中的数据</span></span><br><span class="line">    <span class="comment">//通过结构体指针访问结构体中的属性，需要利用"-&gt;"</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"姓名："</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体嵌套结构体"><a href="#结构体嵌套结构体" class="headerlink" title="结构体嵌套结构体"></a>结构体嵌套结构体</h2><p>结构体中的成员可以是另一个结构体</p>
+<h2 id="结构体做函数参数"><a href="#结构体做函数参数" class="headerlink" title="结构体做函数参数"></a>结构体做函数参数</h2><p>将结构体作为参数向函数中传递，其传值方式有两种：</p>
+<blockquote>
+<p>值传递<br>地址传递</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义学生结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;    <span class="comment">//姓名</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">int</span> score;  <span class="comment">//分数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印学生信息函数</span></span><br><span class="line"><span class="comment">//1、值传递(修改形参原参不会改变)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent1</span><span class="params">(struct student s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数1中打印 姓名："</span> &lt;&lt; s.name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; s.age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; s.score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、地址传递(修改形参原参会改变)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent2</span><span class="params">(struct student * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数2中打印 姓名："</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//结构体做函数参数</span></span><br><span class="line">    <span class="comment">//将学生传入到一个参数中，打印学生身上的所有信息</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建结构体变量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">s</span> = &#123;</span> <span class="string">"张三"</span>, <span class="number">18</span>, <span class="number">85</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//主函数打印</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main函数中打印 姓名："</span> &lt;&lt; s.name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; s.age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; s.score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//值传递函数打印</span></span><br><span class="line">    printStudent1(s);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//地址传递函数打印</span></span><br><span class="line">    printStudent2(&amp;s);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不想修改主函数中的数据，用值传递，反之用地址传递。</p>
+<h2 id="结构体中const的使用"><a href="#结构体中const的使用" class="headerlink" title="结构体中const的使用"></a>结构体中const的使用</h2><p>使用const放置误操作<br>将函数的形参变为指针，可以减少内存空间，而且不会复制新的副本，但可能会改变原参。如果不想改变原参在指针前加const。<br>比如上面的打印例子，加入const后将无法修改原参数的值，一旦有修改的操作会报错，可以防止误操作。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent2</span><span class="params">(<span class="keyword">const</span> struct student * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数2中打印 姓名："</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -246,15 +269,15 @@ printf(&quot;%d\n&quot;,p-&gt;score);         // 输出结果为：83
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -321,7 +344,7 @@ printf(&quot;%d\n&quot;,p-&gt;score);         // 输出结果为：83
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/24/C%20language-notes-06/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/29/CPP-notes-02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -335,18 +358,18 @@ printf(&quot;%d\n&quot;,p-&gt;score);         // 输出结果为：83
   
 <nav id="article-nav">
   
-    <a href="/2020/04/24/C%20language-notes-07/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/01/Algorithm-flashcards-01/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C语言学习笔记07
+          算法速记01
         
       </div>
     </a>
   
   
-    <a href="/2020/04/24/C%20language-notes-05/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C语言学习笔记05</div>
+    <a href="/2020/04/29/CPP-notes-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++学习笔记01</div>
       <i class="icon-circle-right"></i>
     </a>
   

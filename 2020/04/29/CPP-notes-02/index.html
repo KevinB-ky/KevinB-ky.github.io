@@ -16,7 +16,7 @@
 <meta property="og:description" content="指针语法：数据类型  指针变量名。使用：通过解引用的方式来找到指针指向的内存。（指针前加代表解引用，找到指针指向的内存中的数据）。所占空间：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。 空指针：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。野指针： 指针变">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-29T11:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-30T05:39:08.971Z">
+<meta property="article:modified_time" content="2020-05-12T11:36:02.856Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="指针">
@@ -235,30 +235,10 @@ var _hmt = _hmt || [];
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义学生结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;    <span class="comment">//姓名</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">int</span> score;  <span class="comment">//分数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印学生信息函数</span></span><br><span class="line"><span class="comment">//1、值传递(修改形参原参不会改变)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent1</span><span class="params">(struct student s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数1中打印 姓名："</span> &lt;&lt; s.name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; s.age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; s.score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、地址传递(修改形参原参会改变)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent2</span><span class="params">(struct student * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数2中打印 姓名："</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//结构体做函数参数</span></span><br><span class="line">    <span class="comment">//将学生传入到一个参数中，打印学生身上的所有信息</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建结构体变量</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">s</span> = &#123;</span> <span class="string">"张三"</span>, <span class="number">18</span>, <span class="number">85</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//主函数打印</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main函数中打印 姓名："</span> &lt;&lt; s.name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; s.age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; s.score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//值传递函数打印</span></span><br><span class="line">    printStudent1(s);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//地址传递函数打印</span></span><br><span class="line">    printStudent2(&amp;s);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果不想修改主函数中的数据，用值传递，反之用地址传递。</p>
 <h2 id="结构体中const的使用"><a href="#结构体中const的使用" class="headerlink" title="结构体中const的使用"></a>结构体中const的使用</h2><p>使用const放置误操作<br>将函数的形参变为指针，可以减少内存空间，而且不会复制新的副本，但可能会改变原参。如果不想改变原参在指针前加const。<br>比如上面的打印例子，加入const后将无法修改原参数的值，一旦有修改的操作会报错，可以防止误操作。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent2</span><span class="params">(<span class="keyword">const</span> struct student * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"子函数2中打印 姓名："</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">"年龄："</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">"分数："</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="宏重定义"><a href="#宏重定义" class="headerlink" title="宏重定义"></a>宏重定义</h1><p>在应用中重复的引用同一个宏文件会引发重定义错误，为了避免同一个头文件被包含（include）多次，C/C++中有两种宏实现方式：一种是#ifndef方式；另一种是#pragma once方式。</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -503,6 +483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
@@ -519,7 +503,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多态</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
               </li>
              
               <li class="article-tag-list-item">

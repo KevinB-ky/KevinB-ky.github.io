@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>算法速记01 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="起泡排序(Bubblesort)123456789101112131415&#x2F;&#x2F;起泡排序算法（版本1A）：0 &lt;&#x3D; n(时间复杂度O(n2)，空间复杂度O(1))Void bubblesort1A( int A[], int n)&amp;#123;    bool sorted &#x3D; false;  &#x2F;&#x2F;整体排序标志，首先假定尚未排序    while( !sorted ) &amp;#123;  &#x2F;&#x2F;在尚未">
+  <meta name="description" content="起泡排序(Bubblesort)123456789101112131415161718&#x2F;&#x2F;起泡排序算法（版本1A）：0 &lt;&#x3D; n(时间复杂度O(n2)，空间复杂度O(1))Void bubblesort1A( int A[], int n)&amp;#123;    bool sorted &#x3D; false;  &#x2F;&#x2F;整体排序标志，首先假定尚未排序    while( !sorted )     &amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法速记01">
 <meta property="og:url" content="http://yoursite.com/2020/05/01/Algorithm-flashcards-01/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="起泡排序(Bubblesort)123456789101112131415&#x2F;&#x2F;起泡排序算法（版本1A）：0 &lt;&#x3D; n(时间复杂度O(n2)，空间复杂度O(1))Void bubblesort1A( int A[], int n)&amp;#123;    bool sorted &#x3D; false;  &#x2F;&#x2F;整体排序标志，首先假定尚未排序    while( !sorted ) &amp;#123;  &#x2F;&#x2F;在尚未">
+<meta property="og:description" content="起泡排序(Bubblesort)123456789101112131415161718&#x2F;&#x2F;起泡排序算法（版本1A）：0 &lt;&#x3D; n(时间复杂度O(n2)，空间复杂度O(1))Void bubblesort1A( int A[], int n)&amp;#123;    bool sorted &#x3D; false;  &#x2F;&#x2F;整体排序标志，首先假定尚未排序    while( !sorted )     &amp;#1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-01T04:20:00.000Z">
-<meta property="article:modified_time" content="2020-05-03T10:16:53.331Z">
+<meta property="article:modified_time" content="2020-05-08T10:09:41.616Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="速记">
@@ -205,7 +205,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="起泡排序-Bubblesort"><a href="#起泡排序-Bubblesort" class="headerlink" title="起泡排序(Bubblesort)"></a>起泡排序(Bubblesort)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//起泡排序算法（版本1A）：0 &lt;= n(时间复杂度O(n2)，空间复杂度O(1))</span></span><br><span class="line"><span class="function">Void <span class="title">bubblesort1A</span><span class="params">( <span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sorted = <span class="literal">false</span>;  <span class="comment">//整体排序标志，首先假定尚未排序</span></span><br><span class="line">    <span class="keyword">while</span>( !sorted ) &#123;  <span class="comment">//在尚未确认全局排序之前，逐趟进行扫描交换</span></span><br><span class="line">        sorted = trued;  <span class="comment">//假定已经排序</span></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++ )&#123;  <span class="comment">//自左向右逐对检查当前范围A[0, n)内的相邻元素</span></span><br><span class="line">            <span class="keyword">if</span>( A[i<span class="number">-1</span>] &gt; A[i] )&#123;  <span class="comment">//一旦A[i - 1]与A[i]逆序，则</span></span><br><span class="line">                swap ( A[i - <span class="number">1</span>], A[i] );  <span class="comment">//交换之，并</span></span><br><span class="line">                sorted = flase;  <span class="comment">//因整体排序不能保证，需要清楚排序标志</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        n--;  <span class="comment">//至此末元素必然就位，故可以缩短待排序序列的有效长度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;  <span class="comment">//借助布尔型标志位sorted，可及时提前退出，而不致总是蛮力的做n - 1趟交换</span></span><br></pre></td></tr></table></figure>
+        <h1 id="起泡排序-Bubblesort"><a href="#起泡排序-Bubblesort" class="headerlink" title="起泡排序(Bubblesort)"></a>起泡排序(Bubblesort)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//起泡排序算法（版本1A）：0 &lt;= n(时间复杂度O(n2)，空间复杂度O(1))</span></span><br><span class="line"><span class="function">Void <span class="title">bubblesort1A</span><span class="params">( <span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sorted = <span class="literal">false</span>;  <span class="comment">//整体排序标志，首先假定尚未排序</span></span><br><span class="line">    <span class="keyword">while</span>( !sorted ) </span><br><span class="line">    &#123;  <span class="comment">//在尚未确认全局排序之前，逐趟进行扫描交换</span></span><br><span class="line">        sorted = trued;  <span class="comment">//假定已经排序</span></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++ )  <span class="comment">//自左向右逐对检查当前范围A[0, n)内的相邻元素</span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>( A[i<span class="number">-1</span>] &gt; A[i] )  <span class="comment">//一旦A[i - 1]与A[i]逆序，则</span></span><br><span class="line">            &#123;  </span><br><span class="line">                swap ( A[i - <span class="number">1</span>], A[i] );  <span class="comment">//交换之，并</span></span><br><span class="line">                sorted = flase;  <span class="comment">//因整体排序不能保证，需要清楚排序标志</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        n--;  <span class="comment">//至此末元素必然就位，故可以缩短待排序序列的有效长度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;  <span class="comment">//借助布尔型标志位sorted，可及时提前退出，而不致总是蛮力的做n - 1趟交换</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -452,6 +452,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
@@ -468,7 +472,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多态</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -182,910 +182,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Data Structure-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/Data%20Structure-notes-02/">数据结构学习笔记02</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/08/Data%20Structure-notes-02/" class="archive-article-date">
-  	<time datetime="2020-05-08T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><p>按照面对对象思想中的数据抽象原则，可对数组结构做一般性推广，使其特性更具普遍性。向量(vector)就是线性数组的一种抽象与泛化，其元素由秩相互区分。</p>
-<h2 id="向量ADT支持的操作接口"><a href="#向量ADT支持的操作接口" class="headerlink" title="向量ADT支持的操作接口"></a>向量ADT支持的操作接口</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操 作 接 口</th>
-<th style="text-align:center">功 能</th>
-<th style="text-align:center">适 用 对 象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">sizeof()</td>
-<td style="text-align:center">报告向量当前的规模(元素总数)</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">get(r)</td>
-<td style="text-align:center">获取秩为r的元素</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">put(r, e)</td>
-<td style="text-align:center">用e替换秩为r元素的数值</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">insert(r, e)</td>
-<td style="text-align:center">e作为秩为r元素插入，原后继元素依次后移</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">remove(r)</td>
-<td style="text-align:center">删除秩为r的元素，返回该元素中原存放的对象</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">disordered()</td>
-<td style="text-align:center">判断所有元素是否已按非降序排列</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">sort()</td>
-<td style="text-align:center">调整各元素的位置，使之按非降序排列</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">find(e)</td>
-<td style="text-align:center">查找等于e且秩最大的元素</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">search(e)</td>
-<td style="text-align:center">查找目标元素e，返回不大于e且秩最大的元素</td>
-<td style="text-align:center">有序向量</td>
-</tr>
-<tr>
-<td style="text-align:center">deduplicate()</td>
-<td style="text-align:center">剔除重复元素</td>
-<td style="text-align:center">向量</td>
-</tr>
-<tr>
-<td style="text-align:center">uniquify()</td>
-<td style="text-align:center">提出重复元素</td>
-<td style="text-align:center">有序向量</td>
-</tr>
-<tr>
-<td style="text-align:center">traverse()</td>
-<td style="text-align:center">遍历向量并统一处理所有元素，处理方法由函数对象指定</td>
-<td style="text-align:center">向量</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-          <a class="article-more-a" href="/2020/05/08/Data%20Structure-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">向量</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/Data%20Structure-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/CPP-notes-03/">C++学习笔记03</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/CPP-notes-03/" class="archive-article-date">
-  	<time datetime="2020-05-03T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="int-int64-int-amp"><a href="#int-int64-int-amp" class="headerlink" title="int _int64 int&amp;"></a>int _int64 int&amp;</h1><h2 id="int"><a href="#int" class="headerlink" title="int"></a>int</h2><p>int是C++关键字，表示整型，其大小是32位有符号整型，表示的范围是-2,147,483,648 到<br>2,147,483,647；在声明和定义变量时使用，它表示的意思是所声明或所定义的变量为整型变量。如果其用于函数参数时，其传递方向为值传递，即只能将实参的值传递给形参，而不能将形参的值传递给实参。</p>
-<h2 id="int64"><a href="#int64" class="headerlink" title="_int64"></a>_int64</h2><p>_int64是c++中定义64位长整型的方式</p>
-<h2 id="int-amp"><a href="#int-amp" class="headerlink" title="int&amp;"></a>int&amp;</h2><p>int&amp;中的<strong>&amp;</strong>不是取址符号，而是引用符号，引用是C++对C的一个重要补充。变量的引用就是变量的别名。同样可以理解如果变量b是变量a的引用 那么无论a，b中任何一个值改变，另外一个也相应的改变，在声明一个引用时，必须同时使之初始化，即声明它代表哪一个变量。请注意：由于引用不是独立的变量，编译系统不给它单独分配存储单元，因此在建立引用时只有声明没有定义，只是声明它与原有的某一变量的关系。在声明一个变量的引用后，在本函数执行期间，该引用一直与其代表的变量相联系，不能再作为其他变量的别名，一个引用变量只能对应一个原始的变量，不能对应两个或多个原始的变量。</p>
-<ol>
-<li><p>声明引用时必须指定它代表的是哪一个变量，即对它初始化，比如int &amp;a=b这样是声明a是变量b的引用，如果是int &amp;a就是错的，因为没有指定a代表哪一个变量。</p>
-</li>
-<li><p>引用与其所代表的变量共享同一内存单元，系统并不为引用另外分配存储单元。</p>
-</li>
-<li><p>怎样区分&amp;是引用还是取地址符呢？方法是：判断&amp;a这样的形式前是否有类型符即int &amp;a=b;如果有类型符(int)则是引用，否则是取地址运算符。</p>
-</li>
-<li><p>对引用的初始化，可以是一个变量名，也可以是另一个引用。比如:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>; <span class="comment">//这里是定义一个整形变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;b=a;<span class="comment">//声明b是整型变量a的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;c=b;<span class="comment">//声明c是整型引用变量b的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;d=a;<span class="comment">//声明d是整型变量a的别名</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用初始化后不能再被重新声明为另一变量的别名.</p>
-</li>
-</ol>
-<p>C++中增加引用主要是作为函数参数，进行数据传递的功能；我们知道如果用变量名作为实参，其传递方向是单向的，而用引用作为实参其传递方向是双向的；在c语言中的指针进行参数传递，只不过是将变量的地址传给指针，通过指针获取变量的值，虽能得到结果，但通过指针运算符去访问有关变量，比较麻烦。</p>
-        
-          <a class="article-more-a" href="/2020/05/03/CPP-notes-03/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/CPP-notes-03/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Algorithm-flashcards-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/Algorithm-flashcards-02/">算法速记02</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/Algorithm-flashcards-02/" class="archive-article-date">
-  	<time datetime="2020-05-03T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="素因子分解-Prime-Factorization"><a href="#素因子分解-Prime-Factorization" class="headerlink" title="素因子分解(Prime Factorization)"></a>素因子分解(Prime Factorization)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrimeFactorization</span><span class="params">( <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>( i != n )  <span class="comment">//若i=n，则质因数就是n本身  </span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( n % i == <span class="number">0</span> )  <span class="comment">//若i是质因数，则打印出i的值，并用商给n赋新值  </span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i)</span><br><span class="line">                n = n / i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>  <span class="comment">//若不能被i整除，则算下一个i  </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n)  <span class="comment">//这里是打印最后一个质因数，也就是等于i时的那个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">素因子分解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/Algorithm-flashcards-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Algorithm-flashcards-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/Algorithm-flashcards-01/">算法速记01</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/01/Algorithm-flashcards-01/" class="archive-article-date">
-  	<time datetime="2020-05-01T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起泡排序-Bubblesort"><a href="#起泡排序-Bubblesort" class="headerlink" title="起泡排序(Bubblesort)"></a>起泡排序(Bubblesort)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//起泡排序算法（版本1A）：0 &lt;= n(时间复杂度O(n2)，空间复杂度O(1))</span></span><br><span class="line"><span class="function">Void <span class="title">bubblesort1A</span><span class="params">( <span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sorted = <span class="literal">false</span>;  <span class="comment">//整体排序标志，首先假定尚未排序</span></span><br><span class="line">    <span class="keyword">while</span>( !sorted ) </span><br><span class="line">    &#123;  <span class="comment">//在尚未确认全局排序之前，逐趟进行扫描交换</span></span><br><span class="line">        sorted = trued;  <span class="comment">//假定已经排序</span></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++ )  <span class="comment">//自左向右逐对检查当前范围A[0, n)内的相邻元素</span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>( A[i<span class="number">-1</span>] &gt; A[i] )  <span class="comment">//一旦A[i - 1]与A[i]逆序，则</span></span><br><span class="line">            &#123;  </span><br><span class="line">                swap ( A[i - <span class="number">1</span>], A[i] );  <span class="comment">//交换之，并</span></span><br><span class="line">                sorted = flase;  <span class="comment">//因整体排序不能保证，需要清楚排序标志</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        n--;  <span class="comment">//至此末元素必然就位，故可以缩短待排序序列的有效长度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;  <span class="comment">//借助布尔型标志位sorted，可及时提前退出，而不致总是蛮力的做n - 1趟交换</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">起泡排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/Algorithm-flashcards-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/CPP-notes-02/">C++学习笔记02</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/CPP-notes-02/" class="archive-article-date">
-  	<time datetime="2020-04-29T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><strong>语法</strong>：数据类型 <em> 指针变量名。<br><strong>使用</strong>：通过解引用的方式来找到指针指向的内存。（指针前加</em>代表解引用，找到指针指向的内存中的数据）。<br><strong>所占空间</strong>：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。</p>
-<p><strong>空指针</strong>：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。<br><strong>野指针</strong>： 指针变量指向非法的内存空间。<br>空指针和野指针都不是我们申请的空间，因此不要访问。</p>
-<p><strong>const修饰指针</strong>有三种情况：</p>
-<ol>
-<li>const修饰指针 —-常量指针：<code>const int * p = &amp;a</code> 指针的指向可以修改，但是指针指向的值不可以修改；</li>
-<li>const修饰常量 —-指针常量：<code>int * const p = &amp;a</code> 指针的指向不可以改，但是指针指向的值可以修改；</li>
-<li>const即修饰指针，又修饰常量： <code>const int * const p = &amp;a</code> 指针的指向和指针指向的值都不可以改；</li>
-</ol>
-<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><p>利用指针访问数组中的元素。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p = arr <span class="comment">//arr就是数组首地址</span></span><br><span class="line"></span><br><span class="line">p++ <span class="comment">//让指针向后偏移4个字节</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><p>利用指针作为函数参数，可以修改实参的值。形参是无法改变实参的值，但使用指针就可以修改。<br>
-        
-          <a class="article-more-a" href="/2020/04/29/CPP-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/CPP-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/CPP-notes-01/">C++学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/CPP-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-29T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>作用</strong>： 在代码中加一些说明和解释，方便阅读<br><strong>两种格式</strong>：</p>
-<ol>
-<li>单行注释：<code>//描述信息</code><ul>
-<li>通常放在一行代码的上方，或者一条语句的末尾，对该行代码说明</li>
-</ul>
-</li>
-<li>多行注释：<code>/*描述信息*/</code><ul>
-<li>通常放在一段代码的上方，对该段代码做整体说明</li>
-</ul>
-</li>
-</ol>
-<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>C++定义常量两种方式：</p>
-<ol>
-<li><h1 id="define-宏常量：-define-常量名-常量值"><a href="#define-宏常量：-define-常量名-常量值" class="headerlink" title="define 宏常量：#define 常量名 常量值"></a>define 宏常量：<code>#define 常量名 常量值</code></h1><ul>
-<li>通常在文件上方定义，表示一个常量</li>
-</ul>
-</li>
-<li>const修饰的变量：<code>const 数据类型 常量名 = 常量值</code><ul>
-<li>通常在变量定义前加关键字const，修饰该变量为常量，不可修改</li>
-</ul>
-</li>
-</ol>
-<h1 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h1><p>C++规定给标识符（变量、常量）命名时，有一套自己的规则</p>
-<ul>
-<li>标识符不能是关键字</li>
-<li>标识符只能由字母、数字、下划线组成</li>
-<li>第一个字符必须为字母或下划线</li>
-<li>标识符中字母区分大小写
-        
-          <a class="article-more-a" href="/2020/04/29/CPP-notes-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/CPP-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Data Structure-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/27/Data%20Structure-notes-01/">数据结构学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/27/Data%20Structure-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-27T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p><strong><em>数据结构</em></strong>：相互之间存在一种或多种特定关系的数据元素的集合，包括逻辑结构和物理结构。通常有4类基本结构：  </p>
-<ol>
-<li><strong>集合</strong>： 结构中的数据元素之间除“同属一个集合”的关系外，别无其它关系；</li>
-<li><strong>线性结构</strong>： 结构中的数据元素之间存在一个对一个的关系；</li>
-<li><strong>树形结构</strong>： 结构中的数据元素之间存在一个对多个的关系；</li>
-<li><strong>图状结构</strong>或<strong>网状结构</strong>： 结构中的数据元素之间存在多个对多个的关系。</li>
-</ol>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong><em>数据类型</em></strong>： 是一个<em>值</em>的集合和定义在这个值集上的一组<em>操作</em>的总称。<br>按照“值”的不同特性，高级程序语言中的数据类型可分为两类：</p>
-<ol>
-<li>非结构的<strong>原子类型</strong>。原子类型的值是不可分解的，例如C语言中的基本类型（整型、实型、字符型和枚举类型）；</li>
-<li><strong>结构类型</strong>。结构类型的值是由若干成分按某种结构组成的，因此是可分解的，并且它的成分可以是非结构的，也可以是结构的。结构类型可以看成有一种<em>数据结构</em>和定义在其上的一组<em>操作</em>组成。</li>
-</ol>
-<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><p><strong><em>抽象数据类型</em></strong>：是指一个数学模型以及定义在该模型上的一组操作。<br>抽象数据类型的定义仅取决于它的一组逻辑特性，而与其在计算机内部如何表示和实现无关，即无论其内部结构如何变化，只要它的数学特性不变，都不影响其外部的使用。”抽象“的意义在于数据类型的数学抽象特性。数据类型和抽象数据类型的相同点在于它们具有相同的逻辑特性，不同点在于数据类型即关系数据集的逻辑特性又关系其物理特性，而抽象数据类型只关心数据集的抽象特性。<br>数据类型是计算机发展出来的一种重要思想，它将程序设计一分为二：实现基本数据类型和使用抽象数据类型。实现基本数据类型是指在物理层面实现数据类型的逻辑特性；使用抽象数据类型是指仅仅关注数据类型的逻辑特性，而不关注硬件<br>实现。</p>
-<h1 id="抽象数据类型-Abstract-Data-Type-vs-数据结构-Data-structure"><a href="#抽象数据类型-Abstract-Data-Type-vs-数据结构-Data-structure" class="headerlink" title="抽象数据类型(Abstract Data Type) vs. 数据结构(Data structure)"></a>抽象数据类型(Abstract Data Type) vs. 数据结构(Data structure)</h1><p><strong>抽象数据类型</strong> = 数据模型 + 定义在该模型上的一组操作</p>
-<blockquote>
-<p>抽象定义        外部的逻辑特性        操作&amp;语义<br>一种定义        不考虑时间的复杂度     不涉及数据的存储方式</p>
-</blockquote>
-<p><strong>数据结构</strong> = 基于某种特定的语言，实现ADT的一整套算法</p>
-<blockquote>
-<p>具体实现        内部的表现与实现        完整的算法<br>多种实现        与复杂度密切相关        要考虑数据的具体存储机制</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2020/04/27/Data%20Structure-notes-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/Data%20Structure-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Learning how to learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/26/Learning%20how%20to%20learn/">Learning How To Learn</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/26/Learning%20how%20to%20learn/" class="archive-article-date">
-  	<time datetime="2020-04-26T02:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong><em>Learning How To Learn</em></strong> is a course on Coursera. This course gives us practical insigh on how to learn more deeply and with less frustration. We can learn a lot about how to learning different subjects and skills whether in language, mathematics, music or physics, psychology or history. Here is the summary of this course.</p>
-<h1 id="What-is-learning"><a href="#What-is-learning" class="headerlink" title="What is learning"></a>What is learning</h1><hr>
-<p>Our brain is the most complex device in the known universe. It came as a surprise to discover that what we do so well and take for granted, like seeing, hearing, reaching, running, are all much more complex problems than we thought and way beyond the capability of the world’s fastest digital computers. What this illustrates is that we are not consciously aware of how our brans work, and most of heavy lifting is below our level of consciouses and we don’t need to know how it is done in order to survive. By the study from psychologists we know that we are only aware of a very small fraction of all of the activity in the brain. With new optical techniques we can see constant turnover, with new synapses being formed and others disappering which means our brain are constantly being updated. So learning how to take advantage of our unconscious mind, and sleep can help us to learn new things and slove problem easier.</p>
-<blockquote>
-<p>more information about how the brain works at <a href="https://brainfacts.org" target="_blank" rel="noopener">brainfacts.org</a>.</p>
-</blockquote>
-<h1 id="Procrastination"><a href="#Procrastination" class="headerlink" title="Procrastination"></a>Procrastination</h1><hr>
-<p>Everybody has some issues with procrastination. When we look at something that we really rather not do, it seems that we activate the areas of our brain associated with pain. our brain, naturally enough, looks for a way to stop that negative stimulation by switching our attention to something else. A tool called <em>the Pomodoro</em> was invented by Francesco Cirillo, in the early 1980’s. Pomodoro is Italian for tomato. The timer we use often looks like a tomato and really, a timer is all there is to this elegant little technique. All we need to do, is set a timer to 25 minutes, turn off all interruptions, and then focus. After a period concentration, we need to give ourself a little reward, such as A few minutes of web surfing, a cup of coffee, or a bite of chocolate, even just stretching or chatting mindlessly, allowing our brain to enjoyably change its focus for a while.<br>
-        
-          <a class="article-more-a" href="/2020/04/26/Learning%20how%20to%20learn/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">效率</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">摘要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/摘要//" class="article-tag-list-link color3">摘要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/26/Learning%20how%20to%20learn/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Makedown-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1290,9 +386,993 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Github-notes -01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/25/Github-notes%20-01/">Github笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/25/Github-notes%20-01/" class="archive-article-date">
+  	<time datetime="2020-04-25T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git初始化本地仓库及管理远程仓库github"><a href="#Git初始化本地仓库及管理远程仓库github" class="headerlink" title="Git初始化本地仓库及管理远程仓库github"></a>Git初始化本地仓库及管理远程仓库github</h2><ol>
+<li>首先在本地安装git，下载安装好git工具。</li>
+<li>将自己在github上的注册的用户名和邮箱写入本地git的配置文件中：<br>(1)右键选择Git Bash Here，输入：git config —global user.name ‘用户名’，一定要在用户名加上’’。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &#39;******&#39;</span><br></pre></td></tr></table></figure>
+(2)设置邮箱：git config —global user.email ‘邮箱’ ，一定要在邮箱加上’’。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email &#39;******@***.***&#39;</span><br></pre></td></tr></table></figure></li>
+<li>从github上下载自己创建的项目到本地,应先复制github上的路径，然后在本地打开Git Bash Here，然后再输入命令：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;用户名&#x2F;仓库名.git</span><br></pre></td></tr></table></figure>
+这样就会将github上的项目克隆到本地了。
+        
+          <a class="article-more-a" href="/2020/04/25/Github-notes%20-01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/25/Github-notes%20-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/20/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/20/hello-world/" class="archive-article-date">
+  	<time datetime="2020-04-20T12:14:07.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/20/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Computer_network-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/Computer_network-notes-01/">计算机网络学习笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/26/Computer_network-notes-01/" class="archive-article-date">
+  	<time datetime="2019-05-26T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h1><h2 id="开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model"><a href="#开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model" class="headerlink" title="开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)"></a>开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)</h2><p>开放系统互连基本参考模型是由国际标准化组织ISO提出使各种计算机在世界范围内互联成网的框架，简称”OSI”。但是在市场化方面OSI失败了，其原因可归纳为：</p>
+<ol>
+<li>OSI专家们缺乏实际经验，在完成OSI标准时缺乏商业驱动力；</li>
+<li>OSI的协议实现起来过分复杂，而且运行效率很低；</li>
+<li>OSI标准的制定周期太长，因此使得按OSI标准生产的设备无法及时进入市场；</li>
+<li>OSI的层次划分不太合理，有些功能在多个层次中重复出现。</li>
+</ol>
+<p>得到最广泛应用的不是法律上的国际标准<strong>OSI</strong>。而是非国际标准<strong>TCP/IP</strong>。</p>
+<p><strong>OSI的七层协议体系结构</strong>：</p>
+<blockquote>
+<p>应用层(Application)：应用程序的网络流程——为应用程序进程提供网络服务；</p>
+<p>表现层(Presentation): 数据表示——1.通过接收系统保证数据的可读性；2.格式化数据；3.数据结构；4.协商应用层的数据传输语法；</p>
+<p>会话层(Session): 中间宿主的沟通——建立、管理和终止应用程序之间的会话;</p>
+<p>运输层(Transport): 端到端连接——1.关注主机之间的运输问题；2.数据传输的可靠性；3.建立、维护终止虚拟电路；4.故障检测与恢复；5.信息流量控制；</p>
+<p>网络层(Network): 地址和最佳路径——1.提供两个端系统之间的连接性和路径选择；2.路由域；</p>
+<p>数据链路层(Data Link): 访问媒体——1.提供跨媒体的可靠数据传输；2.物理寻址，网络拓扑，错误通知，流程控制；</p>
+<p>物理层(Physcial): 二进制传输——导线、连接器、电压、数据率。</p>
+</blockquote>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>TCP/IP是一个四层的体系结构，它包含<strong>应用层</strong>(各种应用协议如：TELNET，FTP，SMTP等)、<strong>运输层</strong>(TCP或UDP)、<strong>网络层</strong>(IP)和<strong>网络接口层</strong>。</p>
+<p>现在人们经常提到TCP/IP并不一定单只TCP和IP这两个协议，而往往是表示因特网所使用的整个**TCP/IP协议族(protocol suite)。</p>
+<h2 id="实体、协议、服务和服务访问点"><a href="#实体、协议、服务和服务访问点" class="headerlink" title="实体、协议、服务和服务访问点"></a>实体、协议、服务和服务访问点</h2><p><strong>实体(entity)</strong>这一抽象名词表示<strong>任何发送或接受信息的硬件或软件进程</strong>。</p>
+<p><strong>协议</strong>则是<strong>控制两个对等实体(或多个实体)进行通信的规则的集合</strong>。在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议，还需要使用下一层所提供的服务。</p>
+<p>协议的实现保证了能够向上一层提供服务。<strong>使用本层服务的实体只能看见服务而无法看见下面的协议</strong>。也就是说，<strong>下面的协议对上面的实体是透明的</strong>。**协议是”水平的”，服务是”垂直的”。</p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层的主要任务描述为确定与传输媒体的接口有关的一些特性：</p>
+<ol>
+<li><strong>机械特性</strong>：指明接口所用接线器的形状和尺寸，引脚数目和排列，固定和锁定装置，等等。平时常见的各种规格的接插件都有严格的标准化的规定。</li>
+<li><strong>电气特性</strong>：指明在接口电缆的各条线上出现的电压范围。</li>
+<li><strong>功能特性</strong>：指明某条线上出现的某一电平的电压表示何种意义。</li>
+<li><strong>过程特性</strong>：指明对于不同功能的各种可能事件的出现顺序。</li>
+</ol>
+<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p><strong>奈氏准则</strong>表明，在任何信道中，码元传输的速率是有上限的，传输速率超过此上线，就会出现严重的码间串扰问题，使接收端对码元的判决(即识别)成为不可能。</p>
+<p><strong>香农公式</strong>则表明，信道的带宽或信道的信噪比越大，信息的极限传输速率就越高。</p>
+<p><strong>香农公式</strong>的意义在于只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</p>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h2 id="解决的基本问题"><a href="#解决的基本问题" class="headerlink" title="解决的基本问题"></a>解决的基本问题</h2><ol>
+<li>封装成帧 - 帧定界</li>
+<li>透明传输 - 转义字符</li>
+<li>差错检测 - 帧检验序列FCS(Frame Check Sequence)和循环冗余检验CRC(Cyclic Redundancy Check)</li>
+</ol>
+<h2 id="点到点协议PPP"><a href="#点到点协议PPP" class="headerlink" title="点到点协议PPP"></a>点到点协议PPP</h2><p><strong>ppp协议</strong>就是用户计算机和ISP进行通信时所用的数据链路层协议。</p>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p><strong>网络层的组要内容</strong>：</p>
+<ol>
+<li>IP协议：IP地址(定位目的机)、IP分组(解决信息的封装)、IPv6(新一代的IP协议)</li>
+<li>路由选择协议：距离适量路由选择协议(实例：RIP)、链路状态路由选择协议(实例：OSPF)</li>
+<li>其他：ARP、ICMP、CIDR、NAT…</li>
+</ol>
+<p>IP的任务：提供一种尽力而为(best-effort)地把数据从源端传输到接受方的方法。</p>
+<p>IP地址：由32位二进制位表示，提供约2<sub>23</sub>约43亿个地址。一般采用点分十进制表示。</p>
+<p>三级IP地址：为解决IP地址空间利用率低的问题，在主机号上接用若干位作为子网号，将网络进行扩展，路由器通过子网掩码可以对子网进行寻址。</p>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p>完成传输任务的实体称为传输实体，传输实体可以在操作系统的内核；可以以一个链接库的形式绑定到网络应用中；可以以一个独立的用户进程运行。</p>
+<p>传输层利用网络层的服务，为它的上层应用层提供服务。</p>
+<p>传输层服务和网络层服务的显著不同(作用范围不同)：</p>
+<ol>
+<li>网络层负责把数据从原机送达到目的机，即主机到主机</li>
+<li>传输层负责把数据送达到具体的应用进程，即端到端</li>
+</ol>
+<p>传输层和数据链路层的比较：</p>
+<ol>
+<li>功能类似：流控制、差错控制、数据(报文\祯)排序</li>
+<li>传输环境不同：网络层在通信子网、数据链路层在物理信道</li>
+</ol>
+<h2 id="TCP连接的建立"><a href="#TCP连接的建立" class="headerlink" title="TCP连接的建立"></a>TCP连接的建立</h2><p>采用三次握手建立连接：</p>
+<ol>
+<li>一方(server)被动地等待一个进来的连接请求</li>
+<li>另一方(client)通过发送连接请求，设置一些参数(第一次握手：SYN=1, ACK=0)</li>
+<li>服务器方回发确认应答(第二次握手：SYN=1, ACK=1)</li>
+<li>应答到达请求方，请求方最后确认，连接建立(第三次握手：SYN=0, ACK=1)</li>
+</ol>
+<p>三次握手最重要的的是双方交换了初始序列号，保证了后续字节的可靠传输。</p>
+<h2 id="TCP连接的释放"><a href="#TCP连接的释放" class="headerlink" title="TCP连接的释放"></a>TCP连接的释放</h2><p>TCP是全双工的，连接的释放必须是双向的，任何一方在没有数据要传送的时候，都可以发送一个FIN置位了的TCP数据段。当FIN被确认的时候，该方向的连接被关闭，当双向连接都关闭时，TCP连接才正式释放。</p>
+<p>把释放连接的决定权交给请求者独立裁定，而不是对方：一方发送连接释放请求DR(Disconnect Request)，且期待对方的确认ACK；当DR到达接收端，它回发ACK，并且也发送一个DR；ACK到达发送端的时候，连接释放；同时，它回发确认ACK，当这个ACK到达接受端，反方向的连接也释放了。</p>
+<p>为了避免两军对垒问题，或者为了避免DR和ACK丢失而引发的问题，采用定时器，任何时候，发出DR的同时，都启动一个定时器：</p>
+<ol>
+<li>如果一方发送了FIN置位了的DR数据段出去，却在定时器超期之时都没有收到应答，释放连接。</li>
+<li>另一方最终会注意到连接的对方已经不在了，超时后连接释放。</li>
+</ol>
+<p>如果初始DR的和重传都丢了，协议失败，发送者将因超时放弃发送且释放连接，但是，另一端却不知道这些情况，仍然处于活跃状态，这种情况导致半开放连接(half-open)。</p>
+<p>杀死半开放连接的方式:</p>
+<ol>
+<li>如果在一定时间内，没有TPDUs到达的话，连接自动释放；</li>
+<li>如果这样，传输实体在发送一个TPDU的时候必须启动定时器，定时器超期，将发送一个哑TPDU(dummu TPDU)，以免被断掉。</li>
+</ol>
+<p>四次握手正常释放连接：</p>
+<ol>
+<li>主机A发送释放请求DR，启动计时器(第一次握手信息)</li>
+<li>主机B回送确认ACK，主机A收到并释放连接(第二次握手信息)</li>
+<li>主机B发送释放请求DR，启动定时器(第三次握手信息)<br>4.主机A发送回送确认ACK，主机B收到后释放连接(第四次握手协议)<br>当定时器超期之时，强制释放连接。</li>
+</ol>
+<h1 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h1><p>TCP：</p>
+<ol>
+<li>可靠传输方式</li>
+<li>可以让应用程序简单化，程序员可以不必进行错误检查、修正等工作</li>
+</ol>
+<p>UDP：</p>
+<ol>
+<li>为了降低对计算机资源的需求(DNS)</li>
+<li>应用程序本身已提供数据完整性的检查机制，毋需依赖传输层的协议来保证</li>
+<li>应用程序传输的并非关键性的数据(路由器周期性的路由信息交换)</li>
+<li>一对多方式，必须使用UDP(TCP限于一对一的传送)</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/26/Computer_network-notes-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/13/CPP-notes-09/">C++学习笔记09</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/13/CPP-notes-09/" class="archive-article-date">
+  	<time datetime="2018-05-13T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><p>模板就是建立<strong>通用的摸具</strong>，大大提高<strong>复用性</strong></p>
+<ul>
+<li>C++另一种编程思想称为<strong>泛型编程</strong>，主要利用的技术就是模板</li>
+<li>C++提供两种模板机制：<strong>函数模板</strong>和<strong>类模板</strong></li>
+</ul>
+<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p><strong>作用</strong>：建立一个通用函数，其函数返回值和形参可以不具体制定，用一个<strong>虚拟的类型</strong>来代表。</p>
+<p><strong>语法</strong>：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">函数声明或定义</span><br></pre></td></tr></table></figure><br><strong>解释</strong>：</p>
+<ul>
+<li>template—&gt;声明创建模板</li>
+<li>typename—&gt;表明其后面的符号是一种数据类型，可以用class代替</li>
+<li>T—&gt;通用数据类型，名称可以替换，通常为大写字母<br>模板的使用方式有两种：1.自动类型推导；2.显式指定类型<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数模板</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个模板，告诉编译器后面代码中紧跟着的T不要报错，T是一个通用数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mySwap</span><span class="params">(T &amp;a, T &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">	<span class="comment">//利用函数模板交换</span></span><br><span class="line">	<span class="comment">//1.自动类型推导</span></span><br><span class="line">	mySwap(a, b);</span><br><span class="line">	<span class="comment">//2.显示指定类型</span></span><br><span class="line">	mySwap&lt;<span class="keyword">int</span>&gt;(a,b);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>函数模板注意事项</strong>：</p>
+<ul>
+<li>自动推导类型，必须推导出一致的数据类型T，才可以使用</li>
+<li>模板必须要确定出T数据类型，才可以使用</li>
+</ul>
+<p><strong>普通函数与函数模板的区别</strong></p>
+<ul>
+<li>普通函数调用时可以发生自动类型转换(隐式类型转换)</li>
+<li>函数模板调用时，如果利用自动类型推导，不会发生隐式类型转换</li>
+<li>如果利用显示指定类型的方式，可以发生隐式类型转换</li>
+</ul>
+<p><strong>普通函数和函数模板的调用规则</strong>：</p>
+<ol>
+<li>如果函数模板和普通函数都可以实现，优先调用普通函数</li>
+<li>可以通过空模板参数列表来强制调用函数模板</li>
+<li>函数模板也可以发生重载</li>
+<li>如果函数模板可以产生更好的匹配，优先调用函数模板</li>
+</ol>
+<p><strong>模板重载</strong><br>当模板传入的参数是自定义的数据类型，那么该模版将无法正常运行。因此C++通过提供模板的重载，为这些<strong>特定的类型</strong>提供<strong>具体化的模板</strong>。<br>
+        
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">泛型编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/13/CPP-notes-08/">C++学习笔记08</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/13/CPP-notes-08/" class="archive-article-date">
+  	<time datetime="2018-05-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>C++中对文件操作需要包含头文件<code>&lt;fstream&gt;</code>，文件类型分为<strong>文本文件</strong>和<strong>二进制文件</strong>。</p>
+<p><strong>操作文件三大类</strong>：</p>
+<ol>
+<li>ofstream： 写操作</li>
+<li>ifstream： 读操作</li>
+<li>fstream： 读写操作</li>
+</ol>
+<h2 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h2><p><strong>写文件步骤</strong>：</p>
+<ol>
+<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
+<li>创建；流对象 <code>ofstream ofs</code></li>
+<li>打开文件 <code>ofs.open(&quot;文件路径&quot;, 打开方式);</code></li>
+<li>写数据 <code>ofs &lt;&lt; &quot;写入的数据&quot;;</code></li>
+<li>关闭文件 <code>ofs.close();</code></li>
+</ol>
+<p><strong>文件打开方式</strong>：</p>
+<ol>
+<li>ios::in : 为读文件而打开文件</li>
+<li>ios::out : 为写文件而打开文件</li>
+<li>ios::ate : 初始位置：文件尾</li>
+<li>ios::app : 追加方式写文件</li>
+<li>ios::trunc : 如果文件存在先删除，再创建</li>
+<li>ios::binary : 二进制方式<br><strong>注意</strong>：文件打开方式可以配合使用，利用<code>|</code>操作符。例如：用二进制方式写文件<code>ios::binary | ios::out</code></li>
+</ol>
+<p><strong>读文件步骤</strong>：</p>
+<ol>
+<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
+<li>创建流对象 <code>ifstream ifs</code></li>
+<li>打开文件并判断是否成功 <code>ifs.open(&quot;文件路径&quot;, 打开方式);</code></li>
+<li>读数据 四种读取方式</li>
+<li>关闭文件 <code>ifs.close();</code></li>
+</ol>
+<h2 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h2><p>以二进制的方式对文件进行读写操作，打开方式要指定为<code>ios::binary</code></p>
+<p><strong>写文件</strong>：<br>二进制方式写文件主要利用流对象调用成员函数write<br>函数原型：<code>ostream&amp; write(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
+<p><strong>读文件</strong>：<br>二进制方式读文件主要利用流对象调用成员函数read<br>函数原型：<code>istream&amp; read(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-08/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/12/CPP-notes-07/">C++学习笔记07</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/12/CPP-notes-07/" class="archive-article-date">
+  	<time datetime="2018-05-12T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p><strong>类是面向对象三大特性之一</strong><br>优点：减少重复的代码。<br>语法：<code>class 子类：继承方式 父类</code><br>子类也成为派生类，父类也成为基类。</p>
+<h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><p><strong>继承方式有三种</strong>：</p>
+<ul>
+<li>公共继承</li>
+<li>保护继承</li>
+<li>私有继承</li>
+</ul>
+<h2 id="继承中的对象模型"><a href="#继承中的对象模型" class="headerlink" title="继承中的对象模型"></a>继承中的对象模型</h2><p>在父类中所有非静态成员属性都会被子类继承下去。<br>父类中私有成员属性是被编译器给隐藏了，因此是访问不到，但却时被继承下去了</p>
+<h2 id="继承中构造和析构顺序"><a href="#继承中构造和析构顺序" class="headerlink" title="继承中构造和析构顺序"></a>继承中构造和析构顺序</h2><p>子类继承父类后，当创建子类对象，也会调用父类的构造函数。<br>那么继承中的其构造和析构的顺序：先构造父类，再构造子类，析构的顺序与构造的顺序相反</p>
+<h2 id="继承中同名成员处理方式"><a href="#继承中同名成员处理方式" class="headerlink" title="继承中同名成员处理方式"></a>继承中同名成员处理方式</h2><p>当子类与父类出现同名的成员时，如何通过子类对象访问到子类或父类中同名的数据</p>
+<ul>
+<li>访问子类成员：直接访问</li>
+<li>访问父类成员：需要加作用域<br>如果子类中出现父类同名的成员函数，子类的同名成员会隐藏掉父类中所有同名成员函数。<br>如果想访问到父类中被隐藏的同名成员函数，需要加作用域。</li>
+</ul>
+<h2 id="继承中同名静态成员处理方式"><a href="#继承中同名静态成员处理方式" class="headerlink" title="继承中同名静态成员处理方式"></a>继承中同名静态成员处理方式</h2><p>静态成员和非静态成员出现同名，处理方式一致</p>
+<ul>
+<li>访问子类同名成员：直接访问</li>
+<li>访问父类同名成员：需要加作用域<br>如果子类中出现父类同名的静态成员函数，子类的同名成员会隐藏掉父类中所有同名成员函数。<br>如果想访问到父类中被隐藏的同名成员函数，需要加作用域。</li>
+</ul>
+<h2 id="多继承语法"><a href="#多继承语法" class="headerlink" title="多继承语法"></a>多继承语法</h2><p>C++允许一个类继承多个类<br><strong>语法</strong>：<code>class 子类 : 继承方式 : 父类1，继承方式 : 父类2...</code><br>多继承可能会引发父类中有同名成员出现，需要加作用域区分<br><strong>C++实际开发中不建议用多继承</strong></p>
+<h2 id="菱形继承"><a href="#菱形继承" class="headerlink" title="菱形继承"></a>菱形继承</h2><p><strong>概念</strong>：两个派生类继承同一个基类，又有某个类同时继承两个派生类，这种继承被称为菱形继承，或者钻石继承</p>
+<ol>
+<li>当菱形继承，两个父类拥有相同数据，需要加以作用域区分</li>
+<li>利用虚继承可以解决菱形继承重复使用一个父类属性的问题。<br><strong>虚继承语法</strong>：只需在继承之前加上关键字virtual：<code>class 子类 : virtual 继承方式 : 父类</code><br>此时父类称为虚基类，其父类中的属性只有一份<br>派生类继承的是一个指针，记录了偏移量，通过偏移量找到唯一的属性数据</li>
+</ol>
+        
+          <a class="article-more-a" href="/2018/05/12/CPP-notes-07/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">多态</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/12/CPP-notes-07/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/CPP-notes-06/">C++学习笔记06</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/11/CPP-notes-06/" class="archive-article-date">
+  	<time datetime="2018-05-11T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C-对象模型"><a href="#C-对象模型" class="headerlink" title="C++对象模型"></a>C++对象模型</h2><p><strong>成员变量和成员函数分开存储</strong>：在C++中，类内的成员变量和成员函数分开存储，只有非静态成员变量才属于类的对象上，其他都不属于类对象上。</p>
+<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>在C++中每个非静态成员函数只会诞生一份函数实例，也就是说多个同类型的对象会公用一块代码。C++通过提供this指针解决如何区分由哪个对象调用这一块代码的问题。<br><strong>this指针指向被调用的成员函数所属的对象</strong>。</p>
+<ul>
+<li>this指针是隐含每一个非静态成员函数内的一种指针</li>
+<li>this指针不需要定义，直接使用即可</li>
+</ul>
+<p><strong>this指针的用途</strong>：</p>
+<ol>
+<li>当形参和成员变量同名时，可以使用this指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可以使用return *this</li>
+</ol>
+<h2 id="空指针访问成员函数"><a href="#空指针访问成员函数" class="headerlink" title="空指针访问成员函数"></a>空指针访问成员函数</h2><p>C++中空指针也是可以调用成员函数的，但要也要注意有没有用到this指针，如果用到this指针，需要加以判断保证代码的健壮性。</p>
+<h2 id="const修饰成员函数"><a href="#const修饰成员函数" class="headerlink" title="const修饰成员函数"></a>const修饰成员函数</h2><p><strong>常函数</strong>：</p>
+<ul>
+<li>成员函数后加const后，称这个函数为<strong>常函数</strong></li>
+<li>常函数内不可以修改成员属性(其实const修饰的是this指针)</li>
+<li>成员属性声明时加关键字mutable后，在常函数中依然可以修改</li>
+</ul>
+<p><strong>常对象</strong>：</p>
+<ul>
+<li>声明对象前加const称该对象为常对象</li>
+<li>常对象只能调用常函数</li>
+</ul>
+<h2 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h2><p>友元的目的就是让一个函数或者类访问另一个类的私有成员<br><strong>关键字</strong>：friend<br><strong>三种实现</strong>：</p>
+<ul>
+<li>全局函数做友元：在类中声明想要访问该类私有成员的全局函数，并在声明前加friend</li>
+<li>类做友元 ：在类中声明想要访问该类私有成员的类，并在声明前加friend</li>
+<li>成员函数做友元 ：在类中声明想要访问该类私有成员的成员函数，并在声明前加friend<br><strong>注</strong>：访问类中的成员函数<code>返回值类型 成员函数所在类名::函数名 (参数 = 默认值)</code>，在返回值类型前加friend就是友元。</li>
+</ul>
+<h1 id="C-运算符重载"><a href="#C-运算符重载" class="headerlink" title="C++运算符重载"></a>C++运算符重载</h1><p>运算符重载概念：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型</p>
+<h2 id="加号运算符重载"><a href="#加号运算符重载" class="headerlink" title="加号运算符重载"></a>加号运算符重载</h2><p>作用：实现两个自定义数据类型相加运算<br><strong>语法</strong>：<code>类型名 operator+(){}</code><br>运算符重载也可以发生函数重载</p>
+<h2 id="左移运算符重载"><a href="#左移运算符重载" class="headerlink" title="左移运算符重载"></a>左移运算符重载</h2><p>作用：可以输出自定义数据类型<br><strong>语法</strong>：<code>ostream operator&lt;&lt;(){}</code>(全局函数实现)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;<span class="built_in">cout</span>, Customize &amp;c) <span class="comment">//本质operator&lt;&lt;(cout, c) 简化cout &lt;&lt; c</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">cout</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/11/CPP-notes-06/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/11/CPP-notes-06/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/10/CPP-notes-05/">C++学习笔记05</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/10/CPP-notes-05/" class="archive-article-date">
+  	<time datetime="2018-05-10T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><p>C++面对对象的三大特性：封装、继承、多态<br>具有相同性质的对象可以抽象为类</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p><strong>意义</strong>：</p>
+<ol>
+<li>将属性和行为作为一个整体，表现生活中的事务</li>
+<li>将属性和行为加以权限控制</li>
+</ol>
+<p><strong>封装意义一</strong>：<br>在设计类的时候，属性和行为写在一起，表现事物<br><strong>语法</strong>：<code>class 类名{ 权限访问：属性 / 行为 }</code><br>例如：创建一个圆类并求周长<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class代表设计一个类，类后面就是类名</span></span><br><span class="line">Class Circle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//访问权限</span></span><br><span class="line"><span class="keyword">public</span>： <span class="comment">//公共权限</span></span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">int</span> m_r; <span class="comment">//半径</span></span><br><span class="line">    <span class="comment">//行为</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculateP</span><span class="params">()</span> <span class="comment">//获取圆的周长</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * <span class="number">3.14</span> * m_r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//实例化 通过一个类创建一个对象的过程</span></span><br><span class="line">    <span class="comment">//通过圆类 创建具体的圆(对象)</span></span><br><span class="line">    Circle cl;</span><br><span class="line">    <span class="comment">//给圆对象的属性赋值</span></span><br><span class="line">    cl.m_r = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//访问圆的行为，求得周长</span></span><br><span class="line">    <span class="keyword">int</span> P = cl.calculateP();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>访问权限</strong>：</p>
+<ol>
+<li>公共权限 public      成员类内可以访问，类外可以访问</li>
+<li>保护权限 protected   成员类内可以访问，类外不可以访问 子类可以访问父类的保护内容</li>
+<li>私有权限 private     成员类内可以访问，类外不可以访问 子类不可以访问父类的私有内容</li>
+</ol>
+<h3 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a>struct和class的区别</h3><p>在C++中struct和class唯一的区别就在于默认的访问权限不同</p>
+<ol>
+<li>struct默认权限为公共</li>
+<li>class默认权限为私有</li>
+</ol>
+<h3 id="成员属性私有化"><a href="#成员属性私有化" class="headerlink" title="成员属性私有化"></a>成员属性私有化</h3><p><strong>优点</strong>：</p>
+<ol>
+<li>将所有成员属性设置为私有，可以自己控制读写权限</li>
+<li>对于写权限，我们可以检测数据的有效性<br>通过在public中提供的函数访问private内的属性达到控制权限的目的，例如：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Class Person</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//设置姓名</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="built_in">string</span> name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取姓名</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m_Name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取年龄</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Age = <span class="number">18</span>;</span><br><span class="line">        <span class="keyword">return</span> m_Age;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> m_Name; <span class="comment">//姓名 可读可写</span></span><br><span class="line">    <span class="keyword">int</span> m_Age; <span class="comment">//年龄 只读</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Person p;</span><br><span class="line">    p.setName(<span class="string">"张三')； //写入姓名</span></span><br><span class="line"><span class="string">    p.getName(); //读取姓名</span></span><br><span class="line"><span class="string">    p.getAge(); //读取年龄</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+      <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </nav>
   
 
@@ -1383,14 +1463,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1400,6 +1472,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">起泡排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1435,7 +1519,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,11 +1527,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">向量</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1455,15 +1543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">高级搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1476,6 +1560,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>

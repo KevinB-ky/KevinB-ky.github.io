@@ -182,39 +182,56 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Makedown-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CPP-notes-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/25/Makedown-notes-01/">Markdown语法</a>
+      <a class="article-title" href="/2018/05/09/CPP-notes-04/">C++学习笔记04</a>
     </h1>
   
 
         
-        <a href="/2020/04/25/Makedown-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-25T11:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+        <a href="/2018/05/09/CPP-notes-04/" class="archive-article-date">
+  	<time datetime="2018-05-09T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Markdown标题"><a href="#Markdown标题" class="headerlink" title="Markdown标题"></a>Markdown标题</h1><hr>
-<p>Markdown标题有两种格式  </p>
+        <h1 id="内存的分区模型"><a href="#内存的分区模型" class="headerlink" title="内存的分区模型"></a>内存的分区模型</h1><p>c++程序在执行时，将内存大方向划分为4个区域</p>
 <ol>
-<li>使用 = 和 - 标记一级和二级标题<br>语法格式如下：</li>
+<li>代码区：存放函数体的二进制代码，由操作系统进行管理的</li>
+<li>全局区：存放全局变量和静态变量以及常量</li>
+<li>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等</li>
+<li>堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我展示的是一级标题</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">我展示的是二级标题</span><br><span class="line">----------------</span><br></pre></td></tr></table></figure>
-<p>显示效果如下：</p>
-<h1 id="我展示的是一级标题"><a href="#我展示的是一级标题" class="headerlink" title="我展示的是一级标题"></a>我展示的是一级标题</h1><h2 id="我展示的是二级标题"><a href="#我展示的是二级标题" class="headerlink" title="我展示的是二级标题"></a>我展示的是二级标题</h2><p>2 使用#号标记<br>使用 # 可以表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。<br>语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-<p>显示效果如下：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6>
+<p><strong>意义</strong>：不同区域存放的数据，赋予不同的生命周期，给我们更大的灵活编程</p>
+<h2 id="程序运行前"><a href="#程序运行前" class="headerlink" title="程序运行前"></a>程序运行前</h2><p>在程序编译后，生成了exe可执行文件，<strong>未执行该程序前</strong>分为两个区域：</p>
+<p><strong>代码区</strong>：</p>
+<ol>
+<li>存放CPU执行命令</li>
+<li>代码区是<strong>共享的</strong>，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可</li>
+<li>代码区是<strong>只读的</strong>，使其只读的原因是防止程序意外地修改了它的指令</li>
+</ol>
+<p><strong>全局区</strong></p>
+<ol>
+<li>全局区包括全局变量和静态变量</li>
+<li>全局区还包含了常量区(const修饰的全局常量和字符串常量)和其他常量</li>
+<li>该区域的数据在程序结束后由操作系统释放</li>
+</ol>
+<h2 id="程序运行后"><a href="#程序运行后" class="headerlink" title="程序运行后"></a>程序运行后</h2><p><strong>栈区</strong><br>由编译器自动分配释放，存放函数的参数值，局部变量等<br>注意事项： 不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
+<p><strong>堆区</strong></p>
+<ol>
+<li>由程序员分配释放，若程序员不释放，程序结束时由操作系统回收</li>
+<li>在C++中主要利用new在堆区开辟内存</li>
+</ol>
+<h3 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h3><p>C++利用new操作符在堆区开辟数据<br>堆区开辟的数据，由程序员手动开辟，手动释放，释放利用操作符delete<br>语法：<code>new 数据类型</code><br>利用new创建的数据，会返回该数据对应类型的<strong>指针</strong><br>
         
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-01/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/09/CPP-notes-04/#more">more >></a>
         
       
 
@@ -232,7 +249,15 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内存</a>
         		</li>
       		
 		</ul>
@@ -253,7 +278,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-01/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/09/CPP-notes-04/">展开全文 >></a>
         </p>
       
 
@@ -283,34 +308,45 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Github-notes -01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CPP-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/25/Github-notes%20-01/">Github笔记01</a>
+      <a class="article-title" href="/2018/05/03/CPP-notes-03/">C++学习笔记03</a>
     </h1>
   
 
         
-        <a href="/2020/04/25/Github-notes%20-01/" class="archive-article-date">
-  	<time datetime="2020-04-25T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+        <a href="/2018/05/03/CPP-notes-03/" class="archive-article-date">
+  	<time datetime="2018-05-03T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Git初始化本地仓库及管理远程仓库github"><a href="#Git初始化本地仓库及管理远程仓库github" class="headerlink" title="Git初始化本地仓库及管理远程仓库github"></a>Git初始化本地仓库及管理远程仓库github</h2><ol>
-<li>首先在本地安装git，下载安装好git工具。</li>
-<li>将自己在github上的注册的用户名和邮箱写入本地git的配置文件中：<br>(1)右键选择Git Bash Here，输入：git config —global user.name ‘用户名’，一定要在用户名加上’’。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &#39;******&#39;</span><br></pre></td></tr></table></figure>
-(2)设置邮箱：git config —global user.email ‘邮箱’ ，一定要在邮箱加上’’。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email &#39;******@***.***&#39;</span><br></pre></td></tr></table></figure></li>
-<li>从github上下载自己创建的项目到本地,应先复制github上的路径，然后在本地打开Git Bash Here，然后再输入命令：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;用户名&#x2F;仓库名.git</span><br></pre></td></tr></table></figure>
-这样就会将github上的项目克隆到本地了。
+        <h1 id="int-int64-int-amp"><a href="#int-int64-int-amp" class="headerlink" title="int _int64 int&amp;"></a>int _int64 int&amp;</h1><h2 id="int"><a href="#int" class="headerlink" title="int"></a>int</h2><p>int是C++关键字，表示整型，其大小是32位有符号整型，表示的范围是-2,147,483,648 到<br>2,147,483,647；在声明和定义变量时使用，它表示的意思是所声明或所定义的变量为整型变量。如果其用于函数参数时，其传递方向为值传递，即只能将实参的值传递给形参，而不能将形参的值传递给实参。</p>
+<h2 id="int64"><a href="#int64" class="headerlink" title="_int64"></a>_int64</h2><p>_int64是c++中定义64位长整型的方式</p>
+<h2 id="int-amp"><a href="#int-amp" class="headerlink" title="int&amp;"></a>int&amp;</h2><p>int&amp;中的<strong>&amp;</strong>不是取址符号，而是引用符号，引用是C++对C的一个重要补充。变量的引用就是变量的别名。同样可以理解如果变量b是变量a的引用 那么无论a，b中任何一个值改变，另外一个也相应的改变，在声明一个引用时，必须同时使之初始化，即声明它代表哪一个变量。请注意：由于引用不是独立的变量，编译系统不给它单独分配存储单元，因此在建立引用时只有声明没有定义，只是声明它与原有的某一变量的关系。在声明一个变量的引用后，在本函数执行期间，该引用一直与其代表的变量相联系，不能再作为其他变量的别名，一个引用变量只能对应一个原始的变量，不能对应两个或多个原始的变量。</p>
+<ol>
+<li><p>声明引用时必须指定它代表的是哪一个变量，即对它初始化，比如int &amp;a=b这样是声明a是变量b的引用，如果是int &amp;a就是错的，因为没有指定a代表哪一个变量。</p>
+</li>
+<li><p>引用与其所代表的变量共享同一内存单元，系统并不为引用另外分配存储单元。</p>
+</li>
+<li><p>怎样区分&amp;是引用还是取地址符呢？方法是：判断&amp;a这样的形式前是否有类型符即int &amp;a=b;如果有类型符(int)则是引用，否则是取地址运算符。</p>
+</li>
+<li><p>对引用的初始化，可以是一个变量名，也可以是另一个引用。比如:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>; <span class="comment">//这里是定义一个整形变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;b=a;<span class="comment">//声明b是整型变量a的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;c=b;<span class="comment">//声明c是整型引用变量b的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;d=a;<span class="comment">//声明d是整型变量a的别名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用初始化后不能再被重新声明为另一变量的别名.</p>
+</li>
+</ol>
+<p>C++中增加引用主要是作为函数参数，进行数据传递的功能；我们知道如果用变量名作为实参，其传递方向是单向的，而用引用作为实参其传递方向是双向的；在c语言中的指针进行参数传递，只不过是将变量的地址传给指针，通过指针获取变量的值，虽能得到结果，但通过指针运算符去访问有关变量，比较麻烦。</p>
         
-          <a class="article-more-a" href="/2020/04/25/Github-notes%20-01/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/03/CPP-notes-03/#more">more >></a>
         
       
 
@@ -328,7 +364,11 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -349,7 +389,229 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/Github-notes%20-01/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/03/CPP-notes-03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/29/CPP-notes-02/">C++学习笔记02</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/29/CPP-notes-02/" class="archive-article-date">
+  	<time datetime="2018-04-29T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><strong>语法</strong>：数据类型 <em> 指针变量名。<br><strong>使用</strong>：通过解引用的方式来找到指针指向的内存。（指针前加</em>代表解引用，找到指针指向的内存中的数据）。<br><strong>所占空间</strong>：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。</p>
+<p><strong>空指针</strong>：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。<br><strong>野指针</strong>： 指针变量指向非法的内存空间。<br>空指针和野指针都不是我们申请的空间，因此不要访问。</p>
+<p><strong>const修饰指针</strong>有三种情况：</p>
+<ol>
+<li>const修饰指针 —-常量指针：<code>const int * p = &amp;a</code> 指针的指向可以修改，但是指针指向的值不可以修改；</li>
+<li>const修饰常量 —-指针常量：<code>int * const p = &amp;a</code> 指针的指向不可以改，但是指针指向的值可以修改；</li>
+<li>const即修饰指针，又修饰常量： <code>const int * const p = &amp;a</code> 指针的指向和指针指向的值都不可以改；</li>
+</ol>
+<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><p>利用指针访问数组中的元素。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p = arr <span class="comment">//arr就是数组首地址</span></span><br><span class="line"></span><br><span class="line">p++ <span class="comment">//让指针向后偏移4个字节</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><p>利用指针作为函数参数，可以修改实参的值。形参是无法改变实参的值，但使用指针就可以修改。<br>
+        
+          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/29/CPP-notes-01/">C++学习笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/29/CPP-notes-01/" class="archive-article-date">
+  	<time datetime="2018-04-29T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>作用</strong>： 在代码中加一些说明和解释，方便阅读<br><strong>两种格式</strong>：</p>
+<ol>
+<li>单行注释：<code>//描述信息</code><ul>
+<li>通常放在一行代码的上方，或者一条语句的末尾，对该行代码说明</li>
+</ul>
+</li>
+<li>多行注释：<code>/*描述信息*/</code><ul>
+<li>通常放在一段代码的上方，对该段代码做整体说明</li>
+</ul>
+</li>
+</ol>
+<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>C++定义常量两种方式：</p>
+<ol>
+<li><h1 id="define-宏常量：-define-常量名-常量值"><a href="#define-宏常量：-define-常量名-常量值" class="headerlink" title="define 宏常量：#define 常量名 常量值"></a>define 宏常量：<code>#define 常量名 常量值</code></h1><ul>
+<li>通常在文件上方定义，表示一个常量</li>
+</ul>
+</li>
+<li>const修饰的变量：<code>const 数据类型 常量名 = 常量值</code><ul>
+<li>通常在变量定义前加关键字const，修饰该变量为常量，不可修改</li>
+</ul>
+</li>
+</ol>
+<h1 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h1><p>C++规定给标识符（变量、常量）命名时，有一套自己的规则</p>
+<ul>
+<li>标识符不能是关键字</li>
+<li>标识符只能由字母、数字、下划线组成</li>
+<li>第一个字符必须为字母或下划线</li>
+<li>标识符中字母区分大小写
+        
+          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/">展开全文 >></a>
         </p>
       
 
@@ -386,13 +648,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/24/C%20language-notes-07/">C语言学习笔记07</a>
+      <a class="article-title" href="/2018/04/24/C%20language-notes-07/">C语言学习笔记07</a>
     </h1>
   
 
         
-        <a href="/2020/04/24/C%20language-notes-07/" class="archive-article-date">
-  	<time datetime="2020-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2018/04/24/C%20language-notes-07/" class="archive-article-date">
+  	<time datetime="2018-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
 </a>
         
       </header>
@@ -401,7 +663,7 @@ var _hmt = _hmt || [];
       
         <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure><br>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。<br>
         
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-07/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/#more">more >></a>
         
       
 
@@ -444,7 +706,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-07/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/">展开全文 >></a>
         </p>
       
 
@@ -481,13 +743,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/24/C%20language-notes-06/">C语言学习笔记06</a>
+      <a class="article-title" href="/2018/04/24/C%20language-notes-06/">C语言学习笔记06</a>
     </h1>
   
 
         
-        <a href="/2020/04/24/C%20language-notes-06/" class="archive-article-date">
-  	<time datetime="2020-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2018/04/24/C%20language-notes-06/" class="archive-article-date">
+  	<time datetime="2018-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
 </a>
         
       </header>
@@ -496,7 +758,7 @@ var _hmt = _hmt || [];
       
         <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>而对字符指针变量，可以采用下面方法赋值：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>
         
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-06/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/#more">more >></a>
         
       
 
@@ -539,7 +801,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-06/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/">展开全文 >></a>
         </p>
       
 
@@ -576,13 +838,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/24/C%20language-notes-05/">C语言学习笔记05</a>
+      <a class="article-title" href="/2018/04/24/C%20language-notes-05/">C语言学习笔记05</a>
     </h1>
   
 
         
-        <a href="/2020/04/24/C%20language-notes-05/" class="archive-article-date">
-  	<time datetime="2020-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2018/04/24/C%20language-notes-05/" class="archive-article-date">
+  	<time datetime="2018-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
 </a>
         
       </header>
@@ -592,7 +854,7 @@ var _hmt = _hmt || [];
         <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
 <h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。<br>
         
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-05/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/#more">more >></a>
         
       
 
@@ -635,7 +897,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/C%20language-notes-05/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/">展开全文 >></a>
         </p>
       
 
@@ -672,13 +934,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/C%20language-notes-04/">C语言学习笔记04</a>
+      <a class="article-title" href="/2018/04/23/C%20language-notes-04/">C语言学习笔记04</a>
     </h1>
   
 
         
-        <a href="/2020/04/23/C%20language-notes-04/" class="archive-article-date">
-  	<time datetime="2020-04-23T10:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2018/04/23/C%20language-notes-04/" class="archive-article-date">
+  	<time datetime="2018-04-23T10:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
       </header>
@@ -687,7 +949,7 @@ var _hmt = _hmt || [];
       
         <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针的运算"><a href="#指针的运算" class="headerlink" title="指针的运算"></a>指针的运算</h3><p>指针是一种变量，和普通变量一样，可以进行算术运算，包含两种形式。<br>1.指针 +/- 整数 ：<br>指针变量 p 进行 p++、p—、p + i 等操作，所得结果也是一个指针，只是指针所指向的内存地址相比于 p 所指的内存地址前进或者后退了 i 个操作数。那么指针运算的规则是什么呢？<br>
         
-          <a class="article-more-a" href="/2020/04/23/C%20language-notes-04/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/23/C%20language-notes-04/#more">more >></a>
         
       
 
@@ -730,7 +992,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/C%20language-notes-04/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/23/C%20language-notes-04/">展开全文 >></a>
         </p>
       
 
@@ -767,13 +1029,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/C%20language-notes-03/">C语言学习笔记03</a>
+      <a class="article-title" href="/2018/04/23/C%20language-notes-03/">C语言学习笔记03</a>
     </h1>
   
 
         
-        <a href="/2020/04/23/C%20language-notes-03/" class="archive-article-date">
-  	<time datetime="2020-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2018/04/23/C%20language-notes-03/" class="archive-article-date">
+  	<time datetime="2018-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
       </header>
@@ -782,7 +1044,7 @@ var _hmt = _hmt || [];
       
         <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h3><p>C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（即指针变量中存放的值）是地址（即指针）。<br>在C语言中*为取值操作符，&amp;为取址操作符。<br>
         
-          <a class="article-more-a" href="/2020/04/23/C%20language-notes-03/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/#more">more >></a>
         
       
 
@@ -825,7 +1087,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/C%20language-notes-03/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/">展开全文 >></a>
         </p>
       
 
@@ -862,13 +1124,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/22/C%20language-notes-02/">C语言学习笔记02</a>
+      <a class="article-title" href="/2018/04/22/C%20language-notes-02/">C语言学习笔记02</a>
     </h1>
   
 
         
-        <a href="/2020/04/22/C%20language-notes-02/" class="archive-article-date">
-  	<time datetime="2020-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
+        <a href="/2018/04/22/C%20language-notes-02/" class="archive-article-date">
+  	<time datetime="2018-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
 </a>
         
       </header>
@@ -877,7 +1139,7 @@ var _hmt = _hmt || [];
       
         <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符<br>
         
-          <a class="article-more-a" href="/2020/04/22/C%20language-notes-02/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/#more">more >></a>
         
       
 
@@ -916,169 +1178,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/22/C%20language-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/21/C%20language-notes-01/">C语言学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/21/C%20language-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。<br>
-        
-          <a class="article-more-a" href="/2020/04/21/C%20language-notes-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/21/C%20language-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:14:07.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/">展开全文 >></a>
         </p>
       
 
@@ -1110,7 +1210,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </nav>
   
 
@@ -1201,14 +1301,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1218,6 +1310,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">起泡排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,7 +1357,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1261,11 +1365,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">向量</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,15 +1381,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">高级搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,6 +1398,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>

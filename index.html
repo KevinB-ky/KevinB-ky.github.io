@@ -182,6 +182,230 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Data Structure-notes-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/20/Data%20Structure-notes-10/">数据结构学习笔记10</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/20/Data%20Structure-notes-10/" class="archive-article-date">
+  	<time datetime="2020-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="分治策略"><a href="#分治策略" class="headerlink" title="分治策略"></a>分治策略</h2><p>与归并排序算法一样，快速排序(quicksort)算法也是分治策略的典型应用，但二者也有本质的区别。归并排序的计算主要消耗于有序子向量的归并操作，而子向量的划分几乎不费时间。快速排序恰好相反，他可在O(1)时间内由子问题的解得到原问题的解：但为了将原问题划分为两个问题，却需要O(n)时间。</p>
+<h2 id="轴点"><a href="#轴点" class="headerlink" title="轴点"></a>轴点</h2><p>对任意向量区间S[lo, hi)。对于任何lo ≤ mi ≤ hi，以元素S[mi]为界，都可分割出前、后两个子向量S[lo, mi)和S[mi, hi)。若S[lo, hi)中的元素均不大于S[mi]，且S(mi, hi)中的元素均不小于S[mi]，则元素S[mi]称作向量S的一个轴点(pivot)。</p>
+<h2 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//向量快速排序</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">vector</span>&lt;T&gt;::quickSort(Rank lo, Rank hi) <span class="comment">//0 &lt;= lo &lt; hi &lt;= size</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(hi - lo &lt; <span class="number">2</span>) <span class="keyword">return</span>; <span class="comment">//单元素区间自然有序，否则...</span></span><br><span class="line">	Rank mi = partition(lo, hi - <span class="number">1</span>); <span class="comment">//在[lo, hi - 1]内构造轴点</span></span><br><span class="line">	quickSort(lo, mi); <span class="comment">//对前缀递归排序</span></span><br><span class="line">	quickSort(mi + <span class="number">1</span>, hi); <span class="comment">//对后缀递归排序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/07/20/Data%20Structure-notes-10/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/20/Data%20Structure-notes-10/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Data Structure-notes-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/17/Data%20Structure-notes-09/">数据结构学习笔记09</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/17/Data%20Structure-notes-09/" class="archive-article-date">
+  	<time datetime="2020-07-17T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="词典ADT"><a href="#词典ADT" class="headerlink" title="词典ADT"></a>词典ADT</h1><h2 id="操作接口"><a href="#操作接口" class="headerlink" title="操作接口"></a>操作接口</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操 作 接 口</th>
+<th style="text-align:center">功 能 描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">get(key)</td>
+<td style="text-align:center">若词典中存在以key为关键码的词条，则返回该词条的数据对象；否则，返回NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">put(key, value)</td>
+<td style="text-align:center">插入词条(key, value)，并报告是否存在</td>
+</tr>
+<tr>
+<td style="text-align:center">remove(key)</td>
+<td style="text-align:center">若词典中存在以key为关键码的词条，则删除之并返回true；否则，返回false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt; <span class="class"><span class="keyword">struct</span> <span class="title">Dictionary</span> //词典<span class="title">Dictionary</span>模板类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>; <span class="comment">//当前词条总数</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">put</span><span class="params">(K, V)</span> </span>= <span class="number">0</span>; <span class="comment">//插入词条(禁止雷同词条时可能失败)</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> V* <span class="title">get</span><span class="params">(K k)</span> </span>= <span class="number">0</span>; <span class="comment">//读取词条</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">remove</span><span class="params">(K k)</span> </span>= <span class="number">0</span>; <span class="comment">//删除词条</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/07/17/Data%20Structure-notes-09/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">词典</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/17/Data%20Structure-notes-09/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Data Structure-notes-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1012,192 +1236,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Algorithm-flashcards-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/Algorithm-flashcards-02/">算法速记02</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/Algorithm-flashcards-02/" class="archive-article-date">
-  	<time datetime="2020-05-03T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="素因子分解-Prime-Factorization"><a href="#素因子分解-Prime-Factorization" class="headerlink" title="素因子分解(Prime Factorization)"></a>素因子分解(Prime Factorization)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrimeFactorization</span><span class="params">( <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>( i != n )  <span class="comment">//若i=n，则质因数就是n本身  </span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( n % i == <span class="number">0</span> )  <span class="comment">//若i是质因数，则打印出i的值，并用商给n赋新值  </span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i)</span><br><span class="line">                n = n / i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>  <span class="comment">//若不能被i整除，则算下一个i  </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n)  <span class="comment">//这里是打印最后一个质因数，也就是等于i时的那个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">素因子分解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/Algorithm-flashcards-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Algorithm-flashcards-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/Algorithm-flashcards-01/">算法速记01</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/01/Algorithm-flashcards-01/" class="archive-article-date">
-  	<time datetime="2020-05-01T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起泡排序-Bubblesort"><a href="#起泡排序-Bubblesort" class="headerlink" title="起泡排序(Bubblesort)"></a>起泡排序(Bubblesort)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//起泡排序算法（版本1A）：0 &lt;= n(时间复杂度O(n2)，空间复杂度O(1))</span></span><br><span class="line"><span class="function">Void <span class="title">bubblesort1A</span><span class="params">( <span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sorted = <span class="literal">false</span>;  <span class="comment">//整体排序标志，首先假定尚未排序</span></span><br><span class="line">    <span class="keyword">while</span>( !sorted ) </span><br><span class="line">    &#123;  <span class="comment">//在尚未确认全局排序之前，逐趟进行扫描交换</span></span><br><span class="line">        sorted = trued;  <span class="comment">//假定已经排序</span></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++ )  <span class="comment">//自左向右逐对检查当前范围A[0, n)内的相邻元素</span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>( A[i<span class="number">-1</span>] &gt; A[i] )  <span class="comment">//一旦A[i - 1]与A[i]逆序，则</span></span><br><span class="line">            &#123;  </span><br><span class="line">                swap ( A[i - <span class="number">1</span>], A[i] );  <span class="comment">//交换之，并</span></span><br><span class="line">                sorted = flase;  <span class="comment">//因整体排序不能保证，需要清楚排序标志</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        n--;  <span class="comment">//至此末元素必然就位，故可以缩短待排序序列的有效长度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;  <span class="comment">//借助布尔型标志位sorted，可及时提前退出，而不致总是蛮力的做n - 1趟交换</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">起泡排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/Algorithm-flashcards-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Data Structure-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1205,13 +1243,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/27/Data%20Structure-notes-01/">数据结构学习笔记01</a>
+      <a class="article-title" href="/2020/05/07/Data%20Structure-notes-01/">数据结构学习笔记01</a>
     </h1>
   
 
         
-        <a href="/2020/04/27/Data%20Structure-notes-01/" class="archive-article-date">
-  	<time datetime="2020-04-27T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
+        <a href="/2020/05/07/Data%20Structure-notes-01/" class="archive-article-date">
+  	<time datetime="2020-05-07T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
 </a>
         
       </header>
@@ -1240,7 +1278,7 @@ var _hmt = _hmt || [];
 <p>具体实现        内部的表现与实现        完整的算法<br>多种实现        与复杂度密切相关        要考虑数据的具体存储机制</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2020/04/27/Data%20Structure-notes-01/#more">more >></a>
+          <a class="article-more-a" href="/2020/05/07/Data%20Structure-notes-01/#more">more >></a>
         
       
 
@@ -1283,7 +1321,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/Data%20Structure-notes-01/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/07/Data%20Structure-notes-01/">展开全文 >></a>
         </p>
       
 
@@ -1511,6 +1549,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">词典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>

@@ -182,6 +182,125 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CPP-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/10/CPP-notes-05/">C++学习笔记05</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/10/CPP-notes-05/" class="archive-article-date">
+  	<time datetime="2018-05-10T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><p>C++面对对象的三大特性：封装、继承、多态<br>具有相同性质的对象可以抽象为类</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p><strong>意义</strong>：</p>
+<ol>
+<li>将属性和行为作为一个整体，表现生活中的事务</li>
+<li>将属性和行为加以权限控制</li>
+</ol>
+<p><strong>封装意义一</strong>：<br>在设计类的时候，属性和行为写在一起，表现事物<br><strong>语法</strong>：<code>class 类名{ 权限访问：属性 / 行为 }</code><br>例如：创建一个圆类并求周长<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class代表设计一个类，类后面就是类名</span></span><br><span class="line">Class Circle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//访问权限</span></span><br><span class="line"><span class="keyword">public</span>： <span class="comment">//公共权限</span></span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">int</span> m_r; <span class="comment">//半径</span></span><br><span class="line">    <span class="comment">//行为</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculateP</span><span class="params">()</span> <span class="comment">//获取圆的周长</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * <span class="number">3.14</span> * m_r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//实例化 通过一个类创建一个对象的过程</span></span><br><span class="line">    <span class="comment">//通过圆类 创建具体的圆(对象)</span></span><br><span class="line">    Circle cl;</span><br><span class="line">    <span class="comment">//给圆对象的属性赋值</span></span><br><span class="line">    cl.m_r = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//访问圆的行为，求得周长</span></span><br><span class="line">    <span class="keyword">int</span> P = cl.calculateP();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>访问权限</strong>：</p>
+<ol>
+<li>公共权限 public      成员类内可以访问，类外可以访问</li>
+<li>保护权限 protected   成员类内可以访问，类外不可以访问 子类可以访问父类的保护内容</li>
+<li>私有权限 private     成员类内可以访问，类外不可以访问 子类不可以访问父类的私有内容</li>
+</ol>
+<h3 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a>struct和class的区别</h3><p>在C++中struct和class唯一的区别就在于默认的访问权限不同</p>
+<ol>
+<li>struct默认权限为公共</li>
+<li>class默认权限为私有</li>
+</ol>
+<h3 id="成员属性私有化"><a href="#成员属性私有化" class="headerlink" title="成员属性私有化"></a>成员属性私有化</h3><p><strong>优点</strong>：</p>
+<ol>
+<li>将所有成员属性设置为私有，可以自己控制读写权限</li>
+<li>对于写权限，我们可以检测数据的有效性<br>通过在public中提供的函数访问private内的属性达到控制权限的目的，例如：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Class Person</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//设置姓名</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="built_in">string</span> name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取姓名</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m_Name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取年龄</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Age = <span class="number">18</span>;</span><br><span class="line">        <span class="keyword">return</span> m_Age;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> m_Name; <span class="comment">//姓名 可读可写</span></span><br><span class="line">    <span class="keyword">int</span> m_Age; <span class="comment">//年龄 只读</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Person p;</span><br><span class="line">    p.setName(<span class="string">"张三')； //写入姓名</span></span><br><span class="line"><span class="string">    p.getName(); //读取姓名</span></span><br><span class="line"><span class="string">    p.getAge(); //读取年龄</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPP-notes-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1117,97 +1236,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C language-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/22/C%20language-notes-02/">C语言学习笔记02</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/22/C%20language-notes-02/" class="archive-article-date">
-  	<time datetime="2018-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符<br>
-        
-          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
@@ -1406,6 +1434,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">词典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>

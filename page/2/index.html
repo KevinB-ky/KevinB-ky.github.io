@@ -182,34 +182,28 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Makedown-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Algorithm-flashcards-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/25/Makedown-notes-03/">Markdown流程图</a>
+      <a class="article-title" href="/2020/05/03/Algorithm-flashcards-02/">算法速记02</a>
     </h1>
   
 
         
-        <a href="/2020/04/25/Makedown-notes-03/" class="archive-article-date">
-  	<time datetime="2020-04-25T13:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+        <a href="/2020/05/03/Algorithm-flashcards-02/" class="archive-article-date">
+  	<time datetime="2020-05-03T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h1><hr>
-<p>原码格式(使用时将·替换为`)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">···flow</span><br><span class="line">st&#x3D;&gt;start: 开始框</span><br><span class="line">op&#x3D;&gt;operation: 处理框</span><br><span class="line">cond&#x3D;&gt;condition: 判断框(是或否?)</span><br><span class="line">sub1&#x3D;&gt;subroutine: 子流程</span><br><span class="line">io&#x3D;&gt;inputoutput: 输入输出框</span><br><span class="line">e&#x3D;&gt;end: 结束框</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-<p>显示结果：</p>
-<div id="flowchart-0" class="flow-chart"></div>
-        
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-03/#more">more >></a>
-        
+        <h1 id="素因子分解-Prime-Factorization"><a href="#素因子分解-Prime-Factorization" class="headerlink" title="素因子分解(Prime Factorization)"></a>素因子分解(Prime Factorization)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrimeFactorization</span><span class="params">( <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>( i != n )  <span class="comment">//若i=n，则质因数就是n本身  </span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( n % i == <span class="number">0</span> )  <span class="comment">//若i是质因数，则打印出i的值，并用商给n赋新值  </span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i)</span><br><span class="line">                n = n / i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>  <span class="comment">//若不能被i整除，则算下一个i  </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n)  <span class="comment">//这里是打印最后一个质因数，也就是等于i时的那个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -222,11 +216,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">素因子分解</a>
         		</li>
       		
 		</ul>
@@ -238,7 +236,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
         		</li>
       		
 		</ul>
@@ -247,7 +245,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-03/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/03/Algorithm-flashcards-02/">展开全文 >></a>
         </p>
       
 
@@ -277,48 +275,28 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Makedown-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Algorithm-flashcards-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/25/Makedown-notes-02/">Markdown高级技巧</a>
+      <a class="article-title" href="/2020/05/01/Algorithm-flashcards-01/">算法速记01</a>
     </h1>
   
 
         
-        <a href="/2020/04/25/Makedown-notes-02/" class="archive-article-date">
-  	<time datetime="2020-04-25T12:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+        <a href="/2020/05/01/Algorithm-flashcards-01/" class="archive-article-date">
+  	<time datetime="2020-05-01T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Markdown支持的HTML元素"><a href="#Markdown支持的HTML元素" class="headerlink" title="Markdown支持的HTML元素"></a>Markdown支持的HTML元素</h1><hr>
-<p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。<br>目前支持的 HTML 元素有：</p>
-<ul>
-<li><code>强调文本：&lt;em&gt;...&lt;/em&gt;</code> <em>强调文本</em></li>
-<li><code>重要文本：&lt;strong&gt;...&lt;/strong&gt;、&lt;b&gt;...&lt;/b&gt;</code> <strong>重要文本</strong></li>
-<li><code>突出显示文本：&lt;mark&gt;...&lt;/mark&gt;</code> <mark>突出显示</mark></li>
-<li><code>加大字号：&lt;big&gt;...&lt;/big&gt;(可嵌套)</code> <big>加大字号</big> <big><big>加大字号</big>&lt;/big&gt;</li>
-<li><code>减小字号：&lt;small&gt;...&lt;/small&gt;(可嵌套)</code> <small>减小字号</small> <small><small>减小字号</small>&lt;/small&gt;</li>
-<li><code>上脚标：&lt;sup&gt;...&lt;/sup&gt;</code> 2<sup>1</sup></li>
-<li><code>下脚标：&lt;sub&gt;...&lt;/sub&gt;</code> M<sub>1</sub></li>
-<li><code>下划线：&lt;u&gt;...&lt;/u&gt;</code> <u>下划线</u></li>
-<li><code>删除线：&lt;del&gt;...&lt;/del&gt;</code> <del>删除线</del><br>等等…</li>
-</ul>
-<h1 id="Markdown中的转义"><a href="#Markdown中的转义" class="headerlink" title="Markdown中的转义"></a>Markdown中的转义</h1><hr>
-<p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
-<p>输出结果为：<br><strong>文本加粗</strong><br>** 正常显示星号 **</p>
-<p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">&#96;   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-02/#more">more >></a>
-        
+        <h1 id="起泡排序-Bubblesort"><a href="#起泡排序-Bubblesort" class="headerlink" title="起泡排序(Bubblesort)"></a>起泡排序(Bubblesort)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//起泡排序算法（版本1A）：0 &lt;= n(时间复杂度O(n2)，空间复杂度O(1))</span></span><br><span class="line"><span class="function">Void <span class="title">bubblesort1A</span><span class="params">( <span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sorted = <span class="literal">false</span>;  <span class="comment">//整体排序标志，首先假定尚未排序</span></span><br><span class="line">    <span class="keyword">while</span>( !sorted ) </span><br><span class="line">    &#123;  <span class="comment">//在尚未确认全局排序之前，逐趟进行扫描交换</span></span><br><span class="line">        sorted = trued;  <span class="comment">//假定已经排序</span></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++ )  <span class="comment">//自左向右逐对检查当前范围A[0, n)内的相邻元素</span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>( A[i<span class="number">-1</span>] &gt; A[i] )  <span class="comment">//一旦A[i - 1]与A[i]逆序，则</span></span><br><span class="line">            &#123;  </span><br><span class="line">                swap ( A[i - <span class="number">1</span>], A[i] );  <span class="comment">//交换之，并</span></span><br><span class="line">                sorted = flase;  <span class="comment">//因整体排序不能保证，需要清楚排序标志</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        n--;  <span class="comment">//至此末元素必然就位，故可以缩短待排序序列的有效长度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;  <span class="comment">//借助布尔型标志位sorted，可及时提前退出，而不致总是蛮力的做n - 1趟交换</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -331,11 +309,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">起泡排序</a>
         		</li>
       		
 		</ul>
@@ -347,7 +329,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
         		</li>
       		
 		</ul>
@@ -356,7 +338,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/Makedown-notes-02/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/01/Algorithm-flashcards-01/">展开全文 >></a>
         </p>
       
 
@@ -482,36 +464,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JAVA-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/hello-world/">Hello World</a>
+      <a class="article-title" href="/2019/07/26/JAVA-notes-02/">JAVA笔记02</a>
     </h1>
   
 
         
-        <a href="/2020/04/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:14:07.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+        <a href="/2019/07/26/JAVA-notes-02/" class="archive-article-date">
+  	<time datetime="2019-07-26T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <ul>
+<li><a href="#2" target="_self">Java基础知识</a> <ul>
+<li><a href="#2.1" target="_self">基本数据类型</a> </li>
+<li><a href="#2.2" target="_self">自动拆装箱</a></li>
+<li><a href="#2.3" target="_self">String</a>
+        
+          <a class="article-more-a" href="/2019/07/26/JAVA-notes-02/#more">more >></a>
+        
       
 
       
@@ -519,11 +499,133 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JAVA基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/26/JAVA-notes-02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/JAVA-notes-01/">JAVA笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/JAVA-notes-01/" class="archive-article-date">
+  	<time datetime="2019-07-25T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="#1" target="_self">面向对象</a> <ul>
+<li><a href="#1.1" target="_self">面向对象与面向过程</a> </li>
+<li><a href="#1.2" target="_self">封装、继承、多态</a> </li>
+<li><a href="#1.3" target="_self">Java的平台无关性</a> </li>
+<li><a href="#1.4" target="_self">值传递</a>
+        
+          <a class="article-more-a" href="/2019/07/25/JAVA-notes-01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JAVA基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/JAVA-notes-01/">展开全文 >></a>
         </p>
       
 
@@ -1251,125 +1353,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CPP-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/10/CPP-notes-05/">C++学习笔记05</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/10/CPP-notes-05/" class="archive-article-date">
-  	<time datetime="2018-05-10T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><p>C++面对对象的三大特性：封装、继承、多态<br>具有相同性质的对象可以抽象为类</p>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p><strong>意义</strong>：</p>
-<ol>
-<li>将属性和行为作为一个整体，表现生活中的事务</li>
-<li>将属性和行为加以权限控制</li>
-</ol>
-<p><strong>封装意义一</strong>：<br>在设计类的时候，属性和行为写在一起，表现事物<br><strong>语法</strong>：<code>class 类名{ 权限访问：属性 / 行为 }</code><br>例如：创建一个圆类并求周长<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class代表设计一个类，类后面就是类名</span></span><br><span class="line">Class Circle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//访问权限</span></span><br><span class="line"><span class="keyword">public</span>： <span class="comment">//公共权限</span></span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">int</span> m_r; <span class="comment">//半径</span></span><br><span class="line">    <span class="comment">//行为</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculateP</span><span class="params">()</span> <span class="comment">//获取圆的周长</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * <span class="number">3.14</span> * m_r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//实例化 通过一个类创建一个对象的过程</span></span><br><span class="line">    <span class="comment">//通过圆类 创建具体的圆(对象)</span></span><br><span class="line">    Circle cl;</span><br><span class="line">    <span class="comment">//给圆对象的属性赋值</span></span><br><span class="line">    cl.m_r = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//访问圆的行为，求得周长</span></span><br><span class="line">    <span class="keyword">int</span> P = cl.calculateP();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>访问权限</strong>：</p>
-<ol>
-<li>公共权限 public      成员类内可以访问，类外可以访问</li>
-<li>保护权限 protected   成员类内可以访问，类外不可以访问 子类可以访问父类的保护内容</li>
-<li>私有权限 private     成员类内可以访问，类外不可以访问 子类不可以访问父类的私有内容</li>
-</ol>
-<h3 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a>struct和class的区别</h3><p>在C++中struct和class唯一的区别就在于默认的访问权限不同</p>
-<ol>
-<li>struct默认权限为公共</li>
-<li>class默认权限为私有</li>
-</ol>
-<h3 id="成员属性私有化"><a href="#成员属性私有化" class="headerlink" title="成员属性私有化"></a>成员属性私有化</h3><p><strong>优点</strong>：</p>
-<ol>
-<li>将所有成员属性设置为私有，可以自己控制读写权限</li>
-<li>对于写权限，我们可以检测数据的有效性<br>通过在public中提供的函数访问private内的属性达到控制权限的目的，例如：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Class Person</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//设置姓名</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="built_in">string</span> name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取姓名</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m_Name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取年龄</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        m_Age = <span class="number">18</span>;</span><br><span class="line">        <span class="keyword">return</span> m_Age;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> m_Name; <span class="comment">//姓名 可读可写</span></span><br><span class="line">    <span class="keyword">int</span> m_Age; <span class="comment">//年龄 只读</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Person p;</span><br><span class="line">    p.setName(<span class="string">"张三')； //写入姓名</span></span><br><span class="line"><span class="string">    p.getName(); //读取姓名</span></span><br><span class="line"><span class="string">    p.getAge(); //读取年龄</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/10/CPP-notes-05/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
@@ -1568,6 +1551,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">词典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>

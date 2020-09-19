@@ -23,8 +23,13 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/String-Subtring-3.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/String-Concat-1.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Class-1.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Time01.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Time02.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Time03.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Time04.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Time05.jpg">
 <meta property="article:published_time" content="2019-07-25T02:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-12T06:39:58.296Z">
+<meta property="article:modified_time" content="2020-08-22T05:31:56.662Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="JAVA">
@@ -255,6 +260,23 @@ var _hmt = _hmt || [];
 <li><a href="#1.4" target="_self">数组</a> <ul>
 <li><a href="#1.4.1" target="_self">数组的优缺点</a></li>
 <li><a href="#1.4.2" target="_self">main方法上的”String[] args”</a> </li>
+</ul>
+</li>
+<li><a href="#1.5" target="_self">lambda表达式</a> <ul>
+<li><a href="#1.5.1" target="_self">语法</a></li>
+<li><a href="#1.5.2" target="_self">Lambda 表达式实例</a> </li>
+<li><a href="#1.5.3" target="_self">变量作用域</a> </li>
+</ul>
+</li>
+<li><a href="#1.6" target="_self">java时间处理</a> <ul>
+<li><a href="#1.6.1" target="_self">时区</a></li>
+<li><a href="#1.6.2" target="_self">冬令时和夏令时</a> </li>
+<li><a href="#1.6.3" target="_self">格林威治时间</a> </li>
+<li><a href="#1.6.4" target="_self">CET,UTC,GMT,CST几种常见时间的含义和关系</a> </li>
+<li><a href="#1.6.5" target="_self">SimpleDateFormat的线程安全性问题</a> </li>
+<li><a href="#1.6.6" target="_self">Java 8中的时间处理</a> </li>
+<li><a href="#1.6.7" target="_self">如何在东八区的计算机上获取美国时间</a> </li>
+<li><a href="#1.6.8" target="_self">yyyy和YYYY有什么区别？</a> </li>
 </ul>
 </li>
 </ul>
@@ -732,6 +754,188 @@ var _hmt = _hmt || [];
 <p>数组的缺点在于为了保证每个元素内存的连续性，在数组上进行随机删除、增加元素等动态操作的时候效率较低，因为会涉及到后面每一个元素的位移。另外，数组不能存储大数据量的数据，因为很难在内存空间上找到一块特别大的连续的内存空间。</p>
 <h3 id="main方法上的”String-args”"><a href="#main方法上的”String-args”" class="headerlink" title="main方法上的”String[] args”"></a><span id = "1.4.2" >main方法上的”String[] args”</span></h3><p>JVM调用main方法的时候，会自动传一个String数组过来,且默认传递过来的数组长度是0。</p>
 <p>这个数组留给用户，用户可以在控制台上输入参数，这个参数自动会被转换为”String[] args”。</p>
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a><span id = "1.5" >lambda表达式</span></h2><p>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</p>
+<p>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。</p>
+<p>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a><span id = "1.5.1" >语法</span></h3><p>lambda 表达式的语法格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(parameters) -&gt; expression</span><br><span class="line">或</span><br><span class="line">(parameters) -&gt;&#123; statements; &#125;</span><br></pre></td></tr></table></figure>
+<p>以下是lambda表达式的重要特征:</p>
+<ul>
+<li><p>可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。</p>
+</li>
+<li><p>可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。</p>
+</li>
+<li><p>可选的大括号：如果主体包含了一个语句，就不需要使用大括号。</p>
+</li>
+<li><p>可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。</p>
+</li>
+</ul>
+<h3 id="Lambda-表达式实例"><a href="#Lambda-表达式实例" class="headerlink" title="Lambda 表达式实例"></a><span id = "1.5.1" >Lambda 表达式实例</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 不需要参数,返回值为 5  </span></span><br><span class="line">() -&gt; <span class="number">5</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 接收一个参数(数字类型),返回其2倍的值  </span></span><br><span class="line">x -&gt; <span class="number">2</span> * x  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 接受2个参数(数字),并返回他们的差值  </span></span><br><span class="line">(x, y) -&gt; x – y  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 接收2个int型整数,返回他们的和  </span></span><br><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; x + y  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  </span></span><br><span class="line">(String s) -&gt; System.out.print(s)</span><br></pre></td></tr></table></figure>
+<p>Lambda 表达式主要用来定义行内执行的方法类型接口，例如，一个简单方法接口。在上面例子中，我们使用各种类型的Lambda表达式来定义MathOperation接口的方法。然后我们定义了sayMessage的执行。</p>
+<p>Lambda 表达式免去了使用匿名方法的麻烦，并且给予Java简单但是强大的函数化的编程能力。</p>
+<h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a><span id = "1.5.1" >变量作用域</span></h3><p>lambda 表达式只能引用标记了 final 的外层局部变量，这就是说不能在 lambda 内部修改定义在域外的局部变量，否则会编译错误。如以下代码，编译会出错：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String first = <span class="string">""</span>;  </span><br><span class="line">Comparator&lt;String&gt; comparator = (first, second) -&gt; Integer.compare(first.length(), second.length());</span><br></pre></td></tr></table></figure>
+<h2 id="java时间处理"><a href="#java时间处理" class="headerlink" title="java时间处理"></a><span id = "1.6" >java时间处理</span></h2><h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a><span id = "1.6.1" >时区</span></h3><p>时区是地球上的区域使用同一个时间定义。以前，人们通过观察太阳的位置（时角）决定时间，这就使得不同经度的地方的时间有所不同（地方时）。1863年，首次使用时区的概念。时区通过设立一个区域的标准时间部分地解决了这个问题。</p>
+<p>世界各个国家位于地球不同位置上，因此不同国家，特别是东西跨度大的国家日出、日落时间必定有所偏差。这些偏差就是所谓的时差。</p>
+<p>为了照顾到各地区的使用方便，又使其他地方的人容易将本地的时间换算到别的地方时间上去。有关国际会议决定将地球表面按经线从东到西，划成一个个区域，并且规定相邻区域的时间相差1小时。在同一区域内的东端和西端的人看到太阳升起的时间最多相差不过1小时。当人们跨过一个区域，就将自己的时钟校正1小时（向西减1小时，向东加1小时），跨过几个区域就加或减几小时。这样使用起来就很方便。现今全球共分为24个时区。由于实用上常常1个国家，或1个省份同时跨着2个或更多时区，为了照顾到行政上的方便，常将1个国家或1个省份划在一起。所以时区并不严格按南北直线来划分，而是按自然条件来划分。例如，中国幅员宽广，差不多跨5个时区，但为了使用方便简单，实际上在只用东八时区的标准时即北京时间为准。</p>
+<p>北京时间比洛杉矶时间早15或者16个小时。具体和时令有关。 北京时间比纽约时间早12或者13个小时。具体和时令有关。</p>
+<h3 id="冬令时和夏令时"><a href="#冬令时和夏令时" class="headerlink" title="冬令时和夏令时"></a><span id = "1.6.1" >冬令时和夏令时</span></h3><p>夏令时、冬令时的出现，是为了充分利用夏天的日照，所以时钟要往前拨快一小时，冬天再把表往回拨一小时。其中夏令时从3月第二个周日持续到11月第一个周日。</p>
+<p>冬令时： 北京和洛杉矶时差：16 北京和纽约时差：13</p>
+<p>夏令时： 北京和洛杉矶时差：15 北京和纽约时差：12</p>
+<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a><span id = "1.6.2" >时间戳</span></h3><p>时间戳（timestamp），一个能表示一份数据在某个特定时间之前已经存在的、 完整的、 可验证的数据,通常是一个字符序列，唯一地标识某一刻的时间。</p>
+<p>时间戳是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总秒数。通俗的讲， 时间戳是一份能够表示一份数据在一个特定时间点已经存在的完整的可验证的数据。</p>
+<h3 id="格林威治时间"><a href="#格林威治时间" class="headerlink" title="格林威治时间"></a><span id = "1.6.3" >格林威治时间</span></h3><p>格林尼治平时（英语：Greenwich Mean Time，GMT）是指位于英国伦敦郊区的皇家格林尼治天文台当地的平太阳时，因为本初子午线被定义为通过那里的经线。</p>
+<p>自1924年2月5日开始，格林尼治天文台负责每隔一小时向全世界发放调时信息。</p>
+<p>格林尼治平时的正午是指当平太阳横穿格林尼治子午线时（也就是在格林尼治上空最高点时）的时间。由于地球每天的自转是有些不规则的，而且正在缓慢减速，因此格林尼治平时基于天文观测本身的缺陷，已经被原子钟报时的协调世界时（UTC）所取代。</p>
+<p>一般使用GMT+8表示中国的时间，是因为中国位于东八区，时间上比格林威治时间快8个小时。</p>
+<h3 id="CET-UTC-GMT-CST几种常见时间的含义和关系"><a href="#CET-UTC-GMT-CST几种常见时间的含义和关系" class="headerlink" title="CET,UTC,GMT,CST几种常见时间的含义和关系"></a><span id = "1.6.4" >CET,UTC,GMT,CST几种常见时间的含义和关系</span></h3><p><strong>CET</strong><br>欧洲中部时间（英語：Central European Time，CET）是比世界标准时间（UTC）早一个小时的时区名称之一。它被大部分欧洲国家和部分北非国家采用。冬季时间为UTC+1，夏季欧洲夏令时为UTC+2。</p>
+<p><strong>UTC</strong><br>协调世界时，又称世界标准时间或世界协调时间，简称UTC，从英文“Coordinated Universal Time”／法文“Temps Universel Cordonné”而来。台湾采用CNS 7648的《资料元及交换格式–资讯交换–日期及时间的表示法》（与ISO 8601类似）称之为世界统一时间。中国大陆采用ISO 8601-1988的国标《数据元和交换格式信息交换日期和时间表示法》（GB/T 7408）中称之为国际协调时间。协调世界时是以原子时秒长为基础，在时刻上尽量接近于世界时的一种时间计量系统。</p>
+<p><strong>GMT</strong><br>格林尼治标准时间（旧译格林尼治平均时间或格林威治标准时间；英语：Greenwich Mean Time，GMT）是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。</p>
+<p><strong>CST</strong><br>北京时间，China Standard Time，又名中国标准时间，是中国的标准时间。在时区划分上，属东八区，比协调世界时早8小时，记为UTC+8，与中华民国国家标准时间（旧称“中原标准时间”）、香港时间和澳门时间和相同。當格林威治時間為凌晨0:00時，中國標準時間剛好為上午8:00。</p>
+<p><strong>关系</strong><br>CET=UTC/GMT + 1小时 CST=UTC/GMT +8 小时 CST=CET+9</p>
+<h3 id="SimpleDateFormat的线程安全性问题"><a href="#SimpleDateFormat的线程安全性问题" class="headerlink" title="SimpleDateFormat的线程安全性问题"></a><span id = "1.6.5" >SimpleDateFormat的线程安全性问题</span></h3><p>在日常开发中，我们经常会用到时间，我们有很多办法在Java代码中获取时间。但是不同的方法获取到的时间的格式都不尽相同，这时候就需要一种格式化工具，把时间显示成我们需要的格式。</p>
+<p>最常用的方法就是使用SimpleDateFormat类。这是一个看上去功能比较简单的类，但是，一旦使用不当也有可能导致很大的问题。</p>
+<h4 id="SimpleDateFormat用法"><a href="#SimpleDateFormat用法" class="headerlink" title="SimpleDateFormat用法"></a>SimpleDateFormat用法</h4><p>SimpleDateFormat是Java提供的一个格式化和解析日期的工具类。它允许进行格式化（日期 -&gt; 文本）、解析（文本 -&gt; 日期）和规范化。SimpleDateFormat 使得可以选择任何用户定义的日期-时间格式的模式。</p>
+<p>在Java中，可以使用SimpleDateFormat的format方法，将一个Date类型转化成String类型，并且可以指定输出格式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Date转String</span></span><br><span class="line">Date data = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">String dataStr = sdf.format(data);</span><br><span class="line">System.out.println(dataStr);</span><br></pre></td></tr></table></figure>
+<p>以上代码，转换的结果是：2018-11-25 13:00:00，日期和时间格式由”日期和时间模式”字符串指定。如果你想要转换成其他格式，只要指定不同的时间模式就行了。</p>
+<p>在Java中，可以使用SimpleDateFormat的parse方法，将一个String类型转化成Date类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String转Data</span></span><br><span class="line">System.out.println(sdf.parse(dataStr));</span><br></pre></td></tr></table></figure>
+<h4 id="日期和时间模式表达方法"><a href="#日期和时间模式表达方法" class="headerlink" title="日期和时间模式表达方法"></a>日期和时间模式表达方法</h4><p>在使用SimpleDateFormat的时候，需要通过字母来描述时间元素，并组装成想要的日期和时间模式。常用的时间元素和字母的对应表如下：</p>
+<p><img src="/assets/blogImg/Java-Time01.jpg" alt="Java时间处理"></p>
+<p>模式字母通常是重复的，其数量确定其精确表示。如下表是常用的输出格式的表示方法。</p>
+<p><img src="/assets/blogImg/Java-Time02.jpg" alt="Java时间处理"></p>
+<h4 id="输出不同时区的时间"><a href="#输出不同时区的时间" class="headerlink" title="输出不同时区的时间"></a>输出不同时区的时间</h4><p>时区是地球上的区域使用同一个时间定义。以前，人们通过观察太阳的位置（时角）决定时间，这就使得不同经度的地方的时间有所不同（地方时）。1863年，首次使用时区的概念。时区通过设立一个区域的标准时间部分地解决了这个问题。</p>
+<p>世界各个国家位于地球不同位置上，因此不同国家，特别是东西跨度大的国家日出、日落时间必定有所偏差。这些偏差就是所谓的时差。</p>
+<p>现今全球共分为24个时区。由于实用上常常1个国家，或1个省份同时跨着2个或更多时区，为了照顾到行政上的方便，常将1个国家或1个省份划在一起。所以时区并不严格按南北直线来划分，而是按自然条件来划分。例如，中国幅员宽广，差不多跨5个时区，但为了使用方便简单，实际上在只用东八时区的标准时即北京时间为准。</p>
+<p>由于不同的时区的时间是不一样的，甚至同一个国家的不同城市时间都可能不一样，所以，在Java中想要获取时间的时候，要重点关注一下时区问题。</p>
+<p>默认情况下，如果不指明，在创建日期的时候，会使用当前计算机所在的时区作为默认时区，这也是为什么我们通过只要使用new Date()就可以获取中国的当前时间的原因。</p>
+<p>那么，如何在Java代码中获取不同时区的时间呢？SimpleDateFormat可以实现这个功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">sdf.setTimeZone(TimeZone.getTimeZone(<span class="string">"America/Los_Angeles"</span>));</span><br><span class="line">System.out.println(sdf.format(Calendar.getInstance().getTime()));</span><br></pre></td></tr></table></figure>
+<p>以上代码，转换的结果是： 2018-11-24 21:00:00 。既中国的时间是11月25日的13点，而美国洛杉矶时间比中国北京时间慢了16个小时（这还和冬夏令时有关系，就不详细展开了）。</p>
+<blockquote>
+<p>如果你感兴趣，你还可以尝试打印一下美国纽约时间（America/New_York）。纽约时间是2018-11-25 000000。纽约时间比中国北京时间早了13个小时。</p>
+</blockquote>
+<p>当然，这不是显示其他时区的唯一方法，不过本文主要为了介绍SimpleDateFormat，其他方法暂不介绍了。</p>
+<h4 id="SimpleDateFormat线程安全性"><a href="#SimpleDateFormat线程安全性" class="headerlink" title="SimpleDateFormat线程安全性"></a>SimpleDateFormat线程安全性</h4><p>由于SimpleDateFormat比较常用，而且在一般情况下，一个应用中的时间显示模式都是一样的，所以很多人愿意使用如下方式定义SimpleDateFormat：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        simpleDateFormat.setTimeZone(TimeZone.getTimeZone(<span class="string">"America/New_York"</span>));</span><br><span class="line">        System.out.println(simpleDateFormat.format(Calendar.getInstance().getTime()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种定义方式，存在很大的安全隐患。</p>
+<p>我们来看一段代码，以下代码使用线程池来执行时间输出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/** * <span class="doctag">@author</span> Hollis */</span> </span><br><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个全局的SimpleDateFormat</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用ThreadFactoryBuilder定义一个线程池</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ThreadFactory namedThreadFactory = <span class="keyword">new</span> ThreadFactoryBuilder()</span><br><span class="line">        .setNameFormat(<span class="string">"demo-pool-%d"</span>).build();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExecutorService pool = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">5</span>, <span class="number">200</span>,</span><br><span class="line">        <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">        <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(<span class="number">1024</span>), namedThreadFactory, <span class="keyword">new</span> ThreadPoolExecutor.AbortPolicy());</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个CountDownLatch，保证所有子线程执行完之后主线程再执行</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个线程安全的HashSet</span></span><br><span class="line">        Set&lt;String&gt; dates = Collections.synchronizedSet(<span class="keyword">new</span> HashSet&lt;String&gt;());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//获取当前时间</span></span><br><span class="line">            Calendar calendar = Calendar.getInstance();</span><br><span class="line">            <span class="keyword">int</span> finalI = i;</span><br><span class="line">            pool.execute(() -&gt; &#123;</span><br><span class="line">                    <span class="comment">//时间增加</span></span><br><span class="line">                    calendar.add(Calendar.DATE, finalI);</span><br><span class="line">                    <span class="comment">//通过simpleDateFormat把时间转换成字符串</span></span><br><span class="line">                    String dateString = simpleDateFormat.format(calendar.getTime());</span><br><span class="line">                    <span class="comment">//把字符串放入Set中</span></span><br><span class="line">                    dates.add(dateString);</span><br><span class="line">                    <span class="comment">//countDown</span></span><br><span class="line">                    countDownLatch.countDown();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//阻塞，直到countDown数量为0</span></span><br><span class="line">        countDownLatch.await();</span><br><span class="line">        <span class="comment">//输出去重后的时间个数</span></span><br><span class="line">        System.out.println(dates.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码，其实比较简单，很容易理解。就是循环一百次，每次循环的时候都在当前时间基础上增加一个天数（这个天数随着循环次数而变化），然后把所有日期放入一个线程安全的、带有去重功能的Set中，然后输出Set中元素个数。</p>
+<p>正常情况下，以上代码输出结果应该是100。但是实际执行结果是一个小于100的数字。</p>
+<p>原因就是因为SimpleDateFormat作为一个非线程安全的类，被当做了共享变量在多个线程中进行使用，这就出现了线程安全问题。</p>
+<p>那么，接下来我们就来看下到底是为什么，以及该如何解决。</p>
+<h4 id="线程不安全原因"><a href="#线程不安全原因" class="headerlink" title="线程不安全原因"></a>线程不安全原因</h4><p>通过以上代码，我们发现了在并发场景中使用SimpleDateFormat会有线程安全问题。其实，JDK文档中已经明确表明了SimpleDateFormat不应该用在多线程场景中：</p>
+<blockquote>
+<p>Date formats are not synchronized. It is recommended to create separate format instances for each thread. If multiple threads access a format concurrently, it must be synchronized externally.</p>
+</blockquote>
+<p>那么接下来分析下为什么会出现这种问题，SimpleDateFormat底层到底是怎么实现的？</p>
+<p>我们跟一下SimpleDateFormat类中format方法的实现其实就能发现端倪。</p>
+<p><img src="/assets/blogImg/Java-Time03.jpg" alt="Java时间处理"></p>
+<p><code>SimpleDateFormat</code>中的<code>format</code>方法在执行过程中，会使用一个成员变量<code>calendar</code>来保存时间。这其实就是问题的关键。</p>
+<p>由于我们在声明<code>SimpleDateFormat</code>的时候，使用的是<code>static</code>定义的。那么这个<code>SimpleDateFormat</code>就是一个共享变量，随之，<code>SimpleDateFormat</code>中的<code>calendar</code>也就可以被多个线程访问到。</p>
+<p>假设线程1刚刚执行完<code>calendar.setTime</code>把时间设置成2018-11-11，还没等执行完，线程2又执行了<code>calendar.setTime</code>把时间改成了2018-12-12。这时候线程1继续往下执行，拿到的<code>calendar.getTime</code>得到的时间就是线程2改过之后的。</p>
+<p>除了<code>format</code>方法以外，<code>SimpleDateFormat</code>的<code>parse</code>方法也有同样的问题。</p>
+<p>所以，不要把<code>SimpleDateFormat</code>作为一个共享变量使用。</p>
+<h4 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h4><p>前面介绍过了SimpleDateFormat存在的问题以及问题存在的原因，那么有什么办法解决这种问题呢？</p>
+<p>解决方法有很多，这里介绍三个比较常用的方法。</p>
+<p><strong>1.使用局部变量</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//获取当前时间</span></span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    <span class="keyword">int</span> finalI = i;</span><br><span class="line">    pool.execute(() -&gt; &#123;</span><br><span class="line">        <span class="comment">// SimpleDateFormat声明成局部变量</span></span><br><span class="line">    SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">        <span class="comment">//时间增加</span></span><br><span class="line">        calendar.add(Calendar.DATE, finalI);</span><br><span class="line">        <span class="comment">//通过simpleDateFormat把时间转换成字符串</span></span><br><span class="line">        String dateString = simpleDateFormat.format(calendar.getTime());</span><br><span class="line">        <span class="comment">//把字符串放入Set中</span></span><br><span class="line">        dates.add(dateString);</span><br><span class="line">        <span class="comment">//countDown</span></span><br><span class="line">        countDownLatch.countDown();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SimpleDateFormat变成了局部变量，就不会被多个线程同时访问到了，就避免了线程安全问题。</p>
+<p><strong>2.加同步锁</strong></p>
+<p>除了改成局部变量以外，还有一种方法大家可能比较熟悉的，就是对于共享变量进行加锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//获取当前时间</span></span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    <span class="keyword">int</span> finalI = i;</span><br><span class="line">    pool.execute(() -&gt; &#123;</span><br><span class="line">        <span class="comment">//加锁</span></span><br><span class="line">        <span class="keyword">synchronized</span> (simpleDateFormat) &#123;</span><br><span class="line">            <span class="comment">//时间增加</span></span><br><span class="line">            calendar.add(Calendar.DATE, finalI);</span><br><span class="line">            <span class="comment">//通过simpleDateFormat把时间转换成字符串</span></span><br><span class="line">            String dateString = simpleDateFormat.format(calendar.getTime());</span><br><span class="line">            <span class="comment">//把字符串放入Set中</span></span><br><span class="line">            dates.add(dateString);</span><br><span class="line">            <span class="comment">//countDown</span></span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过加锁，使多个线程排队顺序执行。避免了并发导致的线程安全问题。</p>
+<p>其实以上代码还有可以改进的地方，就是可以把锁的粒度再设置的小一点，可以只对<code>simpleDateFormat.format</code>这一行加锁，这样效率更高一些。</p>
+<p><strong>3.使用ThreadLocal</strong></p>
+<p>第三种方式，就是使用 ThreadLocal。 ThreadLocal 可以确保每个线程都可以得到单独的一个 SimpleDateFormat 的对象，那么自然也就不存在竞争问题了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用ThreadLocal定义一个全局的SimpleDateFormat</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;SimpleDateFormat&gt; simpleDateFormatThreadLocal = <span class="keyword">new</span> ThreadLocal&lt;SimpleDateFormat&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SimpleDateFormat <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用法</span></span><br><span class="line">String dateString = simpleDateFormatThreadLocal.get().format(calendar.getTime());</span><br></pre></td></tr></table></figure>
+<p>用 ThreadLocal 来实现其实是有点类似于缓存的思路，每个线程都有一个独享的对象，避免了频繁创建对象，也避免了多线程的竞争。</p>
+<p>当然，以上代码也有改进空间，就是，其实SimpleDateFormat的创建过程可以改为延迟加载。这里就不详细介绍了。</p>
+<p><strong>使用DateTimeFormatter</strong></p>
+<p>如果是Java8应用，可以使用DateTimeFormatter代替SimpleDateFormat，这是一个线程安全的格式化工具类。就像官方文档中说的，这个类 simple beautiful strong immutable thread-safe。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解析日期</span></span><br><span class="line">String dateStr= <span class="string">"2016年10月25日"</span>;</span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">LocalDate date= LocalDate.parse(dateStr, formatter);</span><br><span class="line"></span><br><span class="line"><span class="comment">//日期转换为字符串</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">DateTimeFormatter format = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日 hh:mm a"</span>);</span><br><span class="line">String nowStr = now .format(format);</span><br><span class="line">System.out.println(nowStr);</span><br></pre></td></tr></table></figure>
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><p>本文介绍了SimpleDateFormat的用法，SimpleDateFormat主要可以在String和Date之间做转换，还可以将时间转换成不同时区输出。同时提到在并发场景中SimpleDateFormat是不能保证线程安全的，需要开发者自己来保证其安全性。</p>
+<p>主要的几个手段有改为局部变量、使用synchronized加锁、使用Threadlocal为每一个线程单独创建一个等。</p>
+<h3 id="Java-8中的时间处理"><a href="#Java-8中的时间处理" class="headerlink" title="Java 8中的时间处理"></a><span id = "1.6.6" >Java 8中的时间处理</span></h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。</p>
+<p>在旧版的 Java 中，日期时间 API 存在诸多问题，其中有：</p>
+<ul>
+<li><p>非线程安全 − java.util.Date 是非线程安全的，所有的日期类都是可变的，这是Java日期类最大的问题之一。</p>
+</li>
+<li><p>设计很差 − Java的日期/时间类的定义并不一致，在java.util和java.sql的包中都有日期类，此外用于格式化和解析的类在java.text包中定义。java.util.Date同时包含日期和时间，而java.sql.Date仅包含日期，将其纳入java.sql包并不合理。另外这两个类都有相同的名字，这本身就是一个非常糟糕的设计。</p>
+</li>
+<li><p>时区处理麻烦 − 日期类并不提供国际化，没有时区支持，因此Java引入了java.util.Calendar和java.util.TimeZone类，但他们同样存在上述所有的问题。</p>
+</li>
+</ul>
+<p>在Java8中， 新的时间及日期API位于java.time包中， 该包中有哪些重要的类。 分别代表了什么？</p>
+<p><code>Instant</code>： 时间戳</p>
+<p><code>Duration</code>： 持续时间， 时间差</p>
+<p><code>LocalDate</code>： 只包含日期， 比如： 2016-10-20</p>
+<p><code>LocalTime</code>： 只包含时间， 比如： 231210</p>
+<p><code>LocalDateTime</code>： 包含日期和时间， 比如： 2016-10-20 231421</p>
+<p><code>Period</code>： 时间段</p>
+<p><code>ZoneOffset</code>： 时区偏移量， 比如： +8:00</p>
+<p><code>ZonedDateTime</code>： 带时区的时间</p>
+<p><code>Clock</code>： 时钟， 比如获取目前美国纽约的时间</p>
+<p>新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。</p>
+<h4 id="LocalTime-和-LocalDate的区别？"><a href="#LocalTime-和-LocalDate的区别？" class="headerlink" title="LocalTime 和 LocalDate的区别？"></a>LocalTime 和 LocalDate的区别？</h4><p><code>LocalDate</code>表示日期， 年月日， LocalTime表示时间， 时分 秒</p>
+<h4 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h4><p>在Java8中，使用如下方式获取当前时间：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line"><span class="keyword">int</span> year = today.getYear();</span><br><span class="line"><span class="keyword">int</span> month = today.getMonthValue();</span><br><span class="line"><span class="keyword">int</span> day = today.getDayOfMonth();</span><br><span class="line">System.out.printf(<span class="string">"Year : %d Month : %d day : %d t %n"</span>, year,month, day);</span><br></pre></td></tr></table></figure>
+<h4 id="创建指定日期的时间"><a href="#创建指定日期的时间" class="headerlink" title="创建指定日期的时间"></a>创建指定日期的时间</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDate date = LocalDate.of(<span class="number">2018</span>, <span class="number">01</span>, <span class="number">01</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="检查闰年"><a href="#检查闰年" class="headerlink" title="检查闰年"></a>检查闰年</h4><p>直接使用LocalDate的isLeapYear即可判断是否闰年</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDate nowDate = LocalDate.now();</span><br><span class="line"><span class="comment">//判断闰年</span></span><br><span class="line"><span class="keyword">boolean</span> leapYear = nowDate.isLeapYear();</span><br></pre></td></tr></table></figure>
+<h4 id="计算两个日期之间的天数和月数"><a href="#计算两个日期之间的天数和月数" class="headerlink" title="计算两个日期之间的天数和月数"></a>计算两个日期之间的天数和月数</h4><p>在Java 8中可以用java.time.Period类来做计算。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Period period = Period.between(LocalDate.of(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">5</span>),LocalDate.of(<span class="number">2018</span>, <span class="number">2</span>, <span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="如何在东八区的计算机上获取美国时间"><a href="#如何在东八区的计算机上获取美国时间" class="headerlink" title="如何在东八区的计算机上获取美国时间"></a><span id = "1.6.7" >如何在东八区的计算机上获取美国时间</span></h3><p>了解Java8 的朋友可能都知道，Java8提供了一套新的时间处理API，这套API比以前的时间处理API要友好的多。</p>
+<p>Java8 中加入了对时区的支持，带时区的时间为分别为：<code>ZonedDate</code>、<code>ZonedTime</code>、<code>ZonedDateTime</code>。</p>
+<p>其中每个时区都对应着 ID，地区ID都为 “{区域}/{城市}”的格式，如<code>Asia/Shanghai</code>、<code>America/Los_Angeles</code>等。</p>
+<p>在Java8中，直接使用以下代码即可输出美国洛杉矶的时间：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime now = LocalDateTime.now(ZoneId.of(<span class="string">"America/Los_Angeles"</span>));</span><br><span class="line">System.out.println(now);</span><br></pre></td></tr></table></figure>
+<p>为什么以下代码无法获得美国时间呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Calendar.getInstance(TimeZone.getTimeZone(<span class="string">"America/Los_Angeles"</span>)).getTime());</span><br></pre></td></tr></table></figure>
+<p>当我们使用System.out.println来输出一个时间的时候，他会调用Date类的toString方法，而该方法会读取操作系统的默认时区来进行时间的转换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// "EEE MMM dd HH:mm:ss zzz yyyy";</span></span><br><span class="line">    BaseCalendar.Date date = normalize();</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> BaseCalendar.<span class="function">Date <span class="title">normalize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    TimeZone tz = TimeZone.getDefaultRef();</span><br><span class="line">    <span class="keyword">if</span> (tz != cdate.getZone()) &#123;</span><br><span class="line">        cdate.setZone(tz);</span><br><span class="line">        CalendarSystem cal = getCalendarSystem(cdate);</span><br><span class="line">        cal.getCalendarDate(fastTime, cdate);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cdate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> TimeZone <span class="title">getDefaultRef</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    TimeZone defaultZone = defaultTimeZone;</span><br><span class="line">    <span class="keyword">if</span> (defaultZone == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Need to initialize the default time zone.</span></span><br><span class="line">        defaultZone = setDefaultZone();</span><br><span class="line">        <span class="keyword">assert</span> defaultZone != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Don't clone here.</span></span><br><span class="line">    <span class="keyword">return</span> defaultZone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要代码如上。也就是说如果我们想要通过<code>System.out.println</code>输出一个Date类的时候，输出美国洛杉矶时间的话，就需要想办法把<code>defaultTimeZone</code>改为<code>America/Los_Angeles</code></p>
+<p>但是，通过阅读Calendar的源码，我们可以发现，getInstance方法虽然有一个参数可以传入时区，但是并没有将默认时区设置成传入的时区。</p>
+<p>而在Calendar.getInstance.getTime后得到的时间只是一个时间戳，其中未保留任何和时区有关的信息，所以，在输出时，还是显示的是当前系统默认时区的时间。</p>
+<h3 id="yyyy和YYYY有什么区别？"><a href="#yyyy和YYYY有什么区别？" class="headerlink" title="yyyy和YYYY有什么区别？"></a><span id = "1.6.8" >yyyy和YYYY有什么区别？</span></h3><p>在使用SimpleDateFormat的时候，需要通过字母来描述时间元素，并组装成想要的日期和时间模式。常用的时间元素和字母的对应表(JDK 1.8)如下：</p>
+<p><img src="/assets/blogImg/Java-Time04.jpg" alt="Java时间处理"></p>
+<p>可以看到，y表示Year ,而Y表示Week Year</p>
+<h4 id="什么是Week-Year"><a href="#什么是Week-Year" class="headerlink" title="什么是Week Year"></a>什么是Week Year</h4><p>我们知道，不同的国家对于一周的开始和结束的定义是不同的。如在中国，我们把星期一作为一周的第一天，而在美国，他们把星期日作为一周的第一天。</p>
+<p>同样，如何定义哪一周是一年当中的第一周？这也是一个问题，有很多种方式。</p>
+<p>比如下图是2019年12月-2020年1月的一份日历。</p>
+<p><img src="/assets/blogImg/Java-Time05.jpg" alt="Java时间处理"></p>
+<p>到底哪一周才算2020年的第一周呢？不同的地区和国家，甚至不同的人，都有不同的理解。</p>
+<ul>
+<li><p>1.1月1日是周三，到下周三（1月8日），这7天算作这一年的第一周。</p>
+</li>
+<li><p>2.因为周日（周一）才是一周的第一天，所以，要从2020年的第一个周日（周一）开始往后推7天才算这一年的第一周。</p>
+</li>
+<li><p>3.因为12.29、12.30、12.31是2019年，而1.1、1.2、1.3才是2020年，而1.4周日是下一周的开始，所以，第一周应该只有1.1、1.2、1.3这三天。</p>
+</li>
+</ul>
+<h4 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h4><p>因为不同人对于日期和时间的表示方法有不同的理解，于是，大家就共同制定了了一个国际规范：ISO 8601 。</p>
+<p>国际标准化组织的国际标准ISO 8601是日期和时间的表示方法，全称为《数据存储和交换形式·信息交换·日期和时间的表示方法》。</p>
+<p>在 ISO 8601中。对于一年的第一个日历星期有以下四种等效说法：</p>
+<ul>
+<li><p>1.本年度第一个星期四所在的星期；</p>
+</li>
+<li><p>2.1月4日所在的星期；</p>
+</li>
+<li><p>3.本年度第一个至少有4天在同一星期内的星期；</p>
+</li>
+<li><p>4.星期一在去年12月29日至今年1月4日以内的星期；</p>
+</li>
+</ul>
+<p>根据这个标准，我们可以推算出：</p>
+<p>2020年第一周：2019.12.29-2020.1.4</p>
+<p>所以，根据ISO 8601标准，2019年12月29日、2019年12月30日、2019年12月31日这两天，其实不属于2019年的最后一周，而是属于2020年的第一周。</p>
+<h4 id="JDK针对ISO-8601提供的支持"><a href="#JDK针对ISO-8601提供的支持" class="headerlink" title="JDK针对ISO 8601提供的支持"></a>JDK针对ISO 8601提供的支持</h4><p>根据ISO 8601中关于日历星期和日表示法的定义，2019.12.29-2020.1.4是2020年的第一周。</p>
+<p>我们希望输入一个日期，然后程序告诉我们，根据ISO 8601中关于日历日期的定义，这个日期到底属于哪一年。</p>
+<p>比如我输入2019-12-20，他告诉我是2019；而我输入2019-12-30的时候，他告诉我是2020。</p>
+<p>为了提供这样的数据，Java 7引入了「YYYY」作为一个新的日期模式来作为标识。使用「YYYY」作为标识，。再通过SimpleDateFormat就可以得到一个日期所属的周属于哪一年了</p>
+<p>所以，当我们要表示日期的时候，一定要使用 yyyy-MM-dd 而不是 YYYY-MM-dd ，这两者的返回结果大多数情况下都一样，但是极端情况就会有问题了。</p>
 
       
 
@@ -975,6 +1179,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
@@ -984,10 +1192,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,10 +1219,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
               </li>
              
@@ -1031,7 +1231,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1043,7 +1247,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1051,11 +1259,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">词典</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1063,15 +1275,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">JAVA并发编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1084,6 +1288,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1208,21 +1416,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>

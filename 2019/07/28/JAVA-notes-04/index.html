@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Serial06.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/Java-Serial07.jpg">
 <meta property="article:published_time" content="2019-07-28T02:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-14T12:02:44.143Z">
+<meta property="article:modified_time" content="2020-08-22T03:28:45.213Z">
 <meta property="article:author" content="Kevin B">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="JAVA">
@@ -245,6 +245,43 @@ var _hmt = _hmt || [];
 <li><a href="#6.3.9" target="_self">protobuf</a> </li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#7" target="_self">Java中各种关键字</a><ul>
+<li><a href="#7.1" target="_self">transient</a> </li>
+<li><a href="#7.2" target="_self">instanceof</a> </li>
+<li><a href="#7.3" target="_self">volatile</a> <ul>
+<li><a href="#7.3.1" target="_self">volatile的用法</a> </li>
+<li><a href="#7.3.2" target="_self">volatile的原理</a> </li>
+<li><a href="#7.3.3" target="_self">volatile与可见性</a> </li>
+<li><a href="#7.3.4" target="_self">volatile与有序性</a> </li>
+<li><a href="#7.3.5" target="_self">volatile与原子性</a> </li>
+<li><a href="#7.3.6" target="_self">总结与思考</a> </li>
+</ul>
+</li>
+<li><a href="#7.4" target="_self">synchronized</a> <ul>
+<li><a href="#7.4.1" target="_self">synchronized的用法</a> </li>
+<li><a href="#7.4.2" target="_self">synchronized的实现原理</a> </li>
+<li><a href="#7.4.3" target="_self">synchronized与原子性</a> </li>
+<li><a href="#7.4.4" target="_self">synchronized与可见性</a> </li>
+<li><a href="#7.4.5" target="_self">synchronized与有序性</a> </li>
+<li><a href="#7.4.6" target="_self">synchronized与锁优化</a> </li>
+</ul>
+</li>
+<li><a href="#7.5" target="_self">final</a> <ul>
+<li><a href="#7.5.1" target="_self">final变量</a> </li>
+<li><a href="#7.5.2" target="_self">final方法</a> </li>
+<li><a href="#7.5.3" target="_self">final类</a> </li>
+</ul>
+</li>
+<li><a href="#7.6" target="_self">static</a> <ul>
+<li><a href="#7.6.1" target="_self">静态变量</a> </li>
+<li><a href="#7.6.2" target="_self">静态方法</a> </li>
+<li><a href="#7.6.3" target="_self">静态代码块</a> </li>
+<li><a href="#7.6.4" target="_self">静态类</a> </li>
+</ul>
+</li>
+<li><a href="#7.7" target="_self">const</a></li>
 </ul>
 </li>
 </ul>
@@ -570,6 +607,122 @@ var _hmt = _hmt || [];
 <p>2001年初，Protobuf首先在Google内部创建， 我们把它称之为 proto1，一直以来在Google的内部使用，其中也不断的演化，根据使用者的需求也添加很多新的功能，一些内部库依赖它。几乎每个Google的开发者都会使用到它。</p>
 <p>Google开始开源它的内部项目时，因为依赖的关系，所以他们决定首先把Protobuf开源出去。</p>
 <p>目前Protobuf的稳定版本是3.9.2，于2019年9月23日发布。由于很多公司很早的就采用了Protobuf，所以很多项目还在使用proto2协议，目前是proto2和proto3同时在使用的状态。</p>
+<h1 id="Java中各种关键字"><a href="#Java中各种关键字" class="headerlink" title="Java中各种关键字"></a><span id = "7" >Java中各种关键字</span></h1><h2 id="transient-1"><a href="#transient-1" class="headerlink" title="transient"></a><span id = "7.1">transient</span></h2><p>在关于java的集合类的学习中，我们发现ArrayList类和Vector类都是使用数组实现的，但是在定义数组elementData这个属性时稍有不同，那就是ArrayList使用transient关键字</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Object[] elementData;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> Object[] elementData;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>transient: Java语言的关键字，变量修饰符，如果用transient声明一个实例变量，当对象存储时，它的值不需要维持。这里的对象存储是指，Java的serialization提供的一种持久化对象实例的机制。当一个对象被序列化的时候，transient型变量的值不包括在序列化的表示中，然而非transient型的变量是被包括进去的。使用情况是：当持久化对象时，可能有一个特殊的对象数据成员，我们不想用serialization机制来保存它。为了在一个特定对象的一个域上关闭serialization，可以在这个域前加上关键字transient。</p>
+</blockquote>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a><span id = "7.2">instanceof</span></h2><p>instanceof 是 Java 的一个二元操作符，类似于 ==，&gt;，&lt; 等操作符。</p>
+<p>instanceof 是 Java 的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回 boolean 的数据类型。</p>
+<p>以下实例创建了 displayObjectClass() 方法来演示 Java instanceof 关键字用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">displayObjectClass</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Vector)</span><br><span class="line">     System.out.println(<span class="string">"对象是 java.util.Vector 类的实例"</span>);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (o <span class="keyword">instanceof</span> ArrayList)</span><br><span class="line">     System.out.println(<span class="string">"对象是 java.util.ArrayList 类的实例"</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    System.out.println(<span class="string">"对象是 "</span> + o.getClass() + <span class="string">" 类的实例"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a><span id = "7.3">volatile</span></h2><p>Java语言为了解决并发编程中存在的原子性、可见性和有序性问题，提供了一系列和并发处理相关的关键字，比如<code>synchronized</code>、<code>volatile</code>、<code>final</code>、<code>concurren</code>包等。</p>
+<p>本文就围绕volatile展开，主要介绍<code>volatile</code>的用法、<code>volatile</code>的原理，以及<code>volatile</code>是如何提供可见性和有序性保障的等。</p>
+<p><code>volatile</code>这个关键字，不仅仅在Java语言中有，在很多语言中都有的，而且其用法和语义也都是不尽相同的。尤其在C语言、C++以及Java中，都有<code>volatile</code>关键字。都可以用来声明变量或者对象。下面简单来介绍一下Java语言中的<code>volatile</code>关键字。</p>
+<h3 id="volatile的用法"><a href="#volatile的用法" class="headerlink" title="volatile的用法"></a><span id = "7.3.1">volatile的用法</span></h3><p><code>volatile</code>通常被比喻成”轻量级的<code>synchronized</code>“，也是Java并发编程中比较重要的一个关键字。和<code>synchronized</code>不同，<code>volatile</code>是一个变量修饰符，只能用来修饰变量。无法修饰方法及代码块等。</p>
+<p><code>volatile</code>的用法比较简单，只需要在声明一个可能被多线程同时访问的变量时，使用<code>volatile</code>修饰就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            singleton = <span class="keyword">new</span> Singleton();  </span><br><span class="line">        &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> singleton;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如以上代码，是一个比较典型的使用双重锁校验的形式实现单例的，其中使用volatile关键字修饰可能被多个线程同时访问到的singleton。</p>
+<h3 id="volatile的原理"><a href="#volatile的原理" class="headerlink" title="volatile的原理"></a><span id = "7.3.2">volatile的原理</span></h3><p>为了提高处理器的执行速度，在处理器和内存之间增加了多级缓存来提升。但是由于引入了多级缓存，就存在缓存数据不一致问题。</p>
+<p>但是，对于<code>volatile</code>变量，当对<code>volatile</code>变量进行写操作的时候，JVM会向处理器发送一条lock前缀的指令，将这个缓存中的变量回写到系统主存中。</p>
+<p>但是就算写回到内存，如果其他处理器缓存的值还是旧的，再执行计算操作就会有问题，所以在多处理器下，为了保证各个处理器的缓存是一致的，就会实现<code>缓存一致性协议</code></p>
+<p>缓存一致性协议：每个处理器通过嗅探在总线上传播的数据来检查自己缓存的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态，当处理器要对这个数据进行修改操作的时候，会强制重新从系统内存里把数据读到处理器缓存里。</p>
+<p>所以，如果一个变量被<code>volatile</code>所修饰的话，在每次数据变化之后，其值都会被强制刷入主存。而其他处理器的缓存由于遵守了缓存一致性协议，也会把这个变量的值从主存加载到自己的缓存中。这就保证了一个<code>volatile</code>在并发编程中，其值在多个缓存中是可见的。</p>
+<h3 id="volatile与可见性"><a href="#volatile与可见性" class="headerlink" title="volatile与可见性"></a><span id = "7.3.3">volatile与可见性</span></h3><p>可见性是指当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。</p>
+<p>Java内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存，线程的工作内存中保存了该线程中是用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。所以，就可能出现线程1改了某个变量的值，但是线程2不可见的情况。</p>
+<p>前面的关于<code>volatile</code>的原理中介绍过了，Java中的<code>volatile</code>关键字提供了一个功能，那就是被其修饰的变量在被修改后可以立即同步到主内存，被其修饰的变量在每次是用之前都从主内存刷新。因此，可以使用<code>volatile</code>来保证多线程操作时变量的可见性。</p>
+<h3 id="volatile与有序性"><a href="#volatile与有序性" class="headerlink" title="volatile与有序性"></a><span id = "7.3.4">volatile与有序性</span></h3><p>有序性即程序执行的顺序按照代码的先后顺序执行。</p>
+<p>除了引入了时间片以外，由于处理器优化和指令重排等，CPU还可能对输入代码进行乱序执行，比如<code>load-&gt;add-&gt;save</code> 有可能被优化成<code>load-&gt;save-&gt;add</code>。这就是可能存在有序性问题。</p>
+<p>而<code>volatile</code>除了可以保证数据的可见性之外，还有一个强大的功能，那就是他可以禁止指令重排优化等。</p>
+<p>普通的变量仅仅会保证在该方法的执行过程中所依赖的赋值结果的地方都能获得正确的结果，而不能保证变量的赋值操作的顺序与程序代码中的执行顺序一致。</p>
+<p><code>volatile</code>可以禁止指令重排，这就保证了代码的程序会严格按照代码的先后顺序执行。这就保证了有序性。被<code>volatile</code>修饰的变量的操作，会严格按照代码顺序执行，<code>load-&gt;add-&gt;save</code>的执行顺序就是：<code>load-&gt;add-&gt;save</code>。</p>
+<h3 id="volatile与原子性"><a href="#volatile与原子性" class="headerlink" title="volatile与原子性"></a><span id = "7.3.5">volatile与原子性</span></h3><p>原子性是指一个操作是不可中断的，要全部执行完成，要不就都不执行。</p>
+<p>线程是CPU调度的基本单位。CPU有时间片的概念，会根据不同的调度算法进行线程调度。当一个线程获得时间片之后开始执行，在时间片耗尽之后，就会失去CPU使用权。所以在多线程场景下，由于时间片在线程间轮换，就会发生原子性问题。</p>
+<p>为了保证原子性，需要通过字节码指令<code>monitorenter</code>和<code>monitorexit</code>，但是<code>volatile</code>和这两个指令之间是没有任何关系的。</p>
+<p><strong>所以，<code>volatile</code>是不能保证原子性的。</strong></p>
+<p>在以下两个场景中可以使用<code>volatile</code>来代替<code>synchronized</code>：</p>
+<blockquote>
+<p>1、运算结果并不依赖变量的当前值，或者能够确保只有单一的线程会修改变量的值。</p>
+<p>2、变量不需要与其他状态变量共同参与不变约束。</p>
+</blockquote>
+<p>除以上场景外，都需要使用其他方式来保证原子性，如<code>synchronized</code>或者<code>concurrent</code>包。</p>
+<p>我们来看一下volatile和原子性的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        inc++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</span><br><span class="line">                        test.increase();</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;.start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></span><br><span class="line">            Thread.yield();</span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码比较简单，就是创建10个线程，然后分别执行1000次i++操作。正常情况下，程序的输出结果应该是10000，但是，多次执行的结果都小于10000。这其实就是<code>volatile</code>无法满足原子性的原因。</p>
+<p>为什么会出现这种情况呢，那就是因为虽然<code>volatile</code>可以保证<code>inc</code>在多个线程之间的可见性。但是无法<code>inc++</code>的原子性。</p>
+<h3 id="总结与思考"><a href="#总结与思考" class="headerlink" title="总结与思考"></a><span id = "7.3.6">总结与思考</span></h3><p>我们介绍过了<code>volatile</code>关键字和<code>synchronized</code>关键字。现在我们知道，<code>synchronized</code>可以保证原子性、有序性和可见性。而<code>volatile</code>却只能保证有序性和可见性。</p>
+<p>那么，我们再来看一下双重校验锁实现的单例，已经使用了<code>synchronized</code>，为什么还需要<code>volatile</code>？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            singleton = <span class="keyword">new</span> Singleton();  </span><br><span class="line">        &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> singleton;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a><span id = "7.4">synchronized</span></h2><p>在《深入理解Java虚拟机》中，有这样一段话：</p>
+<blockquote>
+<p>synchronized关键字在需要原子性、可见性和有序性这三种特性的时候都可以作为其中一种解决方案，看起来是“万能”的。的确，大部分并发控制操作都能使用synchronized来完成。</p>
+</blockquote>
+<p>对于程序员来说，<code>synchronized</code>只是个关键字而已，用起来很简单。之所以我们可以在处理多线程问题时可以不用考虑太多，就是因为这个关键字帮我们屏蔽了很多细节。</p>
+<p>那么，本文就围绕<code>synchronize</code>d展开，主要介绍<code>synchronized</code>的用法、<code>synchronized</code>的原理，以及<code>synchronized</code>是如何提供原子性、可见性和有序性保障的等。</p>
+<h3 id="synchronized的用法"><a href="#synchronized的用法" class="headerlink" title="synchronized的用法"></a><span id = "7.4.1">synchronized的用法</span></h3><p><code>synchronized</code>是Java提供的一个并发控制的关键字。主要有两种用法，分别是同步方法和同步代码块。也就是说，<code>synchronized</code>既可以修饰方法也可以修饰代码块。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedDemo</span> </span>&#123;</span><br><span class="line">     <span class="comment">//同步方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSth</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//同步代码块</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSth1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (SynchronizedDemo<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>被<code>synchronized</code>修饰的代码块及方法，在同一时间，只能被单个线程访问。</p>
+<h3 id="synchronized的实现原理"><a href="#synchronized的实现原理" class="headerlink" title="synchronized的实现原理"></a><span id = "7.4.2">synchronized的实现原理</span></h3><p><code>synchronized</code>，是Java中用于解决并发情况下数据同步访问的一个很重要的关键字。当我们想要保证一个共享资源在同一时间只会被一个线程访问到时，我们可以在代码中使用<code>synchronized</code>关键字对类或者对象加锁。</p>
+<p>我们对上面的代码进行反编译，可以得到如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSth</span><span class="params">()</span></span>;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_SYNCHRONIZED</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">2</span>, locals=<span class="number">1</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">         3: ldc           #3                  // String Hello World</span><br><span class="line">         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">         <span class="number">8</span>: <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSth1</span><span class="params">()</span></span>;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">2</span>, locals=<span class="number">3</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: ldc           #5                  // class com/hollis/SynchronizedTest</span><br><span class="line">         <span class="number">2</span>: dup</span><br><span class="line">         <span class="number">3</span>: astore_1</span><br><span class="line">         <span class="number">4</span>: monitorenter</span><br><span class="line">         5: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">         8: ldc           #3                  // String Hello World</span><br><span class="line">        10: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">        <span class="number">13</span>: aload_1</span><br><span class="line">        <span class="number">14</span>: monitorexit</span><br><span class="line">        <span class="number">15</span>: goto          <span class="number">23</span></span><br><span class="line">        <span class="number">18</span>: astore_2</span><br><span class="line">        <span class="number">19</span>: aload_1</span><br><span class="line">        <span class="number">20</span>: monitorexit</span><br><span class="line">        <span class="number">21</span>: aload_2</span><br><span class="line">        <span class="number">22</span>: athrow</span><br><span class="line">        <span class="number">23</span>: <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+<p>通过反编译后代码可以看出：对于同步方法，JVM采用<code>ACC_SYNCHRONIZED</code>标记符来实现同步。 对于同步代码块。JVM采用<code>monitorenter</code>、<code>monitorexit</code>两个指令来实现同步。</p>
+<p>在<strong>The Java® Virtual Machine Specification</strong>中有关于同步方法和同步代码块的实现原理的介绍，翻译成中文如下：</p>
+<blockquote>
+<p>方法级的同步是隐式的。同步方法的常量池中会有一个ACC_SYNCHRONIZED标志。当某个线程要访问某个方法的时候，会检查是否有ACC_SYNCHRONIZED，如果有设置，则需要先获得监视器锁，然后开始执行方法，方法执行之后再释放监视器锁。这时如果其他线程来请求执行方法，会因为无法获得监视器锁而被阻断住。值得注意的是，如果在方法执行过程中，发生了异常，并且方法内部并没有处理该异常，那么在异常被抛到方法外面之前监视器锁会被自动释放。</p>
+<p>同步代码块使用monitorenter和monitorexit两个指令实现。可以把执行monitorenter指令理解为加锁，执行monitorexit理解为释放锁。 每个对象维护着一个记录着被锁次数的计数器。未被锁定的对象的该计数器为0，当一个线程获得锁（执行monitorenter）后，该计数器自增变为 1 ，当同一个线程再次获得该对象的锁的时候，计数器再次自增。当同一个线程释放锁（执行monitorexit指令）的时候，计数器再自减。当计数器为0的时候。锁将被释放，其他线程便可以获得锁。</p>
+</blockquote>
+<p>无论是<code>ACC_SYNCHRONIZED</code>还是<code>monitorenter</code>、<code>monitorexit</code>都是基于Monitor实现的，在Java虚拟机(HotSpot)中，Monitor是基于C++实现的，由ObjectMonitor实现。</p>
+<p>ObjectMonitor类中提供了几个方法，如<code>enter</code>、<code>exit</code>、<code>wait</code>、<code>notify</code>、<code>notifyAl</code>l等。<code>sychronized</code>加锁的时候，会调用<code>objectMonitor</code>的<code>enter</code>方法，解锁的时候会调用exit方法。</p>
+<h3 id="synchronized与原子性"><a href="#synchronized与原子性" class="headerlink" title="synchronized与原子性"></a><span id = "7.4.3">synchronized与原子性</span></h3><p>原子性是指一个操作是不可中断的，要全部执行完成，要不就都不执行。</p>
+<p>线程是CPU调度的基本单位。CPU有时间片的概念，会根据不同的调度算法进行线程调度。当一个线程获得时间片之后开始执行，在时间片耗尽之后，就会失去CPU使用权。所以在多线程场景下，由于时间片在线程间轮换，就会发生原子性问题。</p>
+<p>在Java中，为了保证原子性，提供了两个高级的字节码指令<code>monitorenter</code>和<code>monitorexit</code>。前面中，介绍过，这两个字节码指令，在Java中对应的关键字就是<code>synchronized</code>。</p>
+<p>通过<code>monitorenter</code>和<code>monitorexit</code>指令，可以保证被<code>synchronized</code>修饰的代码在同一时间只能被一个线程访问，在锁未释放之前，无法被其他线程访问到。因此，在Java中可以使用<code>synchronized</code>来保证方法和代码块内的操作是原子性的。</p>
+<blockquote>
+<p>线程1在执行monitorenter指令的时候，会对Monitor进行加锁，加锁后其他线程无法获得锁，除非线程1主动解锁。即使在执行过程中，由于某种原因，比如CPU时间片用完，线程1放弃了CPU，但是，他并没有进行解锁。而由于synchronized的锁是可重入的，下一个时间片还是只能被他自己获取到，还是会继续执行代码。直到所有代码执行完。这就保证了原子性。</p>
+</blockquote>
+<h3 id="synchronized与可见性"><a href="#synchronized与可见性" class="headerlink" title="synchronized与可见性"></a><span id = "7.4.4">synchronized与可见性</span></h3><p>可见性是指当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。</p>
+<p>Java内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存，线程的工作内存中保存了该线程中是用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。所以，就可能出现线程1改了某个变量的值，但是线程2不可见的情况。</p>
+<p>前面我们介绍过，被<code>synchronized</code>修饰的代码，在开始执行时会加锁，执行完成后会进行解锁。而为了保证可见性，有一条规则是这样的：对一个变量解锁之前，必须先把此变量同步回主存中。这样解锁后，后续线程就可以访问到被修改后的值。</p>
+<p>所以，<code>synchronized</code>关键字锁住的对象，其值是具有可见性的。</p>
+<h3 id="synchronized与有序性"><a href="#synchronized与有序性" class="headerlink" title="synchronized与有序性"></a><span id = "7.4.5">synchronized与有序性</span></h3><p>有序性即程序执行的顺序按照代码的先后顺序执行。</p>
+<p>除了引入了时间片以外，由于处理器优化和指令重排等，CPU还可能对输入代码进行乱序执行，比如load-&gt;add-&gt;save 有可能被优化成load-&gt;save-&gt;add 。这就是可能存在有序性问题。</p>
+<p>这里需要注意的是，<code>synchronized</code>是无法禁止指令重排和处理器优化的。也就是说，<code>synchronized</code>无法避免上述提到的问题。</p>
+<p>那么，为什么还说<code>synchronized</code>也提供了有序性保证呢？</p>
+<p>这就要再把有序性的概念扩展一下了。Java程序中天然的有序性可以总结为一句话：如果在本线程内观察，所有操作都是天然有序的。如果在一个线程中观察另一个线程，所有操作都是无序的。</p>
+<p>以上这句话也是《深入理解Java虚拟机》中的原句，但是怎么理解呢？周志明并没有详细的解释。这里我简单扩展一下，这其实和<code>as-if-serial</code>语义有关。</p>
+<p><code>as-if-serial</code>语义的意思指：不管怎么重排序（编译器和处理器为了提高并行度），单线程程序的执行结果都不能被改变。编译器和处理器无论如何优化，都必须遵守<code>as-if-serial</code>语义。</p>
+<p>简单说就是，<code>as-if-serial</code>语义保证了单线程中，指令重排是有一定的限制的，而只要编译器和处理器都遵守了这个语义，那么就可以认为单线程程序是按照顺序执行的。当然，实际上还是有重排的，只不过我们无须关心这种重排的干扰。</p>
+<p>所以呢，由于<code>synchronized</code>修饰的代码，同一时间只能被同一线程访问。那么也就是单线程执行的。所以，可以保证其有序性。</p>
+<h3 id="synchronized与锁优化"><a href="#synchronized与锁优化" class="headerlink" title="synchronized与锁优化"></a><span id = "7.4.6">synchronized与锁优化</span></h3><p>前面介绍了synchronized的用法、原理以及对并发编程的作用。是一个很好用的关键字。</p>
+<p>synchronized其实是借助Monitor实现的，在加锁时会调用objectMonitor的enter方法，解锁的时候会调用exit方法。事实上，只有在JDK1.6之前，synchronized的实现才会直接调用ObjectMonitor的enter和exit，这种锁被称之为重量级锁。</p>
+<p>所以，在JDK1.6中出现对锁进行了很多的优化，进而出现轻量级锁，偏向锁，锁消除，适应性自旋锁，锁粗化(自旋锁在1.4就有，只不过默认的是关闭的，jdk1.6是默认开启的)，这些操作都是为了在线程之间更高效的共享数据 ，解决竞争问题。</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a><span id = "7.5">final</span></h2><p>inal是Java中的一个关键字，它所表示的是“这部分是无法修改的”。</p>
+<p>使用 final 可以定义 ：变量、方法、类。</p>
+<h3 id="final变量"><a href="#final变量" class="headerlink" title="final变量"></a><span id = "7.5.1">final变量</span></h3><p>如果将变量设置为final，则不能更改final变量的值(它将是常量)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">     <span class="keyword">final</span> String name = <span class="string">"Hollis"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦final变量被定义之后，是无法进行修改的。</p>
+<h3 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a><span id = "7.5.2">final方法</span></h3><p>如果任何方法声明为final，则不能覆盖它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hollis"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们定义以上类的子类的时候，无法覆盖其name方法，会编译失败。</p>
+<h3 id="final类"><a href="#final类" class="headerlink" title="final类"></a><span id = "7.5.3">final类</span></h3><p>如果把任何一个类声明为final，则不能继承它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上类不能被继承！</p>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a><span id = "7.6">static</span></h2><p>static表示“静态”的意思，用来修饰成员变量和成员方法，也可以形成静态static代码块</p>
+<h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a><span id = "7.6.1">静态变量</span></h3><p>我们用static表示变量的级别，一个类中的静态变量，不属于类的对象或者实例。因为静态变量与所有的对象实例共享，因此他们不具线程安全性。</p>
+<p>通常，静态变量常用final关键来修饰，表示通用资源或可以被所有的对象所使用。如果静态变量未被私有化，可以用“类名.变量名”的方式来使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//static variable example</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String str;</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a><span id = "7.6.2">静态方法</span></h3><p>与静态变量一样，静态方法是属于类而不是实例。</p>
+<p>一个静态方法只能使用静态变量和调用静态方法。通常静态方法通常用于想给其他的类使用而不需要创建实例。例如：Collections class(类集合)。</p>
+<p>Java的包装类和实用类包含许多静态方法。main()方法就是Java程序入口点，是静态方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//static method example</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(count &amp;gt; <span class="number">0</span>)</span><br><span class="line">    StaticExample.count = count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//static util method</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">addInts</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span>...js)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x : js) sum+=x;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从Java8以上版本开始也可以有接口类型的静态方法了。</p>
+<h3 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a><span id = "7.6.3">静态代码块</span></h3><p>Java的静态块是一组指令在类装载的时候在内存中由Java ClassLoader执行。</p>
+<p>静态块常用于初始化类的静态变量。大多时候还用于在类装载时候创建静态资源。</p>
+<p>Java不允许在静态块中使用非静态变量。一个类中可以有多个静态块，尽管这似乎没有什么用。静态块只在类装载入内存时，执行一次。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    <span class="comment">//can be used to initialize resources when class is loaded</span></span><br><span class="line">    System.out.println(&amp;quot;StaticExample <span class="keyword">static</span> block&amp;quot;);</span><br><span class="line">    <span class="comment">//can access only static variables and methods</span></span><br><span class="line">    str=&amp;quot;Test&amp;quot;;</span><br><span class="line">    setCount(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态类"><a href="#静态类" class="headerlink" title="静态类"></a><span id = "7.6.4">静态类</span></h3><p>Java可以嵌套使用静态类，但是静态类不能用于嵌套的顶层。</p>
+<p>静态嵌套类的使用与其他顶层类一样，嵌套只是为了便于项目打包。</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><span id = "7.7">const</span></h2><p>const是Java预留关键字，用于后期扩展用，用法跟final相似，不常用</p>
 
       
 
@@ -672,11 +825,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/07/28/JAVA-notes-x/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/29/JAVA-notes-05/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记
+          JAVA笔记05
         
       </div>
     </a>
@@ -813,6 +966,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
@@ -822,10 +979,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">素因子分解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,10 +1006,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
               </li>
              
@@ -869,7 +1018,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -881,7 +1034,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,11 +1046,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">词典</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,15 +1062,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">JAVA并发编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,6 +1075,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1046,21 +1203,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>

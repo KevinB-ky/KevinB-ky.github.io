@@ -182,6 +182,665 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JAVA-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/27/JAVA-notes-03/">JAVA笔记03</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/27/JAVA-notes-03/" class="archive-article-date">
+  	<time datetime="2019-07-27T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Java基础知识<ul>
+<li><a href="#3" target="_self">异常</a> <ul>
+<li><a href="#3.1" target="_self">Java中异常的存在形式</a> </li>
+<li><a href="#3.2" target="_self">Error和Exception</a> </li>
+<li><a href="#3.3" target="_self">异常类型</a> <ul>
+<li><a href="#3.3.1" target="_self">受检(编译时)异常</a> </li>
+<li><a href="#3.3.2" target="_self">非受检(运行时)异常</a> </li>
+</ul>
+</li>
+<li><a href="#3.4" target="_self">异常相关关键字</a> </li>
+<li><a href="#3.5" target="_self">正确处理异常</a> </li>
+<li><a href="#3.6" target="_self">自定义异常</a> </li>
+<li><a href="#3.7" target="_self">异常链</a> </li>
+<li><a href="#3.8" target="_self">try-with-resources</a> </li>
+<li><a href="#3.9" target="_self">finally和return的执行顺序</a> </li>
+<li><a href="#3.10" target="_self">final、finally、finalize的区别</a> </li>
+<li><a href="#3.11" target="_self">自定义异常</a><ul>
+<li><a href="#3.11.1" target="_self">Java中如何自定义异常</a></li>
+</ul>
+</li>
+<li><a href="#4" target="_self">泛型</a> <ul>
+<li><a href="#4.1" target="_self">什么是泛型</a> </li>
+</ul>
+</li>
+<li><a href="#4.2" target="_self">类型擦除</a><ul>
+<li><a href="#4.2.1" target="_self">各种语言中的编译器是如何处理泛型的</a> </li>
+<li><a href="#4.2.2" target="_self">什么是类型擦除</a> </li>
+<li><a href="#4.2.3" target="_self">Java编译器处理泛型的过程</a> </li>
+<li><a href="#4.2.4" target="_self">泛型带来的问题</a> </li>
+<li><a href="#4.2.5" target="_self">总结</a> </li>
+</ul>
+</li>
+<li><a href="#4.3" target="_self">泛型中K T V E ？ object等的含义</a></li>
+<li><a href="#4.4" target="_self">泛型各种用法</a><ul>
+<li><a href="#4.4.1" target="_self">限定通配符和非限定通配符</a></li>
+<li><a href="#4.4.2" target="_self">上下界限定符extends和super</a></li>
+<li><a href="#4.4.3" target="_self"><code>List&lt;Object&gt;</code>和原始类型<code>List</code>之间的区别是什么？</a></li>
+<li><a href="#4.4.4" target="_self"><code>List&lt;?&gt;</code>和<code>List&lt;Object&gt;</code>之间的区别是什么？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5" target="_self">集合</a> <ul>
+<li><a href="#5.1" target="_self">集合概述</a> <ul>
+<li><a href="#5.1.1" target="_self">什么是集合</a> </li>
+<li><a href="#5.1.2" target="_self">集合继承结构</a></li>
+<li><a href="#5.1.3" target="_self">Collection和Collections区别</a> </li>
+<li><a href="#5.1.4" target="_self">Set和List区别？</a> </li>
+<li><a href="#5.1.5" target="_self">ArrayList和LinkedList和Vector的区别</a> </li>
+<li><a href="#5.1.6" target="_self">ArrayList使用了transient关键字进行存储优化，而Vector没有，为什么？</a> </li>
+<li><a href="#5.1.7" target="_self">SynchronizedList和Vector的区别</a> </li>
+<li><a href="#5.1.8" target="_self">Set如何保证元素不重复?</a> </li>
+<li><a href="#5.1.9" target="_self">HashMap、HashTable、ConcurrentHashMap区别</a> </li>
+</ul>
+</li>
+<li><a href="#5.2" target="_self">Collection</a><ul>
+<li><a href="#5.2.1" target="_self">Collection接口中常用的方法</a></li>
+<li><a href="#5.2.2" target="_self">Collection如何迭代</a></li>
+<li><a href="#5.2.3" target="_self">contains方法</a></li>
+<li><a href="#5.2.4" target="_self">List接口常用方法</a></li>
+<li><a href="#5.2.5" target="_self">Arrays.asList获得的List使用时需要注意什么</a></li>
+<li><a href="#5.2.6" target="_self">Enumeration和Iterator区别</a></li>
+<li><a href="#5.2.7" target="_self">fail-fast 和 fail-safe</a></li>
+<li><a href="#5.2.8" target="_self">如何在遍历的同时删除ArrayList中的元素</a></li>
+<li><a href="#5.2.9" target="_self">CopyOnWriteArrayList</a></li>
+<li><a href="#5.2.10" target="_self">ConcurrentSkipListMap</a></li>
+</ul>
+</li>
+<li><a href="#5.3" target="_self">Map接口常用方法</a><ul>
+<li><a href="#5.3.1" target="_self">Map集合的遍历</a></li>
+<li><a href="#5.3.2" target="_self">HashMap</a></li>
+<li><a href="#5.3.3" target="_self">Properpies</a></li>
+</ul>
+</li>
+<li><a href="#5.4" target="_self">HashMap</a><ul>
+<li><a href="#5.4.1" target="_self">HashMap的容量、扩容</a></li>
+<li><a href="#5.4.2" target="_self">HashMap中hash方法的原理</a></li>
+<li><a href="#5.4.3" target="_self">为什么HashMap的默认容量设置成16</a></li>
+<li><a href="#5.4.4" target="_self">为什么HashMap的默认负载因子设置成0.75</a>
+        
+          <a class="article-more-a" href="/2019/07/27/JAVA-notes-03/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JAVA基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/27/JAVA-notes-03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/26/JAVA-notes-02/">JAVA笔记02</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/26/JAVA-notes-02/" class="archive-article-date">
+  	<time datetime="2019-07-26T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Java基础知识<ul>
+<li><a href="#2" target="_self">面对对象</a> <ul>
+<li><a href="#2.1" target="_self">面向对象与面向过程</a> <ul>
+<li><a href="#2.1.1" target="_self">什么是面向过程？</a></li>
+<li><a href="#2.1.2" target="_self">什么是面向对象？</a> </li>
+<li><a href="#2.1.3" target="_self">举例说明区别</a> </li>
+<li><a href="#2.1.4" target="_self">优劣对比</a></li>
+</ul>
+</li>
+<li><a href="#2.2" target="_self">封装、继承、多态</a> <ul>
+<li><a href="#2.2.1" target="_self">什么是多态？</a></li>
+<li><a href="#2.2.2" target="_self">多态的必要条件</a></li>
+<li><a href="#2.2.3" target="_self">方法重写与重载</a></li>
+<li><a href="#2.2.4" target="_self">Java的继承与实现</a></li>
+<li><a href="#2.2.5" target="_self">Java的继承与组合</a></li>
+<li><a href="#2.2.6" target="_self">构造函数与默认构造函数</a></li>
+<li><a href="#2.2.7" target="_self">静态变量(类变量)、成员变量和局部变量</a></li>
+<li><a href="#2.2.8" target="_self">成员变量和方法作用域</a></li>
+<li><a href="#2.2.9" target="_self">Java抽象类</a></li>
+<li><a href="#2.2.10" target="_self">接口</a></li>
+<li><a href="#2.2.11" target="_self">内部类</a></li>
+</ul>
+</li>
+<li><a href="#2.3" target="_self">Java的平台无关性</a> <ul>
+<li><a href="#2.3.1" target="_self">什么是平台无关性？</a></li>
+<li><a href="#2.3.2" target="_self">平台无关性好处</a></li>
+<li><a href="#2.3.3" target="_self">平台无关性的实现</a></li>
+<li><a href="#2.3.4" target="_self">语言无关性</a></li>
+<li><a href="#2.3.5" target="_self">小结</a></li>
+</ul>
+</li>
+<li><a href="#2.4" target="_self">值传递</a> <ul>
+<li><a href="#2.4.1" target="_self">值传递、引用传递</a></li>
+<li><a href="#2.4.2" target="_self">为什么说Java中只有值传递</a></li>
+</ul>
+</li>
+<li><a href="#2.5" target="_self">枚举</a><ul>
+<li><a href="#2.5.1" target="_self">枚举的用法</a></li>
+<li><a href="#2.5.2" target="_self">枚举的实现</a></li>
+<li><a href="#2.5.3" target="_self">Enum类</a></li>
+<li><a href="#2.5.6" target="_self">Java枚举如何比较</a></li>
+<li><a href="#2.5.5" target="_self">switch对枚举的支持</a></li>
+<li><a href="#2.5.6" target="_self">枚举的序列化如何实现</a></li>
+<li><a href="#2.5.7" target="_self">枚举是如何保证线程安全的</a>
+        
+          <a class="article-more-a" href="/2019/07/26/JAVA-notes-02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JAVA基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/26/JAVA-notes-02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/JAVA-notes-01/">JAVA笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/JAVA-notes-01/" class="archive-article-date">
+  	<time datetime="2019-07-25T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Java基础知识<ul>
+<li><a href="#1" target="_self">Java基本程序设计结构</a> <ul>
+<li><a href="#1.1" target="_self">8种基本数据类型</a> <ul>
+<li><a href="#1.1.1" target="_self">整型中byte、short、int、long的取值范围</a></li>
+<li><a href="#1.1.2" target="_self">什么是浮点型？</a> </li>
+<li><a href="#1.1.3" target="_self">什么是单精度和双精度？</a> </li>
+<li><a href="#1.1.4" target="_self">为什么不能用浮点型表示金额？</a> </li>
+</ul>
+</li>
+<li><a href="#1.2" target="_self">自动拆装箱</a><ul>
+<li><a href="#1.2.1" target="_self">基本数据类型</a> </li>
+<li><a href="#1.2.2" target="_self">基本数据类型有什么好处</a> </li>
+<li><a href="#1.2.3" target="_self">包装类型</a> </li>
+<li><a href="#1.2.4" target="_self">为什么需要包装类</a> </li>
+<li><a href="#1.2.5" target="_self">拆箱与装箱</a> </li>
+<li><a href="#1.2.6" target="_self">自动拆箱与自动装箱</a> </li>
+<li><a href="#1.2.7" target="_self">自动装箱与自动拆箱的实现原理</a> </li>
+<li><a href="#1.2.8" target="_self">哪些地方会自动拆装箱</a></li>
+<li><a href="#1.2.9" target="_self">自动拆装箱与缓存</a> </li>
+<li><a href="#1.2.10" target="_self">自动拆装箱带来的问题</a> </li>
+</ul>
+</li>
+<li><a href="#1.3" target="_self">String</a><ul>
+<li><a href="#1.3.1" target="_self">字符串的不可变性</a> </li>
+<li><a href="#1.3.2" target="_self">JDK 6和JDK 7中substring的原理及区别</a> </li>
+<li><a href="#1.3.3" target="_self">replaceFirst、replaceAll、replace区别</a> </li>
+<li><a href="#1.3.4" target="_self">String对“+”的重载</a> </li>
+<li><a href="#1.3.5" target="_self">字符串拼接的几种方式和区别</a> </li>
+<li><a href="#1.3.6" target="_self">String.valueOf和Integer.toString的区别</a> </li>
+<li><a href="#1.3.7" target="_self">switch对String的支持</a> </li>
+<li><a href="#1.3.8" target="_self">字符串池</a> </li>
+<li><a href="#1.3.9" target="_self">Class常量池</a> </li>
+<li><a href="#1.3.10" target="_self">运行时常量池</a> </li>
+<li><a href="#1.3.11" target="_self">intern</a> </li>
+<li><a href="#1.3.12" target="_self">String有没有长度限制？</a> </li>
+</ul>
+</li>
+<li><a href="#1.4" target="_self">数组</a> <ul>
+<li><a href="#1.4.1" target="_self">数组的优缺点</a></li>
+<li><a href="#1.4.2" target="_self">main方法上的”String[] args”</a> </li>
+</ul>
+</li>
+<li><a href="#1.5" target="_self">lambda表达式</a> <ul>
+<li><a href="#1.5.1" target="_self">语法</a></li>
+<li><a href="#1.5.2" target="_self">Lambda 表达式实例</a> </li>
+<li><a href="#1.5.3" target="_self">变量作用域</a> </li>
+</ul>
+</li>
+<li><a href="#1.6" target="_self">java时间处理</a> <ul>
+<li><a href="#1.6.1" target="_self">时区</a></li>
+<li><a href="#1.6.2" target="_self">冬令时和夏令时</a> </li>
+<li><a href="#1.6.3" target="_self">格林威治时间</a> </li>
+<li><a href="#1.6.4" target="_self">CET,UTC,GMT,CST几种常见时间的含义和关系</a> </li>
+<li><a href="#1.6.5" target="_self">SimpleDateFormat的线程安全性问题</a> </li>
+<li><a href="#1.6.6" target="_self">Java 8中的时间处理</a> </li>
+<li><a href="#1.6.7" target="_self">如何在东八区的计算机上获取美国时间</a> </li>
+<li><a href="#1.6.8" target="_self">yyyy和YYYY有什么区别？</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/07/25/JAVA-notes-01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JAVA基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/JAVA-notes-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Computer_network-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/Computer_network-notes-01/">计算机网络学习笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/26/Computer_network-notes-01/" class="archive-article-date">
+  	<time datetime="2019-05-26T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h1><h2 id="开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model"><a href="#开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model" class="headerlink" title="开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)"></a>开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)</h2><p>开放系统互连基本参考模型是由国际标准化组织ISO提出使各种计算机在世界范围内互联成网的框架，简称”OSI”。但是在市场化方面OSI失败了，其原因可归纳为：</p>
+<ol>
+<li>OSI专家们缺乏实际经验，在完成OSI标准时缺乏商业驱动力；</li>
+<li>OSI的协议实现起来过分复杂，而且运行效率很低；</li>
+<li>OSI标准的制定周期太长，因此使得按OSI标准生产的设备无法及时进入市场；</li>
+<li>OSI的层次划分不太合理，有些功能在多个层次中重复出现。</li>
+</ol>
+<p>得到最广泛应用的不是法律上的国际标准<strong>OSI</strong>。而是非国际标准<strong>TCP/IP</strong>。</p>
+<p><strong>OSI的七层协议体系结构</strong>：</p>
+<blockquote>
+<p>应用层(Application)：应用程序的网络流程——为应用程序进程提供网络服务；</p>
+<p>表现层(Presentation): 数据表示——1.通过接收系统保证数据的可读性；2.格式化数据；3.数据结构；4.协商应用层的数据传输语法；</p>
+<p>会话层(Session): 中间宿主的沟通——建立、管理和终止应用程序之间的会话;</p>
+<p>运输层(Transport): 端到端连接——1.关注主机之间的运输问题；2.数据传输的可靠性；3.建立、维护终止虚拟电路；4.故障检测与恢复；5.信息流量控制；</p>
+<p>网络层(Network): 地址和最佳路径——1.提供两个端系统之间的连接性和路径选择；2.路由域；</p>
+<p>数据链路层(Data Link): 访问媒体——1.提供跨媒体的可靠数据传输；2.物理寻址，网络拓扑，错误通知，流程控制；</p>
+<p>物理层(Physcial): 二进制传输——导线、连接器、电压、数据率。</p>
+</blockquote>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>TCP/IP是一个四层的体系结构，它包含<strong>应用层</strong>(各种应用协议如：TELNET，FTP，SMTP等)、<strong>运输层</strong>(TCP或UDP)、<strong>网络层</strong>(IP)和<strong>网络接口层</strong>。</p>
+<p>现在人们经常提到TCP/IP并不一定单只TCP和IP这两个协议，而往往是表示因特网所使用的整个**TCP/IP协议族(protocol suite)。</p>
+<h2 id="实体、协议、服务和服务访问点"><a href="#实体、协议、服务和服务访问点" class="headerlink" title="实体、协议、服务和服务访问点"></a>实体、协议、服务和服务访问点</h2><p><strong>实体(entity)</strong>这一抽象名词表示<strong>任何发送或接受信息的硬件或软件进程</strong>。</p>
+<p><strong>协议</strong>则是<strong>控制两个对等实体(或多个实体)进行通信的规则的集合</strong>。在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议，还需要使用下一层所提供的服务。</p>
+<p>协议的实现保证了能够向上一层提供服务。<strong>使用本层服务的实体只能看见服务而无法看见下面的协议</strong>。也就是说，<strong>下面的协议对上面的实体是透明的</strong>。**协议是”水平的”，服务是”垂直的”。</p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层的主要任务描述为确定与传输媒体的接口有关的一些特性：</p>
+<ol>
+<li><strong>机械特性</strong>：指明接口所用接线器的形状和尺寸，引脚数目和排列，固定和锁定装置，等等。平时常见的各种规格的接插件都有严格的标准化的规定。</li>
+<li><strong>电气特性</strong>：指明在接口电缆的各条线上出现的电压范围。</li>
+<li><strong>功能特性</strong>：指明某条线上出现的某一电平的电压表示何种意义。</li>
+<li><strong>过程特性</strong>：指明对于不同功能的各种可能事件的出现顺序。</li>
+</ol>
+<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p><strong>奈氏准则</strong>表明，在任何信道中，码元传输的速率是有上限的，传输速率超过此上线，就会出现严重的码间串扰问题，使接收端对码元的判决(即识别)成为不可能。</p>
+<p><strong>香农公式</strong>则表明，信道的带宽或信道的信噪比越大，信息的极限传输速率就越高。</p>
+<p><strong>香农公式</strong>的意义在于只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</p>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h2 id="解决的基本问题"><a href="#解决的基本问题" class="headerlink" title="解决的基本问题"></a>解决的基本问题</h2><ol>
+<li>封装成帧 - 帧定界</li>
+<li>透明传输 - 转义字符</li>
+<li>差错检测 - 帧检验序列FCS(Frame Check Sequence)和循环冗余检验CRC(Cyclic Redundancy Check)</li>
+</ol>
+<h2 id="点到点协议PPP"><a href="#点到点协议PPP" class="headerlink" title="点到点协议PPP"></a>点到点协议PPP</h2><p><strong>ppp协议</strong>就是用户计算机和ISP进行通信时所用的数据链路层协议。</p>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p><strong>网络层的组要内容</strong>：</p>
+<ol>
+<li>IP协议：IP地址(定位目的机)、IP分组(解决信息的封装)、IPv6(新一代的IP协议)</li>
+<li>路由选择协议：距离适量路由选择协议(实例：RIP)、链路状态路由选择协议(实例：OSPF)</li>
+<li>其他：ARP、ICMP、CIDR、NAT…</li>
+</ol>
+<p>IP的任务：提供一种尽力而为(best-effort)地把数据从源端传输到接受方的方法。</p>
+<p>IP地址：由32位二进制位表示，提供约2<sub>23</sub>约43亿个地址。一般采用点分十进制表示。</p>
+<p>三级IP地址：为解决IP地址空间利用率低的问题，在主机号上接用若干位作为子网号，将网络进行扩展，路由器通过子网掩码可以对子网进行寻址。</p>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p>完成传输任务的实体称为传输实体，传输实体可以在操作系统的内核；可以以一个链接库的形式绑定到网络应用中；可以以一个独立的用户进程运行。</p>
+<p>传输层利用网络层的服务，为它的上层应用层提供服务。</p>
+<p>传输层服务和网络层服务的显著不同(作用范围不同)：</p>
+<ol>
+<li>网络层负责把数据从原机送达到目的机，即主机到主机</li>
+<li>传输层负责把数据送达到具体的应用进程，即端到端</li>
+</ol>
+<p>传输层和数据链路层的比较：</p>
+<ol>
+<li>功能类似：流控制、差错控制、数据(报文\祯)排序</li>
+<li>传输环境不同：网络层在通信子网、数据链路层在物理信道</li>
+</ol>
+<h2 id="TCP连接的建立"><a href="#TCP连接的建立" class="headerlink" title="TCP连接的建立"></a>TCP连接的建立</h2><p>采用三次握手建立连接：</p>
+<ol>
+<li>一方(server)被动地等待一个进来的连接请求</li>
+<li>另一方(client)通过发送连接请求，设置一些参数(第一次握手：SYN=1, ACK=0)</li>
+<li>服务器方回发确认应答(第二次握手：SYN=1, ACK=1)</li>
+<li>应答到达请求方，请求方最后确认，连接建立(第三次握手：SYN=0, ACK=1)</li>
+</ol>
+<p>三次握手最重要的的是双方交换了初始序列号，保证了后续字节的可靠传输。</p>
+<h2 id="TCP连接的释放"><a href="#TCP连接的释放" class="headerlink" title="TCP连接的释放"></a>TCP连接的释放</h2><p>TCP是全双工的，连接的释放必须是双向的，任何一方在没有数据要传送的时候，都可以发送一个FIN置位了的TCP数据段。当FIN被确认的时候，该方向的连接被关闭，当双向连接都关闭时，TCP连接才正式释放。</p>
+<p>把释放连接的决定权交给请求者独立裁定，而不是对方：一方发送连接释放请求DR(Disconnect Request)，且期待对方的确认ACK；当DR到达接收端，它回发ACK，并且也发送一个DR；ACK到达发送端的时候，连接释放；同时，它回发确认ACK，当这个ACK到达接受端，反方向的连接也释放了。</p>
+<p>为了避免两军对垒问题，或者为了避免DR和ACK丢失而引发的问题，采用定时器，任何时候，发出DR的同时，都启动一个定时器：</p>
+<ol>
+<li>如果一方发送了FIN置位了的DR数据段出去，却在定时器超期之时都没有收到应答，释放连接。</li>
+<li>另一方最终会注意到连接的对方已经不在了，超时后连接释放。</li>
+</ol>
+<p>如果初始DR的和重传都丢了，协议失败，发送者将因超时放弃发送且释放连接，但是，另一端却不知道这些情况，仍然处于活跃状态，这种情况导致半开放连接(half-open)。</p>
+<p>杀死半开放连接的方式:</p>
+<ol>
+<li>如果在一定时间内，没有TPDUs到达的话，连接自动释放；</li>
+<li>如果这样，传输实体在发送一个TPDU的时候必须启动定时器，定时器超期，将发送一个哑TPDU(dummu TPDU)，以免被断掉。</li>
+</ol>
+<p>四次握手正常释放连接：</p>
+<ol>
+<li>主机A发送释放请求DR，启动计时器(第一次握手信息)</li>
+<li>主机B回送确认ACK，主机A收到并释放连接(第二次握手信息)</li>
+<li>主机B发送释放请求DR，启动定时器(第三次握手信息)<br>4.主机A发送回送确认ACK，主机B收到后释放连接(第四次握手协议)<br>当定时器超期之时，强制释放连接。</li>
+</ol>
+<h1 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h1><p>TCP：</p>
+<ol>
+<li>可靠传输方式</li>
+<li>可以让应用程序简单化，程序员可以不必进行错误检查、修正等工作</li>
+</ol>
+<p>UDP：</p>
+<ol>
+<li>为了降低对计算机资源的需求(DNS)</li>
+<li>应用程序本身已提供数据完整性的检查机制，毋需依赖传输层的协议来保证</li>
+<li>应用程序传输的并非关键性的数据(路由器周期性的路由信息交换)</li>
+<li>一对多方式，必须使用UDP(TCP限于一对一的传送)</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/26/Computer_network-notes-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPP-notes-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -938,434 +1597,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CPP-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/CPP-notes-03/">C++学习笔记03</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/03/CPP-notes-03/" class="archive-article-date">
-  	<time datetime="2018-05-03T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="int-int64-int-amp"><a href="#int-int64-int-amp" class="headerlink" title="int _int64 int&amp;"></a>int _int64 int&amp;</h1><h2 id="int"><a href="#int" class="headerlink" title="int"></a>int</h2><p>int是C++关键字，表示整型，其大小是32位有符号整型，表示的范围是-2,147,483,648 到<br>2,147,483,647；在声明和定义变量时使用，它表示的意思是所声明或所定义的变量为整型变量。如果其用于函数参数时，其传递方向为值传递，即只能将实参的值传递给形参，而不能将形参的值传递给实参。</p>
-<h2 id="int64"><a href="#int64" class="headerlink" title="_int64"></a>_int64</h2><p>_int64是c++中定义64位长整型的方式</p>
-<h2 id="int-amp"><a href="#int-amp" class="headerlink" title="int&amp;"></a>int&amp;</h2><p>int&amp;中的<strong>&amp;</strong>不是取址符号，而是引用符号，引用是C++对C的一个重要补充。变量的引用就是变量的别名。同样可以理解如果变量b是变量a的引用 那么无论a，b中任何一个值改变，另外一个也相应的改变，在声明一个引用时，必须同时使之初始化，即声明它代表哪一个变量。请注意：由于引用不是独立的变量，编译系统不给它单独分配存储单元，因此在建立引用时只有声明没有定义，只是声明它与原有的某一变量的关系。在声明一个变量的引用后，在本函数执行期间，该引用一直与其代表的变量相联系，不能再作为其他变量的别名，一个引用变量只能对应一个原始的变量，不能对应两个或多个原始的变量。</p>
-<ol>
-<li><p>声明引用时必须指定它代表的是哪一个变量，即对它初始化，比如int &amp;a=b这样是声明a是变量b的引用，如果是int &amp;a就是错的，因为没有指定a代表哪一个变量。</p>
-</li>
-<li><p>引用与其所代表的变量共享同一内存单元，系统并不为引用另外分配存储单元。</p>
-</li>
-<li><p>怎样区分&amp;是引用还是取地址符呢？方法是：判断&amp;a这样的形式前是否有类型符即int &amp;a=b;如果有类型符(int)则是引用，否则是取地址运算符。</p>
-</li>
-<li><p>对引用的初始化，可以是一个变量名，也可以是另一个引用。比如:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>; <span class="comment">//这里是定义一个整形变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;b=a;<span class="comment">//声明b是整型变量a的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;c=b;<span class="comment">//声明c是整型引用变量b的别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> &amp;d=a;<span class="comment">//声明d是整型变量a的别名</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用初始化后不能再被重新声明为另一变量的别名.</p>
-</li>
-</ol>
-<p>C++中增加引用主要是作为函数参数，进行数据传递的功能；我们知道如果用变量名作为实参，其传递方向是单向的，而用引用作为实参其传递方向是双向的；在c语言中的指针进行参数传递，只不过是将变量的地址传给指针，通过指针获取变量的值，虽能得到结果，但通过指针运算符去访问有关变量，比较麻烦。</p>
-        
-          <a class="article-more-a" href="/2018/05/03/CPP-notes-03/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/03/CPP-notes-03/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/29/CPP-notes-02/">C++学习笔记02</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/29/CPP-notes-02/" class="archive-article-date">
-  	<time datetime="2018-04-29T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><strong>语法</strong>：数据类型 <em> 指针变量名。<br><strong>使用</strong>：通过解引用的方式来找到指针指向的内存。（指针前加</em>代表解引用，找到指针指向的内存中的数据）。<br><strong>所占空间</strong>：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。</p>
-<p><strong>空指针</strong>：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。<br><strong>野指针</strong>： 指针变量指向非法的内存空间。<br>空指针和野指针都不是我们申请的空间，因此不要访问。</p>
-<p><strong>const修饰指针</strong>有三种情况：</p>
-<ol>
-<li>const修饰指针 —-常量指针：<code>const int * p = &amp;a</code> 指针的指向可以修改，但是指针指向的值不可以修改；</li>
-<li>const修饰常量 —-指针常量：<code>int * const p = &amp;a</code> 指针的指向不可以改，但是指针指向的值可以修改；</li>
-<li>const即修饰指针，又修饰常量： <code>const int * const p = &amp;a</code> 指针的指向和指针指向的值都不可以改；</li>
-</ol>
-<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><p>利用指针访问数组中的元素。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p = arr <span class="comment">//arr就是数组首地址</span></span><br><span class="line"></span><br><span class="line">p++ <span class="comment">//让指针向后偏移4个字节</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><p>利用指针作为函数参数，可以修改实参的值。形参是无法改变实参的值，但使用指针就可以修改。<br>
-        
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/29/CPP-notes-01/">C++学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/29/CPP-notes-01/" class="archive-article-date">
-  	<time datetime="2018-04-29T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>作用</strong>： 在代码中加一些说明和解释，方便阅读<br><strong>两种格式</strong>：</p>
-<ol>
-<li>单行注释：<code>//描述信息</code><ul>
-<li>通常放在一行代码的上方，或者一条语句的末尾，对该行代码说明</li>
-</ul>
-</li>
-<li>多行注释：<code>/*描述信息*/</code><ul>
-<li>通常放在一段代码的上方，对该段代码做整体说明</li>
-</ul>
-</li>
-</ol>
-<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>C++定义常量两种方式：</p>
-<ol>
-<li><h1 id="define-宏常量：-define-常量名-常量值"><a href="#define-宏常量：-define-常量名-常量值" class="headerlink" title="define 宏常量：#define 常量名 常量值"></a>define 宏常量：<code>#define 常量名 常量值</code></h1><ul>
-<li>通常在文件上方定义，表示一个常量</li>
-</ul>
-</li>
-<li>const修饰的变量：<code>const 数据类型 常量名 = 常量值</code><ul>
-<li>通常在变量定义前加关键字const，修饰该变量为常量，不可修改</li>
-</ul>
-</li>
-</ol>
-<h1 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h1><p>C++规定给标识符（变量、常量）命名时，有一套自己的规则</p>
-<ul>
-<li>标识符不能是关键字</li>
-<li>标识符只能由字母、数字、下划线组成</li>
-<li>第一个字符必须为字母或下划线</li>
-<li>标识符中字母区分大小写
-        
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-07/">C语言学习笔记07</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-07/" class="archive-article-date">
-  	<time datetime="2018-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure><br>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。<br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
@@ -1491,11 +1722,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+                <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">内存</a>
+                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,15 +1742,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1527,7 +1766,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">向量</a>
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,15 +1782,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高级搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1559,11 +1794,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1575,11 +1814,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1704,5 +1955,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

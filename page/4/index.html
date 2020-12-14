@@ -182,6 +182,137 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CPP-notes-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/CPP-notes-06/">C++学习笔记06</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/11/CPP-notes-06/" class="archive-article-date">
+  	<time datetime="2018-05-11T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C-对象模型"><a href="#C-对象模型" class="headerlink" title="C++对象模型"></a>C++对象模型</h2><p><strong>成员变量和成员函数分开存储</strong>：在C++中，类内的成员变量和成员函数分开存储，只有非静态成员变量才属于类的对象上，其他都不属于类对象上。</p>
+<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>在C++中每个非静态成员函数只会诞生一份函数实例，也就是说多个同类型的对象会公用一块代码。C++通过提供this指针解决如何区分由哪个对象调用这一块代码的问题。<br><strong>this指针指向被调用的成员函数所属的对象</strong>。</p>
+<ul>
+<li>this指针是隐含每一个非静态成员函数内的一种指针</li>
+<li>this指针不需要定义，直接使用即可</li>
+</ul>
+<p><strong>this指针的用途</strong>：</p>
+<ol>
+<li>当形参和成员变量同名时，可以使用this指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可以使用return *this</li>
+</ol>
+<h2 id="空指针访问成员函数"><a href="#空指针访问成员函数" class="headerlink" title="空指针访问成员函数"></a>空指针访问成员函数</h2><p>C++中空指针也是可以调用成员函数的，但要也要注意有没有用到this指针，如果用到this指针，需要加以判断保证代码的健壮性。</p>
+<h2 id="const修饰成员函数"><a href="#const修饰成员函数" class="headerlink" title="const修饰成员函数"></a>const修饰成员函数</h2><p><strong>常函数</strong>：</p>
+<ul>
+<li>成员函数后加const后，称这个函数为<strong>常函数</strong></li>
+<li>常函数内不可以修改成员属性(其实const修饰的是this指针)</li>
+<li>成员属性声明时加关键字mutable后，在常函数中依然可以修改</li>
+</ul>
+<p><strong>常对象</strong>：</p>
+<ul>
+<li>声明对象前加const称该对象为常对象</li>
+<li>常对象只能调用常函数</li>
+</ul>
+<h2 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h2><p>友元的目的就是让一个函数或者类访问另一个类的私有成员<br><strong>关键字</strong>：friend<br><strong>三种实现</strong>：</p>
+<ul>
+<li>全局函数做友元：在类中声明想要访问该类私有成员的全局函数，并在声明前加friend</li>
+<li>类做友元 ：在类中声明想要访问该类私有成员的类，并在声明前加friend</li>
+<li>成员函数做友元 ：在类中声明想要访问该类私有成员的成员函数，并在声明前加friend<br><strong>注</strong>：访问类中的成员函数<code>返回值类型 成员函数所在类名::函数名 (参数 = 默认值)</code>，在返回值类型前加friend就是友元。</li>
+</ul>
+<h1 id="C-运算符重载"><a href="#C-运算符重载" class="headerlink" title="C++运算符重载"></a>C++运算符重载</h1><p>运算符重载概念：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型</p>
+<h2 id="加号运算符重载"><a href="#加号运算符重载" class="headerlink" title="加号运算符重载"></a>加号运算符重载</h2><p>作用：实现两个自定义数据类型相加运算<br><strong>语法</strong>：<code>类型名 operator+(){}</code><br>运算符重载也可以发生函数重载</p>
+<h2 id="左移运算符重载"><a href="#左移运算符重载" class="headerlink" title="左移运算符重载"></a>左移运算符重载</h2><p>作用：可以输出自定义数据类型<br><strong>语法</strong>：<code>ostream operator&lt;&lt;(){}</code>(全局函数实现)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;<span class="built_in">cout</span>, Customize &amp;c) <span class="comment">//本质operator&lt;&lt;(cout, c) 简化cout &lt;&lt; c</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">cout</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/11/CPP-notes-06/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类和对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/11/CPP-notes-06/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPP-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1141,101 +1272,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C language-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/23/C%20language-notes-03/">C语言学习笔记03</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/23/C%20language-notes-03/" class="archive-article-date">
-  	<time datetime="2018-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h3><p>C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（即指针变量中存放的值）是地址（即指针）。<br>在C语言中*为取值操作符，&amp;为取址操作符。<br>
-        
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
@@ -1503,6 +1539,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JAVA基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sorting</a>
               </li>
             
             <div class="clearfix"></div>

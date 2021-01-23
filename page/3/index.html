@@ -182,6 +182,196 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Algorithm-flashcards-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/01/Algorithm-flashcards-01/">算法速记01</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/01/Algorithm-flashcards-01/" class="archive-article-date">
+  	<time datetime="2020-05-01T04:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="#1" target="_self">两数之和</a> </li>
+<li><a href="#2" target="_self">两数相加</a></li>
+<li><a href="#3" target="_self">重复字符的最长子串</a></li>
+<li><a href="#4" target="_self">寻找两个正序数组的中位数</a></li>
+</ul>
+<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a><span id = "1" >两数之和</span></h1><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<p> <strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定 nums &#x3D; [2, 7, 11, 15], target &#x3D; 9</span><br><span class="line">因为 nums[0] + nums[1] &#x3D; 2 + 7 &#x3D; 9</span><br><span class="line">所以返回 [0, 1]</span><br></pre></td></tr></table></figure>
+<p>思路：利用哈希表查找的优势，可以将数组存入哈希表中，在存入的同时对其进行查找，可以达到O(n)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int[] twoSum(int[] nums, int target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; hashMap &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            int j &#x3D; target - nums[i];</span><br><span class="line">            if (hashMap.containsKey(j)) &#123;</span><br><span class="line">                return new int[] &#123;hashMap.get(j), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            hashMap.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a><span id = "2" >两数相加</span></h1><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">输出：7 -&gt; 0 -&gt; 8</span><br><span class="line">原因：342 + 465 &#x3D; 807</span><br></pre></td></tr></table></figure>
+<p>链表是单链模式，指定一个节点指向链表头，通过不断遍历l1和l2直至都为空时间复杂度：O(max(m, n))，空间复杂度：O(max(m,n))</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	ListNode next;</span><br><span class="line"></span><br><span class="line">	ListNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">		val = x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">		ListNode head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span> || carry != <span class="number">0</span>) &#123;</span><br><span class="line">        	<span class="keyword">int</span> sum = ((l1 == <span class="keyword">null</span>) ? <span class="number">0</span> : l1.val) + ((l2 == <span class="keyword">null</span>) ? <span class="number">0</span> : l2.val) + carry;</span><br><span class="line">        	carry = sum / <span class="number">10</span>;</span><br><span class="line">        	cur.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">        	l1 = (l1 == <span class="keyword">null</span>) ? <span class="keyword">null</span> : l1.next;</span><br><span class="line">        	l2 = (l2 == <span class="keyword">null</span>) ? <span class="keyword">null</span> : l2.next;</span><br><span class="line">        	cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="重复字符的最长子串"><a href="#重复字符的最长子串" class="headerlink" title="重复字符的最长子串"></a><span id = "3" >重复字符的最长子串</span></h1><p>给定一个字符串，请找出其中不含有重复字符的<strong>最长子串</strong>的长度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br><span class="line">输入: &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br><span class="line">输入: &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+<p>标准的滑动窗口问题，通过定义两个指针表示子串(的左右边界)。右指针不断向前移动，直到子串遇到重复元素则记录当前子串长度，并将左指针移动至上一个重复字符的后一位作为新的子串的起始位置。当枚举结束后，最长的子串长度即为答案。由于仅需遍历一次字符串，故时间复杂度为O(n)。字符串有限，故空间复杂度为常数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为了检验子串重复元素和重复元素的位置，使用HashMap保存字符串元素及最后出现的位置</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">null</span>==s||s.length()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// 使用HashMap保存字符串元素及最后出现的位置</span></span><br><span class="line">		HashMap&lt;Character, Integer&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">		<span class="comment">// 将字符串转换成字符数组</span></span><br><span class="line">		<span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line">		<span class="comment">// 最大子串长度</span></span><br><span class="line">		<span class="keyword">int</span> maxCount = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// 左指针位置</span></span><br><span class="line">		<span class="keyword">int</span> pre = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// 遍历整个字符串数组</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">			<span class="comment">// 检查是否有重复元素，如果有查看是否位于左指针位置之后</span></span><br><span class="line">			<span class="keyword">if</span>(hashMap.containsKey(chars[i]) &amp;&amp; pre &lt;= hashMap.get(chars[i])) &#123;</span><br><span class="line">				<span class="comment">// 若在左指针之后则更新左指针</span></span><br><span class="line">				pre = hashMap.get(chars[i]) + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// 更新元素的最后位置</span></span><br><span class="line">			hashMap.put(chars[i], i);</span><br><span class="line">			<span class="comment">// 计算子串长度</span></span><br><span class="line">			maxCount = Math.max(i - pre, maxCount);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 更新长度</span></span><br><span class="line">		maxCount = maxCount + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> maxCount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于只限定了字符串，可以用数组代替HashMap，速度更快</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 建立包含所有字符的数组，下标代表每个字符的ASCII</span></span><br><span class="line">        <span class="keyword">int</span>[] last = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">		<span class="comment">// 设每个字符初始为-1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">128</span>; i++) &#123;</span><br><span class="line">            last[i] = -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">		<span class="comment">// 最大子串长度</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// 窗口开始位置</span></span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>; </span><br><span class="line">		<span class="comment">// 遍历整个字符串</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="comment">// 获取当前字符ASCII码</span></span><br><span class="line">            <span class="keyword">int</span> index = s.charAt(i);</span><br><span class="line">			<span class="comment">// 更新子串开始位置</span></span><br><span class="line">            start = Math.max(start, last[index] + <span class="number">1</span>);</span><br><span class="line">			<span class="comment">// 更新最大子串长度</span></span><br><span class="line">            res   = Math.max(res, i - start + <span class="number">1</span>);</span><br><span class="line">			<span class="comment">// 更新字符最后出现位置</span></span><br><span class="line">            last[index] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="寻找两个正序数组的中位数"><a href="#寻找两个正序数组的中位数" class="headerlink" title="寻找两个正序数组的中位数"></a><span id = "4" >寻找两个正序数组的中位数</span></h1><p>给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。</p>
+<p>请你找出这两个正序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</p>
+<p>你可以假设 <code>nums1</code> 和 <code>nums2</code> 不会同时为空。</p>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">nums2 = [<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">则中位数是 <span class="number">2.0</span></span><br><span class="line"></span><br><span class="line">nums1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">则中位数是 (<span class="number">2</span> + <span class="number">3</span>)/<span class="number">2</span> = <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
+<p>给定两个有序数组，要求找到两个有序数组的中位数，最直观的思路有以下两种：</p>
+<p>1.使用归并的方式，合并两个有序数组，得到一个大的有序数组。大的有序数组的中间位置的元素，即为中位数。</p>
+<p>2.不需要合并两个有序数组，只要找到中位数的位置即可。由于两个数组的长度已知，因此中位数对应的两个数组的下标之和也是已知的。维护两个指针，初始时分别指向两个数组的下标 00 的位置，每次将指向较小值的指针后移一位（如果一个指针已经到达数组末尾，则只需要移动另一个数组的指针），直到到达中位数的位置。</p>
+<p>假设两个有序数组的长度分别为 mm 和 nn，上述两种思路的复杂度如何？</p>
+<p>第一种思路的时间复杂度是O(m+n)，空间复杂度是O(m+n)。第二种思路虽然可以将空间复杂度降到O(1)，但是时间复杂度仍是O(m+n)。要求时间复杂度是O(log(m+n))。</p>
+<p>第二种思路解法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> lengthS1 = nums1.length;</span><br><span class="line">		<span class="keyword">int</span> lengthS2 = nums2.length;</span><br><span class="line">		<span class="keyword">int</span> lengthmid = (lengthS1 + lengthS2) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span>[] numMedian = <span class="keyword">new</span> <span class="keyword">int</span>[lengthmid + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lengthmid + <span class="number">1</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(a &lt; lengthS1 &amp;&amp; b &lt; lengthS2) &#123;</span><br><span class="line">				numMedian[i] = nums1[a] &lt; nums2[b] ? nums1[a++] : nums2[b++];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				numMedian[i] = lengthS1 &lt;= a ? nums2[b++] : nums1[a++];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">double</span> median = (lengthS1 + lengthS2) % <span class="number">2</span> == <span class="number">0</span> ? (numMedian[lengthmid] + numMedian[lengthmid - <span class="number">1</span>]) / <span class="number">2.0</span> : numMedian[lengthmid];</span><br><span class="line">		<span class="keyword">return</span> median;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如何把时间复杂度降低到O(log(m+n)) 呢？如果对时间复杂度的要求有log，通常都需要用到二分查找，这道题也可以通过二分查找实现。</p>
+<p>有两种解法：</p>
+<p><strong>第一种：</strong></p>
+<p>根据中位数的定义，当 m+nm+n 是奇数时，中位数是两个有序数组中的第 (m+n)/2(m+n)/2 个元素，当 m+nm+n 是偶数时，中位数是两个有序数组中的第 (m+n)/2(m+n)/2 个元素和第 (m+n)/2+1(m+n)/2+1 个元素的平均值。因此，这道题可以转化成寻找两个有序数组中的第 kk 小的数，其中 kk 为 (m+n)/2(m+n)/2 或 (m+n)/2+1(m+n)/2+1。</p>
+<p>假设两个有序数组分别是A和B。要找到第k个元素，我们可以比较]A[k/2−1]和B[k/2−1]，其中/表示整数除法。由于A[k/2−1]和B[k/2−1]的前面分别有A[0..k/2−2]和B[0..k/2−2]，即k/2−1个元素，对于A[k/2−1] 和B[k/2−1] 中的较小值，最多只会有(k/2−1)+(k/2−1)≤k−2个元素比它小，那么它就不能是第k小的数了。</p>
+<p>因此我们可以归纳出三种情况：</p>
+<p>1.如果A[k/2−1]&lt;B[k/2−1]，则比A[k/2−1] 小的数最多只有A的前k/2−1个数和B的前k/2−1个数，即比A[k/2−1]小的数最多只有k−2个，因此A[k/2−1] 不可能是第k个数，A[0]到A[k/2−1]也都不可能是第k个数，可以全部排除。</p>
+<p>2.如果A[k/2−1] &gt; B[k/2−1]，则可以排除B[0]到B[k/2−1]。</p>
+<p>3.如果A[k/2−1] = B[k/2−1]，则可以归入第一种情况处理。</p>
+<p>比较A[k/2−1]和B[k/2−1] 之后，可以排除k/2个不可能是第k小的数，查找范围缩小了一半。同时，我们将在排除后的新数组上继续进行二分查找，并且根据我们排除数的个数，减少k的值，这是因为我们排除的数都不大于第k小的数。</p>
+<p>有以下三种情况需要特殊处理：</p>
+<p>1.如果A[k/2−1] 或者B[k/2−1] 越界，那么我们可以选取对应数组中的最后一个元素。在这种情况下，我们必须根据排除数的个数减少k的值，而不能直接将k减去k/2。</p>
+<p>2.如果一个数组为空，说明该数组中的所有元素都被排除，我们可以直接返回另一个数组中第k小的元素。</p>
+<p>3.如果k=1，我们只要返回两个数组首元素的最小值即可。</p>
+<p>具体实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length1 = nums1.length, length2 = nums2.length;</span><br><span class="line">        <span class="keyword">int</span> totalLength = length1 + length2;</span><br><span class="line">        <span class="keyword">if</span> (totalLength % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> midIndex = totalLength / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">double</span> median = getKthElement(nums1, nums2, midIndex + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span> median;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> midIndex1 = totalLength / <span class="number">2</span> - <span class="number">1</span>, midIndex2 = totalLength / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">double</span> median = (getKthElement(nums1, nums2, midIndex1 + <span class="number">1</span>) + getKthElement(nums1, nums2, midIndex2 + <span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">            <span class="keyword">return</span> median;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getKthElement</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/* 主要思路：要找到第 k (k&gt;1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较</span></span><br><span class="line"><span class="comment">         * 这里的 "/" 表示整除</span></span><br><span class="line"><span class="comment">         * nums1 中小于等于 pivot1 的元素有 nums1[0 .. k/2-2] 共计 k/2-1 个</span></span><br><span class="line"><span class="comment">         * nums2 中小于等于 pivot2 的元素有 nums2[0 .. k/2-2] 共计 k/2-1 个</span></span><br><span class="line"><span class="comment">         * 取 pivot = min(pivot1, pivot2)，两个数组中小于等于 pivot 的元素共计不会超过 (k/2-1) + (k/2-1) &lt;= k-2 个</span></span><br><span class="line"><span class="comment">         * 这样 pivot 本身最大也只能是第 k-1 小的元素</span></span><br><span class="line"><span class="comment">         * 如果 pivot = pivot1，那么 nums1[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums1 数组</span></span><br><span class="line"><span class="comment">         * 如果 pivot = pivot2，那么 nums2[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums2 数组</span></span><br><span class="line"><span class="comment">         * 由于我们 "删除" 了一些元素（这些元素都比第 k 小的元素要小），因此需要修改 k 的值，减去删除的数的个数</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> length1 = nums1.length, length2 = nums2.length;</span><br><span class="line">        <span class="keyword">int</span> index1 = <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> kthElement = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="comment">// 边界情况</span></span><br><span class="line">            <span class="keyword">if</span> (index1 == length1) &#123;</span><br><span class="line">                <span class="keyword">return</span> nums2[index2 + k - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (index2 == length2) &#123;</span><br><span class="line">                <span class="keyword">return</span> nums1[index1 + k - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> Math.min(nums1[index1], nums2[index2]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 正常情况</span></span><br><span class="line">            <span class="keyword">int</span> half = k / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> newIndex1 = Math.min(index1 + half, length1) - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> newIndex2 = Math.min(index2 + half, length2) - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];</span><br><span class="line">            <span class="keyword">if</span> (pivot1 &lt;= pivot2) &#123;</span><br><span class="line">                k -= (newIndex1 - index1 + <span class="number">1</span>);</span><br><span class="line">                index1 = newIndex1 + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                k -= (newIndex2 - index2 + <span class="number">1</span>);</span><br><span class="line">                index2 = newIndex2 + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(log(m+n))，其中m和n分别是数组nums1和nums2的长度。初始时有k=(m+n)/2或k=(m+n)/2+1，每一轮循环可以将查找范围减少一半，因此时间复杂度是O(log(m+n))。</p>
+<p>空间复杂度：O(1)。</p>
+<p><strong>第二种：</strong></p>
+<p>方法一的时间复杂度已经很优秀了，但本存在时间复杂度更低的一种方法。</p>
+<p>为了使用划分的方法解决这个问题，需要理解「中位数的作用是什么」。在统计中，中位数被用来：</p>
+<blockquote>
+<p>将一个集合划分为两个长度相等的子集，其中一个子集中的元素总是大于另一个子集中的元素。</p>
+</blockquote>
+<p>如果理解了中位数的划分作用，就很接近答案了。</p>
+<p>首先，在任意位置i将A划分成两个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">       left_A            |          right_A</span><br><span class="line">A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]</span><br></pre></td></tr></table></figure>
+<p>由于A中有m个元素，所以有m+1种划分的方法i∈[0,m]。</p>
+<blockquote>
+<p>len(left_A)=i,len(right_A)=m−i.</p>
+<p>注意：当i=0时，left_A为空集，而当i=m时,right_A 为空集。</p>
+</blockquote>
+<p>采用同样的方式，在任意位置j将B划分成两个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">       left_B            |          right_B</span><br><span class="line">B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]</span><br></pre></td></tr></table></figure>
+<p>将left_A和left_B放入一个集合，并将right_A和right_B放入另一个集合。再把这两个新的集合分别命名为left_part和right_part：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      left_part          |         right_part</span><br><span class="line">A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]</span><br><span class="line">B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]</span><br></pre></td></tr></table></figure>
+<p>当A和B的总长度是偶数时，如果可以确认：</p>
+<ul>
+<li>len(left_part) = len(right_part)</li>
+<li>max(left_part) ≤ min(right_part)</li>
+</ul>
+<p>那么，{A,B} 中的所有元素已经被划分为相同长度的两个部分，且前一部分中的元素总是小于或等于后一部分中的元素。中位数就是前一部分的最大值和后一部分的最小值的平均值：median= (max(left_part) + min(right_part)) / 2。</p>
+<p>当A和B的总长度是奇数时，如果可以确认：</p>
+<ul>
+<li>len(left_part) = len(right_part) + 1</li>
+<li>max(left_part) ≤ min(right_part)</li>
+</ul>
+<p>那么，{A,B} 中的所有元素已经被划分为两个部分，前一部分比后一部分多一个元素，且前一部分中的元素总是小于或等于后一部分中的元素。中位数就是前一部分的最大值：median=max(left_part)。</p>
+<p>第一个条件对于总长度是偶数和奇数的情况有所不同，但是可以将两种情况合并。第二个条件对于总长度是偶数和奇数的情况是一样的。</p>
+<p>要确保这两个条件，只需要保证：</p>
+<p>1.i + j = m − i + n − j（当m + n为偶数）或i + j = m - i + n - j + 1（当m + n为奇数）。等号左侧为前一部分的元素个数，等号右侧为后一部分的元素个数。将i和j全部移到等号左侧，我们就可以得到 i + j = (m + n + 1) / 2。这里的分数结果只保留整数部分。</p>
+<p>2.0 ≤ i ≤ m，0 ≤ j ≤ n。如果我们规定A的长度小于等于B的长度，即m ≤ n。这样对于任意的i ∈ [0,m]，都有j = (m + n + 1)/2 − i ∈ [0,n]，那么我们在[0,m]的范围内枚举i并得到j，就不需要额外的性质了。如果A的长度较大，那么我们只要交换A和B即可。如果 m &gt; n，那么得出的j有可能是负数。</p>
+<p>3.B[j−1]≤A[i] 以及A[i−1]≤B[j]，即前一部分的最大值小于等于后一部分的最小值。</p>
+<p>为了简化分析，假设A[i−1],B[j−1],A[i],B[j] 总是存在。对于i=0、i=m、j=0、j=n这样的临界条件，我们只需要规定A[−1]=B[−1]=−∞，A[m]=B[n]=∞ 即可。这也是比较直观的：当一个数组不出现在前一部分时，对应的值为负无穷，就不会对前一部分的最大值产生影响；当一个数组不出现在后一部分时，对应的值为正无穷，就不会对后一部分的最小值产生影响。</p>
+<p>所以我们需要做的是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在[<span class="number">0</span>, m]中找到i，使得：B[j−<span class="number">1</span>]≤A[i]且A[i−<span class="number">1</span>]≤B[j]，其中j=(m+n+<span class="number">1</span>)/<span class="number">2</span> - i</span><br></pre></td></tr></table></figure>
+<p>我们证明它等价于：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在[<span class="number">0</span>, m]中找到最大的i，使得：A[i−<span class="number">1</span>]≤B[j]，其中j=(m+n+<span class="number">1</span>)/<span class="number">2</span> - i</span><br></pre></td></tr></table></figure>
+<p>这是因为：</p>
+<p>1.当 i 从 0∼m 递增时，A[i−1] 递增，B[j] 递减，所以一定存在一个最大的 i 满足A[i−1]≤B[j]；</p>
+<p>2.如果 i 是最大的，那么说明i+1 不满足。将i+1 带入可以得到A[i]&gt;B[j−1]，也就是 B[j - 1] &lt; A[i]，就和我们进行等价变换前 i 的性质一致了（甚至还要更强）。</p>
+<p>因此我们可以对 i 在 [0, m]的区间上进行二分搜索，找到最大的满足A[i−1]≤B[j] 的 i 值，就得到了划分的方法。此时，划分前一部分元素中的最大值，以及划分后一部分元素中的最小值，才可能作为就是这两个数组的中位数。</p>
+<p>具体实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1.length &gt; nums2.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> n = nums2.length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = m, ansi = -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// median1：前一部分的最大值</span></span><br><span class="line">        <span class="comment">// median2：后一部分的最小值</span></span><br><span class="line">        <span class="keyword">int</span> median1 = <span class="number">0</span>, median2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="comment">// 前一部分包含 nums1[0 .. i-1] 和 nums2[0 .. j-1]</span></span><br><span class="line">            <span class="comment">// 后一部分包含 nums1[i .. m-1] 和 nums2[j .. n-1]</span></span><br><span class="line">            <span class="keyword">int</span> i = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> j = (m + n + <span class="number">1</span>) / <span class="number">2</span> - i;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// nums_im1, nums_i, nums_jm1, nums_j 分别表示 nums1[i-1], nums1[i], nums2[j-1], nums2[j]</span></span><br><span class="line">            <span class="keyword">int</span> nums_im1 = (i == <span class="number">0</span> ? Integer.MIN_VALUE : nums1[i - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">int</span> nums_i = (i == m ? Integer.MAX_VALUE : nums1[i]);</span><br><span class="line">            <span class="keyword">int</span> nums_jm1 = (j == <span class="number">0</span> ? Integer.MIN_VALUE : nums2[j - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">int</span> nums_j = (j == n ? Integer.MAX_VALUE : nums2[j]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nums_im1 &lt;= nums_j) &#123;</span><br><span class="line">                ansi = i;</span><br><span class="line">                median1 = Math.max(nums_im1, nums_jm1);</span><br><span class="line">                median2 = Math.min(nums_i, nums_j);</span><br><span class="line">                left = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                right = i - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (m + n) % <span class="number">2</span> == <span class="number">0</span> ? (median1 + median2) / <span class="number">2.0</span> : median1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(logmin(m,n)))，其中 m 和 n 分别是数组nums1和nums2的长度。查找的区间是 [0, m]，而该区间的长度在每次循环之后都会减少为原来的一半。所以，只需要执行logm次循环。由于每次循环中的操作次数是常数，所以时间复杂度为O(logm)。由于我们可能需要交换nums1和nums2使得m≤n，因此时间复杂度是O(logmin(m,n)))。</p>
+<p>空间复杂度：O(1)。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">速记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/速记//" class="article-tag-list-link color3">速记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/01/Algorithm-flashcards-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Github-notes -01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -249,6 +439,247 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/25/Github-notes%20-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-notes-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/JAVA-notes-08/">JAVA笔记08</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/30/JAVA-notes-08/" class="archive-article-date">
+  	<time datetime="2019-08-30T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>JavaWeb<ul>
+<li><a href="#1" target="_self">自定义注解</a> <ul>
+<li><a href="#1.1" target="_self">什么是注解？</a> </li>
+<li><a href="#1.2" target="_self">什么是内置注解？</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/08/30/JAVA-notes-08/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JAVAWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/30/JAVA-notes-08/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/15/JAVA-notes-07/">JAVA笔记07</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/15/JAVA-notes-07/" class="archive-article-date">
+  	<time datetime="2019-08-15T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>JavaWeb<ul>
+<li><a href="#1" target="_self">数据交换格式</a> <ul>
+<li><a href="#1.1" target="_self">数据交换格式用场景</a> </li>
+<li><a href="#1.2" target="_self">JSON</a> <ul>
+<li><a href="#1.2.1" target="_self">什么是JSON</a></li>
+<li><a href="#1.2.2" target="_self">JSON格式的分类</a></li>
+<li><a href="#1.2.3" target="_self">常用JSON解析框架</a></li>
+<li><a href="#1.2.4" target="_self">使用fastjson解析json</a></li>
+<li><a href="#1.2.5" target="_self">使用fastjson api</a></li>
+</ul>
+</li>
+<li><a href="#1.3" target="_self">XML</a> <ul>
+<li><a href="#1.3.1" target="_self">什么是XML</a></li>
+<li><a href="#1.3.2" target="_self">XML样例</a></li>
+<li><a href="#1.3.3" target="_self">XML解析方式</a></li>
+<li><a href="#1.3.4" target="_self">Dom4j与Sax区别</a></li>
+<li><a href="#1.3.5" target="_self">使用dom4j解析xml</a></li>
+<li><a href="#1.3.6" target="_self">解析xml代码</a></li>
+</ul>
+</li>
+<li><a href="#1.4" target="_self">XML与JSON区别</a> </li>
+</ul>
+</li>
+<li><a href="#2" target="_self">Java反射机制</a><ul>
+<li><a href="#2.1" target="_self">什么是Java反射</a> </li>
+<li><a href="#2.2" target="_self">反射机制的作用</a> </li>
+<li><a href="#2.3" target="_self">反射机制的应用场景</a> </li>
+<li><a href="#2.4" target="_self">反射机制获取类有三种方法</a> </li>
+<li><a href="#2.5" target="_self">反射创建对象的方式</a> </li>
+<li><a href="#2.6" target="_self">反射创建api</a></li>
+<li><a href="#2.7" target="_self">使用反射为类私有属性赋值</a></li>
+</ul>
+</li>
+<li><a href="#3" target="_self">SpringIOC框架及实现</a><ul>
+<li><a href="#3.1" target="_self">什么是SpringIOC</a> </li>
+<li><a href="#3.2" target="_self">SpringIOC底层实现原理</a> </li>
+<li><a href="#3.3" target="_self">手写SpringIOC</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/08/15/JAVA-notes-07/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JAVAWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/15/JAVA-notes-07/">展开全文 >></a>
         </p>
       
 
@@ -1207,449 +1638,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Computer_network-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/26/Computer_network-notes-01/">计算机网络学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/26/Computer_network-notes-01/" class="archive-article-date">
-  	<time datetime="2019-05-26T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h1><h2 id="开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model"><a href="#开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model" class="headerlink" title="开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)"></a>开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)</h2><p>开放系统互连基本参考模型是由国际标准化组织ISO提出使各种计算机在世界范围内互联成网的框架，简称”OSI”。但是在市场化方面OSI失败了，其原因可归纳为：</p>
-<ol>
-<li>OSI专家们缺乏实际经验，在完成OSI标准时缺乏商业驱动力；</li>
-<li>OSI的协议实现起来过分复杂，而且运行效率很低；</li>
-<li>OSI标准的制定周期太长，因此使得按OSI标准生产的设备无法及时进入市场；</li>
-<li>OSI的层次划分不太合理，有些功能在多个层次中重复出现。</li>
-</ol>
-<p>得到最广泛应用的不是法律上的国际标准<strong>OSI</strong>。而是非国际标准<strong>TCP/IP</strong>。</p>
-<p><strong>OSI的七层协议体系结构</strong>：</p>
-<blockquote>
-<p>应用层(Application)：应用程序的网络流程——为应用程序进程提供网络服务；</p>
-<p>表现层(Presentation): 数据表示——1.通过接收系统保证数据的可读性；2.格式化数据；3.数据结构；4.协商应用层的数据传输语法；</p>
-<p>会话层(Session): 中间宿主的沟通——建立、管理和终止应用程序之间的会话;</p>
-<p>运输层(Transport): 端到端连接——1.关注主机之间的运输问题；2.数据传输的可靠性；3.建立、维护终止虚拟电路；4.故障检测与恢复；5.信息流量控制；</p>
-<p>网络层(Network): 地址和最佳路径——1.提供两个端系统之间的连接性和路径选择；2.路由域；</p>
-<p>数据链路层(Data Link): 访问媒体——1.提供跨媒体的可靠数据传输；2.物理寻址，网络拓扑，错误通知，流程控制；</p>
-<p>物理层(Physcial): 二进制传输——导线、连接器、电压、数据率。</p>
-</blockquote>
-<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>TCP/IP是一个四层的体系结构，它包含<strong>应用层</strong>(各种应用协议如：TELNET，FTP，SMTP等)、<strong>运输层</strong>(TCP或UDP)、<strong>网络层</strong>(IP)和<strong>网络接口层</strong>。</p>
-<p>现在人们经常提到TCP/IP并不一定单只TCP和IP这两个协议，而往往是表示因特网所使用的整个**TCP/IP协议族(protocol suite)。</p>
-<h2 id="实体、协议、服务和服务访问点"><a href="#实体、协议、服务和服务访问点" class="headerlink" title="实体、协议、服务和服务访问点"></a>实体、协议、服务和服务访问点</h2><p><strong>实体(entity)</strong>这一抽象名词表示<strong>任何发送或接受信息的硬件或软件进程</strong>。</p>
-<p><strong>协议</strong>则是<strong>控制两个对等实体(或多个实体)进行通信的规则的集合</strong>。在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议，还需要使用下一层所提供的服务。</p>
-<p>协议的实现保证了能够向上一层提供服务。<strong>使用本层服务的实体只能看见服务而无法看见下面的协议</strong>。也就是说，<strong>下面的协议对上面的实体是透明的</strong>。**协议是”水平的”，服务是”垂直的”。</p>
-<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层的主要任务描述为确定与传输媒体的接口有关的一些特性：</p>
-<ol>
-<li><strong>机械特性</strong>：指明接口所用接线器的形状和尺寸，引脚数目和排列，固定和锁定装置，等等。平时常见的各种规格的接插件都有严格的标准化的规定。</li>
-<li><strong>电气特性</strong>：指明在接口电缆的各条线上出现的电压范围。</li>
-<li><strong>功能特性</strong>：指明某条线上出现的某一电平的电压表示何种意义。</li>
-<li><strong>过程特性</strong>：指明对于不同功能的各种可能事件的出现顺序。</li>
-</ol>
-<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p><strong>奈氏准则</strong>表明，在任何信道中，码元传输的速率是有上限的，传输速率超过此上线，就会出现严重的码间串扰问题，使接收端对码元的判决(即识别)成为不可能。</p>
-<p><strong>香农公式</strong>则表明，信道的带宽或信道的信噪比越大，信息的极限传输速率就越高。</p>
-<p><strong>香农公式</strong>的意义在于只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</p>
-<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h2 id="解决的基本问题"><a href="#解决的基本问题" class="headerlink" title="解决的基本问题"></a>解决的基本问题</h2><ol>
-<li>封装成帧 - 帧定界</li>
-<li>透明传输 - 转义字符</li>
-<li>差错检测 - 帧检验序列FCS(Frame Check Sequence)和循环冗余检验CRC(Cyclic Redundancy Check)</li>
-</ol>
-<h2 id="点到点协议PPP"><a href="#点到点协议PPP" class="headerlink" title="点到点协议PPP"></a>点到点协议PPP</h2><p><strong>ppp协议</strong>就是用户计算机和ISP进行通信时所用的数据链路层协议。</p>
-<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p><strong>网络层的组要内容</strong>：</p>
-<ol>
-<li>IP协议：IP地址(定位目的机)、IP分组(解决信息的封装)、IPv6(新一代的IP协议)</li>
-<li>路由选择协议：距离适量路由选择协议(实例：RIP)、链路状态路由选择协议(实例：OSPF)</li>
-<li>其他：ARP、ICMP、CIDR、NAT…</li>
-</ol>
-<p>IP的任务：提供一种尽力而为(best-effort)地把数据从源端传输到接受方的方法。</p>
-<p>IP地址：由32位二进制位表示，提供约2<sub>23</sub>约43亿个地址。一般采用点分十进制表示。</p>
-<p>三级IP地址：为解决IP地址空间利用率低的问题，在主机号上接用若干位作为子网号，将网络进行扩展，路由器通过子网掩码可以对子网进行寻址。</p>
-<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p>完成传输任务的实体称为传输实体，传输实体可以在操作系统的内核；可以以一个链接库的形式绑定到网络应用中；可以以一个独立的用户进程运行。</p>
-<p>传输层利用网络层的服务，为它的上层应用层提供服务。</p>
-<p>传输层服务和网络层服务的显著不同(作用范围不同)：</p>
-<ol>
-<li>网络层负责把数据从原机送达到目的机，即主机到主机</li>
-<li>传输层负责把数据送达到具体的应用进程，即端到端</li>
-</ol>
-<p>传输层和数据链路层的比较：</p>
-<ol>
-<li>功能类似：流控制、差错控制、数据(报文\祯)排序</li>
-<li>传输环境不同：网络层在通信子网、数据链路层在物理信道</li>
-</ol>
-<h2 id="TCP连接的建立"><a href="#TCP连接的建立" class="headerlink" title="TCP连接的建立"></a>TCP连接的建立</h2><p>采用三次握手建立连接：</p>
-<ol>
-<li>一方(server)被动地等待一个进来的连接请求</li>
-<li>另一方(client)通过发送连接请求，设置一些参数(第一次握手：SYN=1, ACK=0)</li>
-<li>服务器方回发确认应答(第二次握手：SYN=1, ACK=1)</li>
-<li>应答到达请求方，请求方最后确认，连接建立(第三次握手：SYN=0, ACK=1)</li>
-</ol>
-<p>三次握手最重要的的是双方交换了初始序列号，保证了后续字节的可靠传输。</p>
-<h2 id="TCP连接的释放"><a href="#TCP连接的释放" class="headerlink" title="TCP连接的释放"></a>TCP连接的释放</h2><p>TCP是全双工的，连接的释放必须是双向的，任何一方在没有数据要传送的时候，都可以发送一个FIN置位了的TCP数据段。当FIN被确认的时候，该方向的连接被关闭，当双向连接都关闭时，TCP连接才正式释放。</p>
-<p>把释放连接的决定权交给请求者独立裁定，而不是对方：一方发送连接释放请求DR(Disconnect Request)，且期待对方的确认ACK；当DR到达接收端，它回发ACK，并且也发送一个DR；ACK到达发送端的时候，连接释放；同时，它回发确认ACK，当这个ACK到达接受端，反方向的连接也释放了。</p>
-<p>为了避免两军对垒问题，或者为了避免DR和ACK丢失而引发的问题，采用定时器，任何时候，发出DR的同时，都启动一个定时器：</p>
-<ol>
-<li>如果一方发送了FIN置位了的DR数据段出去，却在定时器超期之时都没有收到应答，释放连接。</li>
-<li>另一方最终会注意到连接的对方已经不在了，超时后连接释放。</li>
-</ol>
-<p>如果初始DR的和重传都丢了，协议失败，发送者将因超时放弃发送且释放连接，但是，另一端却不知道这些情况，仍然处于活跃状态，这种情况导致半开放连接(half-open)。</p>
-<p>杀死半开放连接的方式:</p>
-<ol>
-<li>如果在一定时间内，没有TPDUs到达的话，连接自动释放；</li>
-<li>如果这样，传输实体在发送一个TPDU的时候必须启动定时器，定时器超期，将发送一个哑TPDU(dummu TPDU)，以免被断掉。</li>
-</ol>
-<p>四次握手正常释放连接：</p>
-<ol>
-<li>主机A发送释放请求DR，启动计时器(第一次握手信息)</li>
-<li>主机B回送确认ACK，主机A收到并释放连接(第二次握手信息)</li>
-<li>主机B发送释放请求DR，启动定时器(第三次握手信息)<br>4.主机A发送回送确认ACK，主机B收到后释放连接(第四次握手协议)<br>当定时器超期之时，强制释放连接。</li>
-</ol>
-<h1 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h1><p>TCP：</p>
-<ol>
-<li>可靠传输方式</li>
-<li>可以让应用程序简单化，程序员可以不必进行错误检查、修正等工作</li>
-</ol>
-<p>UDP：</p>
-<ol>
-<li>为了降低对计算机资源的需求(DNS)</li>
-<li>应用程序本身已提供数据完整性的检查机制，毋需依赖传输层的协议来保证</li>
-<li>应用程序传输的并非关键性的数据(路由器周期性的路由信息交换)</li>
-<li>一对多方式，必须使用UDP(TCP限于一对一的传送)</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/26/Computer_network-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/13/CPP-notes-09/">C++学习笔记09</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/13/CPP-notes-09/" class="archive-article-date">
-  	<time datetime="2018-05-13T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><p>模板就是建立<strong>通用的摸具</strong>，大大提高<strong>复用性</strong></p>
-<ul>
-<li>C++另一种编程思想称为<strong>泛型编程</strong>，主要利用的技术就是模板</li>
-<li>C++提供两种模板机制：<strong>函数模板</strong>和<strong>类模板</strong></li>
-</ul>
-<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p><strong>作用</strong>：建立一个通用函数，其函数返回值和形参可以不具体制定，用一个<strong>虚拟的类型</strong>来代表。</p>
-<p><strong>语法</strong>：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">函数声明或定义</span><br></pre></td></tr></table></figure><br><strong>解释</strong>：</p>
-<ul>
-<li>template—&gt;声明创建模板</li>
-<li>typename—&gt;表明其后面的符号是一种数据类型，可以用class代替</li>
-<li>T—&gt;通用数据类型，名称可以替换，通常为大写字母<br>模板的使用方式有两种：1.自动类型推导；2.显式指定类型<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数模板</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个模板，告诉编译器后面代码中紧跟着的T不要报错，T是一个通用数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mySwap</span><span class="params">(T &amp;a, T &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">	<span class="comment">//利用函数模板交换</span></span><br><span class="line">	<span class="comment">//1.自动类型推导</span></span><br><span class="line">	mySwap(a, b);</span><br><span class="line">	<span class="comment">//2.显示指定类型</span></span><br><span class="line">	mySwap&lt;<span class="keyword">int</span>&gt;(a,b);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>函数模板注意事项</strong>：</p>
-<ul>
-<li>自动推导类型，必须推导出一致的数据类型T，才可以使用</li>
-<li>模板必须要确定出T数据类型，才可以使用</li>
-</ul>
-<p><strong>普通函数与函数模板的区别</strong></p>
-<ul>
-<li>普通函数调用时可以发生自动类型转换(隐式类型转换)</li>
-<li>函数模板调用时，如果利用自动类型推导，不会发生隐式类型转换</li>
-<li>如果利用显示指定类型的方式，可以发生隐式类型转换</li>
-</ul>
-<p><strong>普通函数和函数模板的调用规则</strong>：</p>
-<ol>
-<li>如果函数模板和普通函数都可以实现，优先调用普通函数</li>
-<li>可以通过空模板参数列表来强制调用函数模板</li>
-<li>函数模板也可以发生重载</li>
-<li>如果函数模板可以产生更好的匹配，优先调用函数模板</li>
-</ol>
-<p><strong>模板重载</strong><br>当模板传入的参数是自定义的数据类型，那么该模版将无法正常运行。因此C++通过提供模板的重载，为这些<strong>特定的类型</strong>提供<strong>具体化的模板</strong>。<br>
-        
-          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">泛型编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/13/CPP-notes-08/">C++学习笔记08</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/13/CPP-notes-08/" class="archive-article-date">
-  	<time datetime="2018-05-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>C++中对文件操作需要包含头文件<code>&lt;fstream&gt;</code>，文件类型分为<strong>文本文件</strong>和<strong>二进制文件</strong>。</p>
-<p><strong>操作文件三大类</strong>：</p>
-<ol>
-<li>ofstream： 写操作</li>
-<li>ifstream： 读操作</li>
-<li>fstream： 读写操作</li>
-</ol>
-<h2 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h2><p><strong>写文件步骤</strong>：</p>
-<ol>
-<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
-<li>创建；流对象 <code>ofstream ofs</code></li>
-<li>打开文件 <code>ofs.open(&quot;文件路径&quot;, 打开方式);</code></li>
-<li>写数据 <code>ofs &lt;&lt; &quot;写入的数据&quot;;</code></li>
-<li>关闭文件 <code>ofs.close();</code></li>
-</ol>
-<p><strong>文件打开方式</strong>：</p>
-<ol>
-<li>ios::in : 为读文件而打开文件</li>
-<li>ios::out : 为写文件而打开文件</li>
-<li>ios::ate : 初始位置：文件尾</li>
-<li>ios::app : 追加方式写文件</li>
-<li>ios::trunc : 如果文件存在先删除，再创建</li>
-<li>ios::binary : 二进制方式<br><strong>注意</strong>：文件打开方式可以配合使用，利用<code>|</code>操作符。例如：用二进制方式写文件<code>ios::binary | ios::out</code></li>
-</ol>
-<p><strong>读文件步骤</strong>：</p>
-<ol>
-<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
-<li>创建流对象 <code>ifstream ifs</code></li>
-<li>打开文件并判断是否成功 <code>ifs.open(&quot;文件路径&quot;, 打开方式);</code></li>
-<li>读数据 四种读取方式</li>
-<li>关闭文件 <code>ifs.close();</code></li>
-</ol>
-<h2 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h2><p>以二进制的方式对文件进行读写操作，打开方式要指定为<code>ios::binary</code></p>
-<p><strong>写文件</strong>：<br>二进制方式写文件主要利用流对象调用成员函数write<br>函数原型：<code>ostream&amp; write(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
-<p><strong>读文件</strong>：<br>二进制方式读文件主要利用流对象调用成员函数read<br>函数原型：<code>istream&amp; read(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/13/CPP-notes-08/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </nav>
   
 
@@ -1801,15 +1792,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data structure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1821,15 +1812,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sets</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Maps</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1841,43 +1828,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Self-Balance Search Tree</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sets</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">Maps</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">向量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">词典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1889,11 +1848,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Self-Balance Search Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高级搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">词典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JAVAWeb</a>
               </li>
              
               <li class="article-tag-list-item">

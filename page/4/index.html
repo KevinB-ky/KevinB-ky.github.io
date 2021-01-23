@@ -182,6 +182,446 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Computer_network-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/26/Computer_network-notes-01/">计算机网络学习笔记01</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/26/Computer_network-notes-01/" class="archive-article-date">
+  	<time datetime="2019-05-26T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h1><h2 id="开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model"><a href="#开放系统互连基本参考模型-OSI-RM-Open-Systems-Interconnection-Reference-Model" class="headerlink" title="开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)"></a>开放系统互连基本参考模型 OSI/RM(Open Systems Interconnection Reference Model)</h2><p>开放系统互连基本参考模型是由国际标准化组织ISO提出使各种计算机在世界范围内互联成网的框架，简称”OSI”。但是在市场化方面OSI失败了，其原因可归纳为：</p>
+<ol>
+<li>OSI专家们缺乏实际经验，在完成OSI标准时缺乏商业驱动力；</li>
+<li>OSI的协议实现起来过分复杂，而且运行效率很低；</li>
+<li>OSI标准的制定周期太长，因此使得按OSI标准生产的设备无法及时进入市场；</li>
+<li>OSI的层次划分不太合理，有些功能在多个层次中重复出现。</li>
+</ol>
+<p>得到最广泛应用的不是法律上的国际标准<strong>OSI</strong>。而是非国际标准<strong>TCP/IP</strong>。</p>
+<p><strong>OSI的七层协议体系结构</strong>：</p>
+<blockquote>
+<p>应用层(Application)：应用程序的网络流程——为应用程序进程提供网络服务；</p>
+<p>表现层(Presentation): 数据表示——1.通过接收系统保证数据的可读性；2.格式化数据；3.数据结构；4.协商应用层的数据传输语法；</p>
+<p>会话层(Session): 中间宿主的沟通——建立、管理和终止应用程序之间的会话;</p>
+<p>运输层(Transport): 端到端连接——1.关注主机之间的运输问题；2.数据传输的可靠性；3.建立、维护终止虚拟电路；4.故障检测与恢复；5.信息流量控制；</p>
+<p>网络层(Network): 地址和最佳路径——1.提供两个端系统之间的连接性和路径选择；2.路由域；</p>
+<p>数据链路层(Data Link): 访问媒体——1.提供跨媒体的可靠数据传输；2.物理寻址，网络拓扑，错误通知，流程控制；</p>
+<p>物理层(Physcial): 二进制传输——导线、连接器、电压、数据率。</p>
+</blockquote>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>TCP/IP是一个四层的体系结构，它包含<strong>应用层</strong>(各种应用协议如：TELNET，FTP，SMTP等)、<strong>运输层</strong>(TCP或UDP)、<strong>网络层</strong>(IP)和<strong>网络接口层</strong>。</p>
+<p>现在人们经常提到TCP/IP并不一定单只TCP和IP这两个协议，而往往是表示因特网所使用的整个**TCP/IP协议族(protocol suite)。</p>
+<h2 id="实体、协议、服务和服务访问点"><a href="#实体、协议、服务和服务访问点" class="headerlink" title="实体、协议、服务和服务访问点"></a>实体、协议、服务和服务访问点</h2><p><strong>实体(entity)</strong>这一抽象名词表示<strong>任何发送或接受信息的硬件或软件进程</strong>。</p>
+<p><strong>协议</strong>则是<strong>控制两个对等实体(或多个实体)进行通信的规则的集合</strong>。在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议，还需要使用下一层所提供的服务。</p>
+<p>协议的实现保证了能够向上一层提供服务。<strong>使用本层服务的实体只能看见服务而无法看见下面的协议</strong>。也就是说，<strong>下面的协议对上面的实体是透明的</strong>。**协议是”水平的”，服务是”垂直的”。</p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层的主要任务描述为确定与传输媒体的接口有关的一些特性：</p>
+<ol>
+<li><strong>机械特性</strong>：指明接口所用接线器的形状和尺寸，引脚数目和排列，固定和锁定装置，等等。平时常见的各种规格的接插件都有严格的标准化的规定。</li>
+<li><strong>电气特性</strong>：指明在接口电缆的各条线上出现的电压范围。</li>
+<li><strong>功能特性</strong>：指明某条线上出现的某一电平的电压表示何种意义。</li>
+<li><strong>过程特性</strong>：指明对于不同功能的各种可能事件的出现顺序。</li>
+</ol>
+<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p><strong>奈氏准则</strong>表明，在任何信道中，码元传输的速率是有上限的，传输速率超过此上线，就会出现严重的码间串扰问题，使接收端对码元的判决(即识别)成为不可能。</p>
+<p><strong>香农公式</strong>则表明，信道的带宽或信道的信噪比越大，信息的极限传输速率就越高。</p>
+<p><strong>香农公式</strong>的意义在于只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</p>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h2 id="解决的基本问题"><a href="#解决的基本问题" class="headerlink" title="解决的基本问题"></a>解决的基本问题</h2><ol>
+<li>封装成帧 - 帧定界</li>
+<li>透明传输 - 转义字符</li>
+<li>差错检测 - 帧检验序列FCS(Frame Check Sequence)和循环冗余检验CRC(Cyclic Redundancy Check)</li>
+</ol>
+<h2 id="点到点协议PPP"><a href="#点到点协议PPP" class="headerlink" title="点到点协议PPP"></a>点到点协议PPP</h2><p><strong>ppp协议</strong>就是用户计算机和ISP进行通信时所用的数据链路层协议。</p>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p><strong>网络层的组要内容</strong>：</p>
+<ol>
+<li>IP协议：IP地址(定位目的机)、IP分组(解决信息的封装)、IPv6(新一代的IP协议)</li>
+<li>路由选择协议：距离适量路由选择协议(实例：RIP)、链路状态路由选择协议(实例：OSPF)</li>
+<li>其他：ARP、ICMP、CIDR、NAT…</li>
+</ol>
+<p>IP的任务：提供一种尽力而为(best-effort)地把数据从源端传输到接受方的方法。</p>
+<p>IP地址：由32位二进制位表示，提供约2<sub>23</sub>约43亿个地址。一般采用点分十进制表示。</p>
+<p>三级IP地址：为解决IP地址空间利用率低的问题，在主机号上接用若干位作为子网号，将网络进行扩展，路由器通过子网掩码可以对子网进行寻址。</p>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p>完成传输任务的实体称为传输实体，传输实体可以在操作系统的内核；可以以一个链接库的形式绑定到网络应用中；可以以一个独立的用户进程运行。</p>
+<p>传输层利用网络层的服务，为它的上层应用层提供服务。</p>
+<p>传输层服务和网络层服务的显著不同(作用范围不同)：</p>
+<ol>
+<li>网络层负责把数据从原机送达到目的机，即主机到主机</li>
+<li>传输层负责把数据送达到具体的应用进程，即端到端</li>
+</ol>
+<p>传输层和数据链路层的比较：</p>
+<ol>
+<li>功能类似：流控制、差错控制、数据(报文\祯)排序</li>
+<li>传输环境不同：网络层在通信子网、数据链路层在物理信道</li>
+</ol>
+<h2 id="TCP连接的建立"><a href="#TCP连接的建立" class="headerlink" title="TCP连接的建立"></a>TCP连接的建立</h2><p>采用三次握手建立连接：</p>
+<ol>
+<li>一方(server)被动地等待一个进来的连接请求</li>
+<li>另一方(client)通过发送连接请求，设置一些参数(第一次握手：SYN=1, ACK=0)</li>
+<li>服务器方回发确认应答(第二次握手：SYN=1, ACK=1)</li>
+<li>应答到达请求方，请求方最后确认，连接建立(第三次握手：SYN=0, ACK=1)</li>
+</ol>
+<p>三次握手最重要的的是双方交换了初始序列号，保证了后续字节的可靠传输。</p>
+<h2 id="TCP连接的释放"><a href="#TCP连接的释放" class="headerlink" title="TCP连接的释放"></a>TCP连接的释放</h2><p>TCP是全双工的，连接的释放必须是双向的，任何一方在没有数据要传送的时候，都可以发送一个FIN置位了的TCP数据段。当FIN被确认的时候，该方向的连接被关闭，当双向连接都关闭时，TCP连接才正式释放。</p>
+<p>把释放连接的决定权交给请求者独立裁定，而不是对方：一方发送连接释放请求DR(Disconnect Request)，且期待对方的确认ACK；当DR到达接收端，它回发ACK，并且也发送一个DR；ACK到达发送端的时候，连接释放；同时，它回发确认ACK，当这个ACK到达接受端，反方向的连接也释放了。</p>
+<p>为了避免两军对垒问题，或者为了避免DR和ACK丢失而引发的问题，采用定时器，任何时候，发出DR的同时，都启动一个定时器：</p>
+<ol>
+<li>如果一方发送了FIN置位了的DR数据段出去，却在定时器超期之时都没有收到应答，释放连接。</li>
+<li>另一方最终会注意到连接的对方已经不在了，超时后连接释放。</li>
+</ol>
+<p>如果初始DR的和重传都丢了，协议失败，发送者将因超时放弃发送且释放连接，但是，另一端却不知道这些情况，仍然处于活跃状态，这种情况导致半开放连接(half-open)。</p>
+<p>杀死半开放连接的方式:</p>
+<ol>
+<li>如果在一定时间内，没有TPDUs到达的话，连接自动释放；</li>
+<li>如果这样，传输实体在发送一个TPDU的时候必须启动定时器，定时器超期，将发送一个哑TPDU(dummu TPDU)，以免被断掉。</li>
+</ol>
+<p>四次握手正常释放连接：</p>
+<ol>
+<li>主机A发送释放请求DR，启动计时器(第一次握手信息)</li>
+<li>主机B回送确认ACK，主机A收到并释放连接(第二次握手信息)</li>
+<li>主机B发送释放请求DR，启动定时器(第三次握手信息)<br>4.主机A发送回送确认ACK，主机B收到后释放连接(第四次握手协议)<br>当定时器超期之时，强制释放连接。</li>
+</ol>
+<h1 id="TCP和UDP"><a href="#TCP和UDP" class="headerlink" title="TCP和UDP"></a>TCP和UDP</h1><p>TCP：</p>
+<ol>
+<li>可靠传输方式</li>
+<li>可以让应用程序简单化，程序员可以不必进行错误检查、修正等工作</li>
+</ol>
+<p>UDP：</p>
+<ol>
+<li>为了降低对计算机资源的需求(DNS)</li>
+<li>应用程序本身已提供数据完整性的检查机制，毋需依赖传输层的协议来保证</li>
+<li>应用程序传输的并非关键性的数据(路由器周期性的路由信息交换)</li>
+<li>一对多方式，必须使用UDP(TCP限于一对一的传送)</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/26/Computer_network-notes-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/13/CPP-notes-09/">C++学习笔记09</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/13/CPP-notes-09/" class="archive-article-date">
+  	<time datetime="2018-05-13T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><p>模板就是建立<strong>通用的摸具</strong>，大大提高<strong>复用性</strong></p>
+<ul>
+<li>C++另一种编程思想称为<strong>泛型编程</strong>，主要利用的技术就是模板</li>
+<li>C++提供两种模板机制：<strong>函数模板</strong>和<strong>类模板</strong></li>
+</ul>
+<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p><strong>作用</strong>：建立一个通用函数，其函数返回值和形参可以不具体制定，用一个<strong>虚拟的类型</strong>来代表。</p>
+<p><strong>语法</strong>：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">函数声明或定义</span><br></pre></td></tr></table></figure><br><strong>解释</strong>：</p>
+<ul>
+<li>template—&gt;声明创建模板</li>
+<li>typename—&gt;表明其后面的符号是一种数据类型，可以用class代替</li>
+<li>T—&gt;通用数据类型，名称可以替换，通常为大写字母<br>模板的使用方式有两种：1.自动类型推导；2.显式指定类型<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数模板</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个模板，告诉编译器后面代码中紧跟着的T不要报错，T是一个通用数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mySwap</span><span class="params">(T &amp;a, T &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">	<span class="comment">//利用函数模板交换</span></span><br><span class="line">	<span class="comment">//1.自动类型推导</span></span><br><span class="line">	mySwap(a, b);</span><br><span class="line">	<span class="comment">//2.显示指定类型</span></span><br><span class="line">	mySwap&lt;<span class="keyword">int</span>&gt;(a,b);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>函数模板注意事项</strong>：</p>
+<ul>
+<li>自动推导类型，必须推导出一致的数据类型T，才可以使用</li>
+<li>模板必须要确定出T数据类型，才可以使用</li>
+</ul>
+<p><strong>普通函数与函数模板的区别</strong></p>
+<ul>
+<li>普通函数调用时可以发生自动类型转换(隐式类型转换)</li>
+<li>函数模板调用时，如果利用自动类型推导，不会发生隐式类型转换</li>
+<li>如果利用显示指定类型的方式，可以发生隐式类型转换</li>
+</ul>
+<p><strong>普通函数和函数模板的调用规则</strong>：</p>
+<ol>
+<li>如果函数模板和普通函数都可以实现，优先调用普通函数</li>
+<li>可以通过空模板参数列表来强制调用函数模板</li>
+<li>函数模板也可以发生重载</li>
+<li>如果函数模板可以产生更好的匹配，优先调用函数模板</li>
+</ol>
+<p><strong>模板重载</strong><br>当模板传入的参数是自定义的数据类型，那么该模版将无法正常运行。因此C++通过提供模板的重载，为这些<strong>特定的类型</strong>提供<strong>具体化的模板</strong>。<br>
+        
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">泛型编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-09/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPP-notes-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/13/CPP-notes-08/">C++学习笔记08</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/13/CPP-notes-08/" class="archive-article-date">
+  	<time datetime="2018-05-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>C++中对文件操作需要包含头文件<code>&lt;fstream&gt;</code>，文件类型分为<strong>文本文件</strong>和<strong>二进制文件</strong>。</p>
+<p><strong>操作文件三大类</strong>：</p>
+<ol>
+<li>ofstream： 写操作</li>
+<li>ifstream： 读操作</li>
+<li>fstream： 读写操作</li>
+</ol>
+<h2 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h2><p><strong>写文件步骤</strong>：</p>
+<ol>
+<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
+<li>创建；流对象 <code>ofstream ofs</code></li>
+<li>打开文件 <code>ofs.open(&quot;文件路径&quot;, 打开方式);</code></li>
+<li>写数据 <code>ofs &lt;&lt; &quot;写入的数据&quot;;</code></li>
+<li>关闭文件 <code>ofs.close();</code></li>
+</ol>
+<p><strong>文件打开方式</strong>：</p>
+<ol>
+<li>ios::in : 为读文件而打开文件</li>
+<li>ios::out : 为写文件而打开文件</li>
+<li>ios::ate : 初始位置：文件尾</li>
+<li>ios::app : 追加方式写文件</li>
+<li>ios::trunc : 如果文件存在先删除，再创建</li>
+<li>ios::binary : 二进制方式<br><strong>注意</strong>：文件打开方式可以配合使用，利用<code>|</code>操作符。例如：用二进制方式写文件<code>ios::binary | ios::out</code></li>
+</ol>
+<p><strong>读文件步骤</strong>：</p>
+<ol>
+<li>包含头文件 <code>#include &lt;fstream&gt;</code></li>
+<li>创建流对象 <code>ifstream ifs</code></li>
+<li>打开文件并判断是否成功 <code>ifs.open(&quot;文件路径&quot;, 打开方式);</code></li>
+<li>读数据 四种读取方式</li>
+<li>关闭文件 <code>ifs.close();</code></li>
+</ol>
+<h2 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h2><p>以二进制的方式对文件进行读写操作，打开方式要指定为<code>ios::binary</code></p>
+<p><strong>写文件</strong>：<br>二进制方式写文件主要利用流对象调用成员函数write<br>函数原型：<code>ostream&amp; write(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
+<p><strong>读文件</strong>：<br>二进制方式读文件主要利用流对象调用成员函数read<br>函数原型：<code>istream&amp; read(const char * buffer, int len);</code><br>参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/13/CPP-notes-08/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPP-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1018,295 +1458,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C language-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-07/">C语言学习笔记07</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-07/" class="archive-article-date">
-  	<time datetime="2018-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure><br>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。<br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-06/">C语言学习笔记06</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-06/" class="archive-article-date">
-  	<time datetime="2018-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>而对字符指针变量，可以采用下面方法赋值：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-05/">C语言学习笔记05</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-05/" class="archive-article-date">
-  	<time datetime="2018-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
-<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。<br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </nav>
   
 
@@ -1458,15 +1612,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data structure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1478,15 +1632,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sets</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Maps</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,43 +1648,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Self-Balance Search Tree</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sets</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">Maps</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">向量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">泛型编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">词典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1546,11 +1668,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">向量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">栈和队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Self-Balance Search Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高级搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">搜索树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">词典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JAVAWeb</a>
               </li>
              
               <li class="article-tag-list-item">

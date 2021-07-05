@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>学习笔记</title>
+  <title>JAVA笔记11 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编程小白">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+  <meta name="description" content="JavaWeb TEST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA笔记11">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/JAVA-notes-11/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="编程小白">
+<meta property="og:description" content="JavaWeb TEST">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-20T02:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-05T16:00:26.169Z">
 <meta property="article:author" content="Kyren B">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="JAVAWeb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -180,163 +185,35 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-CPP-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JAVA-notes-11" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/29/CPP-notes-02/">C++学习笔记02</a>
+    <h1 class="article-title" itemprop="name">
+      JAVA笔记11
     </h1>
   
 
         
-        <a href="/2018/04/29/CPP-notes-02/" class="archive-article-date">
-  	<time datetime="2018-04-29T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
+        <a href="/2019/09/20/JAVA-notes-11/" class="archive-article-date">
+  	<time datetime="2019-09-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><strong>语法</strong>：数据类型 <em> 指针变量名。<br><strong>使用</strong>：通过解引用的方式来找到指针指向的内存。（指针前加</em>代表解引用，找到指针指向的内存中的数据）。<br><strong>所占空间</strong>：在32位操作系统下，指针是占4个字节空间大小，不管是什么数据类型；在64位操作系统下，指针是占8个字节空间大小，不管是什么数据类型。</p>
-<p><strong>空指针</strong>：指针变量指向内存中编号为0的空间。其用途是初始化指针变量。需要注意的是空指针指向的内存是不可以访问的。<br><strong>野指针</strong>： 指针变量指向非法的内存空间。<br>空指针和野指针都不是我们申请的空间，因此不要访问。</p>
-<p><strong>const修饰指针</strong>有三种情况：</p>
-<ol>
-<li>const修饰指针 —-常量指针：<code>const int * p = &amp;a</code> 指针的指向可以修改，但是指针指向的值不可以修改；</li>
-<li>const修饰常量 —-指针常量：<code>int * const p = &amp;a</code> 指针的指向不可以改，但是指针指向的值可以修改；</li>
-<li>const即修饰指针，又修饰常量： <code>const int * const p = &amp;a</code> 指针的指向和指针指向的值都不可以改；</li>
-</ol>
-<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><p>利用指针访问数组中的元素。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p = arr <span class="comment">//arr就是数组首地址</span></span><br><span class="line"></span><br><span class="line">p++ <span class="comment">//让指针向后偏移4个字节</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><p>利用指针作为函数参数，可以修改实参的值。形参是无法改变实参的值，但使用指针就可以修改。<br>
-        
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPP-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/29/CPP-notes-01/">C++学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/29/CPP-notes-01/" class="archive-article-date">
-  	<time datetime="2018-04-29T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>作用</strong>： 在代码中加一些说明和解释，方便阅读<br><strong>两种格式</strong>：</p>
-<ol>
-<li>单行注释：<code>//描述信息</code><ul>
-<li>通常放在一行代码的上方，或者一条语句的末尾，对该行代码说明</li>
+        <ul>
+<li>JavaWeb<ul>
+<li><a href="#1" target="_self">TEST</a> <a id="more"></a>
+</li>
 </ul>
 </li>
-<li>多行注释：<code>/*描述信息*/</code><ul>
-<li>通常放在一段代码的上方，对该段代码做整体说明</li>
 </ul>
-</li>
-</ol>
-<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>C++定义常量两种方式：</p>
-<ol>
-<li><h1 id="define-宏常量：-define-常量名-常量值"><a href="#define-宏常量：-define-常量名-常量值" class="headerlink" title="define 宏常量：#define 常量名 常量值"></a>define 宏常量：<code>#define 常量名 常量值</code></h1><ul>
-<li>通常在文件上方定义，表示一个常量</li>
-</ul>
-</li>
-<li>const修饰的变量：<code>const 数据类型 常量名 = 常量值</code><ul>
-<li>通常在变量定义前加关键字const，修饰该变量为常量，不可修改</li>
-</ul>
-</li>
-</ol>
-<h1 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h1><p>C++规定给标识符（变量、常量）命名时，有一套自己的规则</p>
-<ul>
-<li>标识符不能是关键字</li>
-<li>标识符只能由字母、数字、下划线组成</li>
-<li>第一个字符必须为字母或下划线</li>
-<li>标识符中字母区分大小写
-        
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/#more">more >></a>
-        
+<h1 id="TEST"><a href="#TEST" class="headerlink" title="TEST"></a><span id = "1" >TEST</span></h1><p>Hello!</p>
+
       
 
       
@@ -353,7 +230,11 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JAVAWeb</a>
         		</li>
       		
 		</ul>
@@ -373,16 +254,84 @@ var _hmt = _hmt || [];
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/29/CPP-notes-01/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/20/JAVA-notes-11/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/20/JAVA-notes-10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JAVA笔记10
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/10/JAVA-notes-09/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA笔记09</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -402,768 +351,14 @@ var _hmt = _hmt || [];
 
 
 
-
-  
-    <article id="post-C language-notes-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-07/">C语言学习笔记07</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-07/" class="archive-article-date">
-  	<time datetime="2018-04-24T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="C语言中，字符串可以赋值给字符指针变量的原因"><a href="#C语言中，字符串可以赋值给字符指针变量的原因" class="headerlink" title="C语言中，字符串可以赋值给字符指针变量的原因"></a>C语言中，字符串可以赋值给字符指针变量的原因</h3><p>在C语言中，可以创建一个未定义大小的字符指针，并且可以将字符串直接赋给这个字符指针变量，比如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p a = <span class="string">'1'</span>;</span><br><span class="line">p = &amp;a;     <span class="comment">//将字符a的地址赋值给指针变量</span></span><br><span class="line">p = <span class="string">"abcd"</span>  <span class="comment">//将字符串直接赋值给指针变量</span></span><br></pre></td></tr></table></figure><br>能直接赋值给字符指针变量的原因是定义字符串的双引号做了三件事：<br>1.申请了空间（在常量区），存放字符串；<br>2.在字符串尾加上了’\0’;<br>3.返回地址<br>这样就将返回地址赋值给了指针p。<br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-07/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-06/">C语言学习笔记06</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-06/" class="archive-article-date">
-  	<time datetime="2018-04-24T13:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="字符指针变量和字符数组的区别"><a href="#字符指针变量和字符数组的区别" class="headerlink" title="字符指针变量和字符数组的区别"></a>字符指针变量和字符数组的区别</h3><p>1.字符数组由若干个元素组成，每个元素中放一个字符，而字符指针变量中存放的是地址（字符串第1个字符的地址），决不是将字符串放到字符指针变量中。<br>2.赋值方式。对字符数组只能对各个元素赋值，不能用以下办法对字符数组赋值。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">20</span>]</span><br><span class="line">str = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>而对字符指针变量，可以采用下面方法赋值：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *a;</span><br><span class="line">a = <span class="string">"abcdefg"</span>;</span><br></pre></td></tr></table></figure><br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-06/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/C%20language-notes-05/">C语言学习笔记05</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/24/C%20language-notes-05/" class="archive-article-date">
-  	<time datetime="2018-04-24T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针与函数"><a href="#C语言指针与函数" class="headerlink" title="C语言指针与函数"></a>C语言指针与函数</h2><p>C语言的所有参数均是以“传值调用”的方式进行传递的，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。 </p>
-<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><p>传值调用的好处是是被调函数不会改变调用函数传过来的值，可以放心修改。但是有时候需要被调函数回传一个值给调用函数，这样的话，传值调用就无法做到。为了解决这个问题，可以使用传指针调用。指针参数使得被调函数能够访问和修改主调函数中对象的值。<br>
-        
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/24/C%20language-notes-05/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/23/C%20language-notes-04/">C语言学习笔记04</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/23/C%20language-notes-04/" class="archive-article-date">
-  	<time datetime="2018-04-23T10:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针的运算"><a href="#指针的运算" class="headerlink" title="指针的运算"></a>指针的运算</h3><p>指针是一种变量，和普通变量一样，可以进行算术运算，包含两种形式。<br>1.指针 +/- 整数 ：<br>指针变量 p 进行 p++、p—、p + i 等操作，所得结果也是一个指针，只是指针所指向的内存地址相比于 p 所指的内存地址前进或者后退了 i 个操作数。那么指针运算的规则是什么呢？<br>
-        
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-04/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-04/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/23/C%20language-notes-03/">C语言学习笔记03</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/23/C%20language-notes-03/" class="archive-article-date">
-  	<time datetime="2018-04-23T09:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C语言指针"><a href="#C语言指针" class="headerlink" title="C语言指针"></a>C语言指针</h2><h3 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h3><p>C语言里，变量存放在内存中，而内存其实就是一组有序字节组成的数组，每个字节有唯一的内存地址。CPU 通过内存寻址对存储在内存中的某个指定数据对象的地址进行定位。这里，数据对象是指存储在内存中的一个指定数据类型的数值或字符串，它们都有一个自己的地址，这个变量的地址称为给变量的“指针”。C语言中可以定义一类特殊的变量，这些变量专门用来存放变量的地址，称为指针地址。指针变量的值（即指针变量中存放的值）是地址（即指针）。<br>在C语言中*为取值操作符，&amp;为取址操作符。<br>
-        
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/23/C%20language-notes-03/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/22/C%20language-notes-02/">C语言学习笔记02</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/22/C%20language-notes-02/" class="archive-article-date">
-  	<time datetime="2018-04-22T06:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="getchar"><a href="#getchar" class="headerlink" title="getchar()"></a><strong>getchar()</strong></h2><p>getchar()是stdio.h中的库函数，它的作用是从stdio流中读入一个字符；键盘输入字符是先存入缓冲区，当你按下回车时，getchar就会进入缓冲区读取字符，一次只读取第一个字符<br>
-        
-          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/22/C%20language-notes-02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C language-notes-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/21/C%20language-notes-01/">C语言学习笔记01</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/21/C%20language-notes-01/" class="archive-article-date">
-  	<time datetime="2018-04-21T13:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h2><p>“面向过程”(Procedure Oriented,简称PO)是一种以过程为中心的编程思想。面向过程其实是最为实际的一种思考方式，就算是面向对象的方法也是含有面向过程的思想。可以说面向过程是一种基础的方法。它考虑的是实际地实现。一般的面向过程是从上往下步步求精，所以面向过程最重要的是模块化的思想方法。对比面向过程，面向对象的方法主要是把事物给对象化，对象包括属性与行为。当程序规模不是很大时，面向过程的方法还会体现出一种优势。因为程序的流程很清楚，按着模块与函数的方法可以很好的组织。比如拿学生早上起来这件事说明面向过程，粗略的可以将过程拟为：<br>(1)起床<br>(2)穿衣<br>(3)洗脸刷牙<br>(4)去学校<br>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。而如果是用面向对象的方法的话，可能就只抽象出一个学生的类，它包括这四个方法，但是具体的顺序就不一定按照原来的顺序。<br>
-        
-          <a class="article-more-a" href="/2018/04/21/C%20language-notes-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/21/C%20language-notes-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Learning how to learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Learning%20how%20to%20learn/">Learning How To Learn</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/26/Learning%20how%20to%20learn/" class="archive-article-date">
-  	<time datetime="2018-03-26T02:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong><em>Learning How To Learn</em></strong> is a course on Coursera. This course gives us practical insigh on how to learn more deeply and with less frustration. We can learn a lot about how to learning different subjects and skills whether in language, mathematics, music or physics, psychology or history. Here is the summary of this course.</p>
-<h1 id="What-is-learning"><a href="#What-is-learning" class="headerlink" title="What is learning"></a>What is learning</h1><hr>
-<p>Our brain is the most complex device in the known universe. It came as a surprise to discover that what we do so well and take for granted, like seeing, hearing, reaching, running, are all much more complex problems than we thought and way beyond the capability of the world’s fastest digital computers. What this illustrates is that we are not consciously aware of how our brans work, and most of heavy lifting is below our level of consciouses and we don’t need to know how it is done in order to survive. By the study from psychologists we know that we are only aware of a very small fraction of all of the activity in the brain. With new optical techniques we can see constant turnover, with new synapses being formed and others disappering which means our brain are constantly being updated. So learning how to take advantage of our unconscious mind, and sleep can help us to learn new things and slove problem easier.</p>
-<blockquote>
-<p>more information about how the brain works at <a href="https://brainfacts.org" target="_blank" rel="noopener">brainfacts.org</a>.</p>
-</blockquote>
-<h1 id="Procrastination"><a href="#Procrastination" class="headerlink" title="Procrastination"></a>Procrastination</h1><hr>
-<p>Everybody has some issues with procrastination. When we look at something that we really rather not do, it seems that we activate the areas of our brain associated with pain. our brain, naturally enough, looks for a way to stop that negative stimulation by switching our attention to something else. A tool called <em>the Pomodoro</em> was invented by Francesco Cirillo, in the early 1980’s. Pomodoro is Italian for tomato. The timer we use often looks like a tomato and really, a timer is all there is to this elegant little technique. All we need to do, is set a timer to 25 minutes, turn off all interruptions, and then focus. After a period concentration, we need to give ourself a little reward, such as A few minutes of web surfing, a cup of coffee, or a bite of chocolate, even just stretching or chatting mindlessly, allowing our brain to enjoyably change its focus for a while.<br>
-        
-          <a class="article-more-a" href="/2018/03/26/Learning%20how%20to%20learn/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">效率</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">摘要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/摘要//" class="article-tag-list-link color3">摘要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Learning%20how%20to%20learn/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1186,8 +381,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
